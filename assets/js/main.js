@@ -1,20 +1,20 @@
 import { subscribeToExperienceMtb } from './firebase/experience-mtb.js';
 function bloqueio() {
-    if (document.getElementById("modalidade").value == "Racing") {
+    if (document.getElementById("txtModalidade").value == "Racing") {
         document.getElementById("racing").style.display = "block";
         var modalidadeRacing = document.getElementById('modalidadeRacing');
         var att = document.createAttribute("required");
         modalidadeRacing.setAttributeNode(att);
         document.getElementById("challange").style.display = "none";
-        var modalidadeChallenge = document.getElementById('modalidadeChallenge');
+        var modalidadeChallenge = document.getElementById('txtModalidadeChallenge');
         modalidadeChallenge.removeAttribute("required");
     } else {
         document.getElementById("challange").style.display = "block";
-        var modalidadeChallenge = document.getElementById('modalidadeChallenge');
+        var modalidadeChallenge = document.getElementById('txtModalidadeChallenge');
         var att = document.createAttribute("required");
         modalidadeChallenge.setAttributeNode(att);
         document.getElementById("racing").style.display = "none";
-        var modalidadeRacing = document.getElementById('modalidadeRacing');
+        var modalidadeRacing = document.getElementById('txtModalidadeRacing');
         modalidadeRacing.removeAttribute("required");
     }
 }
