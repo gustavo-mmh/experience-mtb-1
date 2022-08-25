@@ -53,7 +53,8 @@ btnCadastrar.addEventListener('click', async () => {
     }
 
     const subscriptionId = subscribeToExperienceMtb(subscription);
-    console.log(`Inscrito com sucesso: ${subscriptionId}`);
+
+    alert("Cadastro Feito com Sucesso!!!")
     txtPais.value = ''
     txtNome.value = ''
     txtDocumento.value = ''
