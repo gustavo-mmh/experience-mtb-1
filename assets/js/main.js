@@ -36,6 +36,7 @@ const btnCadastrar = document.getElementById('btnCadastrar');
 
 btnCadastrar.addEventListener('click', async () => {
     const subscription = {
+        pais: txtPais.value,
         nome: txtNome.value,
         documento: txtDocumento.value,
         dataNascimento: txtDataNascimento.value,
@@ -43,6 +44,9 @@ btnCadastrar.addEventListener('click', async () => {
         cidade: txtCidade.value,
         whatsapp: txtWhatsapp.value,
         tamanhoCamiseta: txtTamanhoCamiseta.value,
+        modalidade: txtModalidade.value,
+        modalidadeRacing: txtModalidadeRacing.value,
+        modalidadeChallenge: txtModalidadeChallenge.value,
         nomeEquipe: txtNomeEquipe.value,
         senha: txtSenha.value,
         fotoCard: txtFotoCard.value,
@@ -51,20 +55,14 @@ btnCadastrar.addEventListener('click', async () => {
     const subscriptionId = subscribeToExperienceMtb(subscription);
 
     alert("Cadastro Feito com Sucesso!!!")
-    txtPais.value = ''
     txtNome.value = ''
     txtDocumento.value = ''
     txtDataNascimento.value = ''
     txtEmail.value = ''
     txtCidade.value = ''
     txtWhatsapp.value = ''
-    txtTamanhoCamiseta.value = ''
-    txtModalidade.value = ''
-    txtModalidadeRacing.value = ''
-    txtModalidadeChallenge.value = ''
     txtNomeEquipe.value = ''
     txtSenha.value = ''
     txtFotoCard.value = ''
-
 
 });
