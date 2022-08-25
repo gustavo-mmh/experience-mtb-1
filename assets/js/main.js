@@ -36,7 +36,6 @@ const btnCadastrar = document.getElementById('btnCadastrar');
 
 btnCadastrar.addEventListener('click', async () => {
     const subscription = {
-        pais: txtPais.value,
         nome: txtNome.value,
         documento: txtDocumento.value,
         dataNascimento: txtDataNascimento.value,
@@ -44,9 +43,6 @@ btnCadastrar.addEventListener('click', async () => {
         cidade: txtCidade.value,
         whatsapp: txtWhatsapp.value,
         tamanhoCamiseta: txtTamanhoCamiseta.value,
-        modalidade: txtModalidade.value,
-        modalidadeRacing: txtModalidadeRacing.value,
-        modalidadeChallenge: txtModalidadeChallenge.value,
         nomeEquipe: txtNomeEquipe.value,
         senha: txtSenha.value,
         fotoCard: txtFotoCard.value,
