@@ -20,52 +20,54 @@ function bloqueio() {
 }
 const txtPais = document.getElementById('txtPais');
 const txtNome = document.getElementById('txtNome');
-const txtdocumento = document.getElementById('txtDocumento');
+const txtDocumento = document.getElementById('txtDocumento');
 const txtDataNascimento = document.getElementById('txtDataNascimento');
-const txtemail = document.getElementById('txtemail');
-const txtcidade = document.getElementById('txtcidade');
-const txtwhatsapp = document.getElementById('txtwhatsapp');
-const txttamanhoCamiseta = document.getElementById('txttamanhoCamiseta');
-const txtmodalidade = document.getElementById('txtmodalidade');
-const txtmodalidadeRacing = document.getElementById('txtmodalidadeRacing');
-const txtmodalidadeChallenge = document.getElementById('txtmodalidadeChallenge');
-const txtnomeEquipe = document.getElementById('txtnomeEquipe');
-const txtfotoCard = document.getElementById('txtfotoCard');
+const txtEmail = document.getElementById('txtEmail');
+const txtCidade = document.getElementById('txtCidade');
+const txtWhatsapp = document.getElementById('txtWhatsapp');
+const txtTamanhoCamiseta = document.getElementById('txtTamanhoCamiseta');
+const txtModalidade = document.getElementById('txtModalidade');
+const txtModalidadeRacing = document.getElementById('txtModalidadeRacing');
+const txtModalidadeChallenge = document.getElementById('txtModalidadeChallenge');
+const txtNomeEquipe = document.getElementById('txtNomeEquipe');
+const txtSenha = document.getElementById('txtSenha');
+const txtFotoCard = document.getElementById('txtFotoCard');
 const btnCadastrar = document.getElementById('btnCadastrar');
 
 btnCadastrar.addEventListener('click', async () => {
     const subscription = {
         pais: txtPais.value,
         nome: txtNome.value,
-        documento: txtdocumento.value,
+        documento: txtDocumento.value,
         dataNascimento: txtDataNascimento.value,
-        email: txtemail.value,
-        cidade: txtcidade.value,
-        whatsapp: txtwhatsapp.value,
-        tamanhoCamiseta: txttamanhoCamiseta.value,
-        modalidade: txtmodalidade.value,
-        modalidadeRacing: txtmodalidadeRacing.value,
-        modalidadeChallenge: txtmodalidadeChallenge.value,
-        nomeEquipe: txtnomeEquipe.value,
-        fotoCard: txtfotoCard.value,
+        email: txtEmail.value,
+        cidade: txtCidade.value,
+        whatsapp: txtWhatsapp.value,
+        tamanhoCamiseta: txtTamanhoCamiseta.value,
+        modalidade: txtModalidade.value,
+        modalidadeRacing: txtModalidadeRacing.value,
+        modalidadeChallenge: txtModalidadeChallenge.value,
+        nomeEquipe: txtNomeEquipe.value,
+        senha: txtSenha.value,
+        fotoCard: txtFotoCard.value,
     }
 
     const subscriptionId = subscribeToExperienceMtb(subscription);
     console.log(`Inscrito com sucesso: ${subscriptionId}`);
     txtPais.value = ''
     txtNome.value = ''
-    txtdocumento.value = ''
+    txtDocumento.value = ''
     txtDataNascimento.value = ''
-    txtemail.value = ''
-    txtcidade.value = ''
-    txtwhatsapp.value = ''
-    txttamanhoCamiseta.value = ''
-    txtmodalidade.value = ''
-    txtmodalidadeRacing.value = ''
-    txtmodalidadeChallenge.value = ''
-    txtnomeEquipe.value = ''
-    txtfotoCard.value = ''
-    alert('foi')
+    txtEmail.value = ''
+    txtCidade.value = ''
+    txtWhatsapp.value = ''
+    txtTamanhoCamiseta.value = ''
+    txtModalidade.value = ''
+    txtModalidadeRacing.value = ''
+    txtModalidadeChallenge.value = ''
+    txtNomeEquipe.value = ''
+    txtSenha.value = ''
+    txtFotoCard.value = ''
 
 
 });

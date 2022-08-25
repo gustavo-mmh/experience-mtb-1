@@ -62,7 +62,7 @@
             <div class="col-8">
               <form>
                 <div class="mb-2 mt-3">
-                  <label for="pais" class="form-label">
+                  <label for="txtPais" class="form-label">
                     <i class=" fa fa-globe fa-fw" aria-hidden="true"></i>
                     *País:</label>
                   <select id="txtPais" class="form-select" required name="pais" aria-label="Selecione um País">
@@ -71,51 +71,51 @@
                   </select>
                 </div>
                 <div class="mb-2">
-                  <label for="nome" class="form-label">
+                  <label for="txtNome" class="form-label">
                     <i class=" fa fa-user fa-fw" aria-hidden="true"></i>
                     *Nome Completo:</label>
                   <input type="text" id="txtNome" class="form-control" required name="nome"
                     placeholder="Digite seu Nome">
                 </div>
                 <div class="mb-2">
-                  <label for="documento" class="form-label">
+                  <label for="txtDocumento" class="form-label">
                     <i class=" fa fa-id-card fa-fw" aria-hidden="true"></i>
                     *Documento de Identidade:</label>
                   <input type="text" class="form-control" required id="txtDocumento" name="documento"
                     placeholder="Digite seu Documento">
                 </div>
                 <div class="mb-2">
-                  <label for="dataNascimento" class="form-label">
+                  <label for="txtDataNascimento" class="form-label">
                     <i class=" fa fa-calendar-days fa-fw" aria-hidden="true"></i>
                     *Data de nascimento:</label>
                   <input type="date" id="txtDataNascimento" class="form-control" name="dataNascimento" required>
                 </div>
                 <div class="mb-2">
-                  <label for="email" class="form-label">
+                  <label for="txtEmail" class="form-label">
                     <i class=" fa fa-at fa-fw" aria-hidden="true"></i>
                     *E-mail:</label>
-                  <input type="email" id="txtemail" class="form-control" required name="email"
+                  <input type="email" id="txtEmail" class="form-control" required name="email"
                     placeholder="Digite seu E-mail">
                 </div>
                 <div class="mb-2">
-                  <label for="cidade" class="form-label">
+                  <label for="txtCidade" class="form-label">
                     <i class=" fa fa-city fa-fw" aria-hidden="true"></i>
                     *Cidade:</label>
-                  <input type="text" id="txtcidade" class="form-control" name="cidade" placeholder="Digite sua Cidade"
+                  <input type="text" id="txtCidade" class="form-control" name="cidade" placeholder="Digite sua Cidade"
                     name="nome">
                 </div>
                 <div class="mb-2">
-                  <label for="whatsApp" class="form-label">
+                  <label for="txtWhatsApp" class="form-label">
                     <i class=" fa fa-whatsapp fa-fw" aria-hidden="true"></i>
                     *WhatsApp:</label>
-                  <input type="text" class="form-control" required id="txtwhatsapp" placeholder="Digite seu WhatsApp"
+                  <input type="text" id="txtWhatsapp" class="form-control" required placeholder="Digite seu WhatsApp"
                     name="whatsApp">
                 </div>
                 <div class="mb-2 mt-3">
-                  <label for="tamanhoCamiseta" class="form-label">
+                  <label for="txtTamanhoCamiseta" class="form-label">
                     <i class=" fa fa-shirt fa-fw" aria-hidden="true"></i>
                     *Tamanho da Camiseta:</label>
-                  <select id="txttamanhoCamiseta" class="form-select" required name="tamanhoCamiseta"
+                  <select id="txtTamanhoCamiseta" class="form-select" required name="tamanhoCamiseta"
                     aria-label="Selecione um tamanho">
                     <option value="p">P</option>
                     <option value="m">M</option>
@@ -124,19 +124,19 @@
                   </select>
                 </div>
                 <div class="mb-2 mt-3">
-                  <label for="modalidade" class="form-label">
+                  <label for="txtModalidade" class="form-label">
                     <i class="fa-solid fa-person-biking fa-fw" aria-hidden="true"></i>
                     *Modalidade:</label>
-                  <select onchange="bloqueio()" required id="txtmodalidade" class="form-select" name="modalidade"
+                  <select onchange="bloqueio()" required id="txtModalidade" class="form-select" name="modalidade"
                     aria-label="Selecione uma Modalidade">
                     <option value="Racing" selected>Racing</option>
                     <option value="Challange">Challange</option>
                   </select>
                 </div>
                 <div id="racing" class="mb-2 mt-3">
-                  <label for="racing" class="form-label">
+                  <label for="txtModalidadeRacing" class="form-label">
                     *Modalidade Racing:</label>
-                  <select id="txtmodalidadeRacing" class="form-select" name="racing"
+                  <select id="txtModalidadeRacing" class="form-select" name="racing"
                     aria-label="Selecione uma Modalidade">
                     <option value="elite" selected>Elite</option>
                     <option value="sub30">Sub 30</option>
@@ -147,9 +147,9 @@
                   </select>
                 </div>
                 <div id="challange" class="mb-2 mt-3">
-                  <label for="challange" class="form-label">
+                  <label for="txtModalidadeChallenge" class="form-label">
                     *Modalidade Challange:</label>
-                  <select id="txtmodalidadeChallenge" class="form-select" name="challange"
+                  <select id="txtModalidadeChallenge" class="form-select" name="challange"
                     aria-label="Selecione uma Modalidade">
                     <option value="soft" selected>Soft</option>
                     <option value="light">Light</option>
@@ -157,22 +157,29 @@
                   </select>
                 </div>
                 <div class="mb-2">
-                  <label for="nomeEquipe" class="form-label">
+                  <label for="txtNomeEquipe" class="form-label">
                     <i class="fa fa-people-group fa-fw" aria-hidden="true"></i>
                     Nome da Equipe:</label>
-                  <input type="text" id="txtnomeEquipe" class="form-control" name="nomeEquipe"
+                  <input type="text" id="txtNomeEquipe" class="form-control" name="nomeEquipe"
                     placeholder="Digite o Nome da Equipe">
                 </div>
                 <div class="mb-2">
-                  <label for="img">
+                  <label for="txtFotoCard">
                     <i class="fa fa-picture-o fa-fw" aria-hidden="true"></i>
                     Foto para o Card:
                   </label>
                   <div class="input-group mb-3">
-                    <input type="file" id="txtfotoCard" class="form-control" name="img">
+                    <input type="file" id="txtFotoCard" class="form-control" name="img">
+                  </div>
+                  <div class="mb-2">
+                    <label for="txtSenha" class="form-label">
+                      <i class="fa fa-shield" aria-hidden="true"></i>
+                      *Senha:</label>
+                    <input type="password" id="txtSenha" class="form-control" name="Senha"
+                      placeholder="Digite uma Senha">
                   </div>
                 </div>
-                <label for="img">
+                <label>
                   Os campos com * são obrigatórios
                 </label>
                 <div class="form-group">
@@ -194,29 +201,7 @@
       </div>
     </div>
   </div>
-  <!--
-    Pais
-*Nome Completo
-*Identidade
-*Data de nascimento
-*e-mail
-*Cidade
-*WhatsApp
-*Tamanho de camiseta	[P, M, G ou GG]
-*Modalidade [Racing, Challange]
-*Modalidade Sub-grupo Racing [Elite ou Por idade: sub 30, Master A, Master B, Master C, Master D] (se por idade calculamos o user não informa, ele define se é elite ou não)
-*Modalidade Sub-grupo Challange [Soft, Light, Hard] (user escolhe se selecionar Modalidade CHallange)
-Nome do Grupo ou Equipe
-Foto pro card [imagem]
-Comprovante de pagamento [imagem ou pdf]
-Tipo de pagamento (Não vai pro form)
-Confirmação de Pagamento (Não vai pro form)
-Status [Pendente, Confirmado] (user não define - só é exibido na página logada do cadastro)
-
-
-
-
-    End Modal Cadastro -->
+  <!-- End Modal Cadastro -->
   <!-- Modal Login -->
   <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -229,7 +214,7 @@ Status [Pendente, Confirmado] (user não define - só é exibido na página loga
           <form action="/action_page.php">
             <div class="mb-3 mt-3">
               <label for="email" class="form-label">Login:</label>
-              <input type="email" class="form-control" id="emaillog" placeholder="Digite seu Login" name="email">
+              <input type="email" id="emailLog" class="form-control" placeholder="Digite seu Login" name="email">
             </div>
             <div class="mb-3">
               <label for="pwd" class="form-label">Senha:</label>
