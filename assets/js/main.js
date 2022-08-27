@@ -1,23 +1,4 @@
 import { subscribeToExperienceMtb } from './firebase/experience-mtb.js';
-function bloqueio() {
-    if (document.getElementById("txtModalidade").value == "Racing") {
-        document.getElementById("racing").style.display = "block";
-        var modalidadeRacing = document.getElementById('modalidadeRacing');
-        var att = document.createAttribute("required");
-        modalidadeRacing.setAttributeNode(att);
-        document.getElementById("challange").style.display = "none";
-        var modalidadeChallenge = document.getElementById('txtModalidadeChallenge');
-        modalidadeChallenge.removeAttribute("required");
-    } else {
-        document.getElementById("challange").style.display = "block";
-        var modalidadeChallenge = document.getElementById('txtModalidadeChallenge');
-        var att = document.createAttribute("required");
-        modalidadeChallenge.setAttributeNode(att);
-        document.getElementById("racing").style.display = "none";
-        var modalidadeRacing = document.getElementById('txtModalidadeRacing');
-        modalidadeRacing.removeAttribute("required");
-    }
-}
 const txtPais = document.getElementById('txtPais');
 const txtNome = document.getElementById('txtNome');
 const txtDocumento = document.getElementById('txtDocumento');
@@ -34,7 +15,9 @@ const txtSenha = document.getElementById('txtSenha');
 const txtFotoCard = document.getElementById('txtFotoCard');
 const btnCadastrar = document.getElementById('btnCadastrar');
 
+
 btnCadastrar.addEventListener('click', async () => {
+    const ID = txtPais.value + txtDocumento.value
     const subscription = {
         pais: txtPais.value,
         nome: txtNome.value,
@@ -50,10 +33,10 @@ btnCadastrar.addEventListener('click', async () => {
         nomeEquipe: txtNomeEquipe.value,
         senha: txtSenha.value,
         fotoCard: txtFotoCard.value,
-    }
+    };
 
-    const subscriptionId = subscribeToExperienceMtb(subscription);
-
+    const subscriptionID = subscribeToExperienceMtb(subscription, ID);
+    console.log(subscriptionID);
     alert("Cadastro Feito com Sucesso!!!")
     txtNome.value = ''
     txtDocumento.value = ''
