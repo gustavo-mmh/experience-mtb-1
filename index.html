@@ -76,26 +76,29 @@
                     *Nome Completo:</label>
                   <input type="text" id="txtNome" class="form-control" required name="nome"
                     placeholder="Digite seu Nome">
+                  <span class="erro"></span>
                 </div>
                 <div class="mb-2">
                   <label for="txtDocumento" class="form-label">
                     <i class=" fa fa-id-card fa-fw" aria-hidden="true"></i>
                     *Documento de Identidade:</label>
-                  <input type="text" class="form-control" required id="txtDocumento" name="documento"
+                  <input type="text" class="form-control" required id="txtDocumento" name="documento" pattern="[0-9]+$"
                     placeholder="Digite seu Documento">
+                  <span class="erro"></span>
                 </div>
                 <div class="mb-2">
                   <label for="txtDataNascimento" class="form-label">
                     <i class=" fa fa-calendar-days fa-fw" aria-hidden="true"></i>
                     *Data de nascimento:</label>
                   <input type="date" id="txtDataNascimento" class="form-control" name="dataNascimento" required>
+                  <span class="erro"></span>
                 </div>
                 <div class="mb-2">
                   <label for="txtEmail" class="form-label">
                     <i class=" fa fa-at fa-fw" aria-hidden="true"></i>
                     *E-mail:</label>
                   <input type="email" id="txtEmail" class="form-control" required name="email"
-                    placeholder="Digite seu E-mail">
+                    placeholder="Digite seu E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                 </div>
                 <div class="mb-2">
                   <label for="txtCidade" class="form-label">
@@ -108,8 +111,8 @@
                   <label for="txtWhatsApp" class="form-label">
                     <i class=" fa fa-whatsapp fa-fw" aria-hidden="true"></i>
                     *WhatsApp:</label>
-                  <input type="text" id="txtWhatsapp" class="form-control" required placeholder="Digite seu WhatsApp"
-                    name="whatsApp">
+                  <input type="tel" id="txtWhatsApp" class="form-control" required="required" maxlength="15"
+                    name="txtWhatsApp" pattern="[0-9]+$" placeholder="Digite seu WhatsApp" />
                 </div>
                 <div class="mb-2 mt-3">
                   <label for="txtTamanhoCamiseta" class="form-label">
@@ -127,8 +130,8 @@
                   <label for="txtModalidade" class="form-label">
                     <i class="fa-solid fa-person-biking fa-fw" aria-hidden="true"></i>
                     *Modalidade:</label>
-                  <select onchange="bloqueio()" required id="txtModalidade" class="form-select" name="modalidade"
-                    aria-label="Selecione uma Modalidade">
+                  <select onchange="VerificaModalidade()" required id="txtModalidade" class="form-select"
+                    name="modalidade" aria-label="Selecione uma Modalidade">
                     <option value="Racing" selected>Racing</option>
                     <option value="Challenge">Challenge</option>
                   </select>
@@ -169,7 +172,7 @@
                     Foto para o Card:
                   </label>
                   <div class="input-group mb-3">
-                    <input type="file" id="txtFotoCard" class="form-control" name="img">
+                    <input type="file" accept="image/*" id="txtFotoCard" class="form-control" name="txtFotoCard">
                   </div>
                   <div class="mb-2">
                     <label for="txtSenha" class="form-label">

@@ -4,7 +4,7 @@ const txtDocumento = document.getElementById('txtDocumento');
 const txtDataNascimento = document.getElementById('txtDataNascimento');
 const txtEmail = document.getElementById('txtEmail');
 const txtCidade = document.getElementById('txtCidade');
-const txtWhatsapp = document.getElementById('txtWhatsapp');
+const txtWhatsApp = document.getElementById('txtWhatsApp');
 const txtTamanhoCamiseta = document.getElementById('txtTamanhoCamiseta');
 const txtModalidade = document.getElementById('txtModalidade');
 const txtModalidadeRacing = document.getElementById('txtModalidadeRacing');
@@ -16,8 +16,9 @@ const btnCadastrar = document.getElementById('btnCadastrar');
 const modalidade = document.getElementById("txtModalidade");
 const racing = document.getElementById("racing");
 const challenge = document.getElementById("challenge");
+const input = document.querySelector('input');
 
-function bloqueio() {
+function VerificaModalidade() {
     if (modalidade.value == "Racing") {
         racing.style.display = "block";
         var required = document.createAttribute("required");
@@ -32,3 +33,14 @@ function bloqueio() {
         txtModalidadeRacing.removeAttribute("required");
     }
 }
+
+input.addEventListener('input', () => {
+    input.setCustomValidity('');
+    input.checkValidity();
+    console.log(input.checkValidity());
+
+});
+
+input.addEventListener('invalid', () => {
+    input.setCustomValidity('Please fill in your First Name.');
+})
