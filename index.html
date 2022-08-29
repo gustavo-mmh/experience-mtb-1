@@ -60,7 +60,7 @@
           <div class="row">
             <div class="col-2"></div>
             <div class="col-8">
-              <form>
+              <form id="formCadstro">
                 <div class="mb-2 mt-3">
                   <label for="txtPais" class="form-label">
                     <i class=" fa fa-globe fa-fw" aria-hidden="true"></i>
@@ -76,7 +76,7 @@
                     *Nome Completo:</label>
                   <input type="text" id="txtNome" class="form-control" required name="nome"
                     placeholder="Digite seu Nome">
-                  <span class="erro"></span>
+                  <span class="error" aria-live="polite"></span>
                 </div>
                 <div class="mb-2">
                   <label for="txtDocumento" class="form-label">
@@ -84,14 +84,14 @@
                     *Documento de Identidade:</label>
                   <input type="text" class="form-control" required id="txtDocumento" name="documento" pattern="[0-9]+$"
                     placeholder="Digite seu Documento">
-                  <span class="erro"></span>
+                  <span class="error" aria-live="polite"></span>
                 </div>
                 <div class="mb-2">
                   <label for="txtDataNascimento" class="form-label">
                     <i class=" fa fa-calendar-days fa-fw" aria-hidden="true"></i>
                     *Data de nascimento:</label>
                   <input type="date" id="txtDataNascimento" class="form-control" name="dataNascimento" required>
-                  <span class="erro"></span>
+                  <span class="error" aria-live="polite"></span>
                 </div>
                 <div class="mb-2">
                   <label for="txtEmail" class="form-label">
@@ -99,13 +99,15 @@
                     *E-mail:</label>
                   <input type="email" id="txtEmail" class="form-control" required name="email"
                     placeholder="Digite seu E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                  <span class="error" aria-live="polite"></span>
                 </div>
                 <div class="mb-2">
                   <label for="txtCidade" class="form-label">
                     <i class=" fa fa-city fa-fw" aria-hidden="true"></i>
                     *Cidade:</label>
                   <input type="text" id="txtCidade" class="form-control" name="cidade" placeholder="Digite sua Cidade"
-                    name="nome">
+                    name="txtCidade">
+                  <span class="error" aria-live="polite"></span>
                 </div>
                 <div class="mb-2">
                   <label for="txtWhatsApp" class="form-label">
@@ -113,6 +115,7 @@
                     *WhatsApp:</label>
                   <input type="tel" id="txtWhatsApp" class="form-control" required="required" maxlength="15"
                     name="txtWhatsApp" pattern="[0-9]+$" placeholder="Digite seu WhatsApp" />
+                  <span class="error" aria-live="polite"></span>
                 </div>
                 <div class="mb-2 mt-3">
                   <label for="txtTamanhoCamiseta" class="form-label">
@@ -179,7 +182,8 @@
                       <i class="fa fa-shield" aria-hidden="true"></i>
                       *Senha:</label>
                     <input type="password" id="txtSenha" class="form-control" name="Senha"
-                      placeholder="Digite uma Senha">
+                      placeholder="Digite uma Senha" required>
+                    <span class="error" aria-live="polite"></span>
                   </div>
                 </div>
                 <label>

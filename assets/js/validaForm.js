@@ -1,3 +1,4 @@
+var form = document.getElementsByTagName('form')[0];
 const txtPais = document.getElementById('txtPais');
 const txtNome = document.getElementById('txtNome');
 const txtDocumento = document.getElementById('txtDocumento');
@@ -34,13 +35,13 @@ function VerificaModalidade() {
     }
 }
 
-input.addEventListener('input', () => {
-    input.setCustomValidity('');
-    input.checkValidity();
-    console.log(input.checkValidity());
-
-});
-
-input.addEventListener('invalid', () => {
-    input.setCustomValidity('Please fill in your First Name.');
-})
+txtEmail.addEventListener("input", function (event) {
+    // Each time the user types something, we check if the
+    // email field is valid.
+    if (txtEmail.validity.valid) {
+        // In case there is an error message visible, if the field
+        // is valid, we remove the error message.
+        error.innerHTML = ""; // Reset the content of the message
+        error.className = "error"; // Reset the visual state of the message
+    }
+}, false);
