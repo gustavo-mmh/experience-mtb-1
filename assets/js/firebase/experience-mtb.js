@@ -1,4 +1,6 @@
 import { collection, doc, getDocs, getFirestore, setDoc } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js';
+import { getStorage, ref } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-storage.js";
+
 import app from './app.js';
 export async function subscribeToExperienceMtb(subscription, ID) {
     const db = getFirestore(app)
@@ -15,4 +17,10 @@ export async function getExperienceMtbdocs() {
     const experienceMtbSnapshot = await getDocs(expereinceMTBCollection);
     const docsID = experienceMtbSnapshot.docs.map(doc => doc.id);
     return docsID;
+}
+export function getStorageImage() {
+    const storage = getStorage(app);
+    console.log(storage)
+    const storageRef = ref(storage);
+    return storage;
 }
