@@ -1,6 +1,6 @@
 import { collection, doc, getDocs, getFirestore, setDoc } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js';
 import { getStorage, ref } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-storage.js";
-
+import { getAuth, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js'
 import app from './app.js';
 export async function subscribeToExperienceMtb(subscription, ID) {
     const db = getFirestore(app)
@@ -23,4 +23,9 @@ export function getStorageImage() {
     console.log(storage)
     const storageRef = ref(storage);
     return storage;
+}
+export function authLogin() {
+    // Initialize Firebase Authentication and get a reference to the service
+    const auth = getAuth(app);
+    return auth
 }

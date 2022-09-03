@@ -1,24 +1,10 @@
-import { getExperienceMtbdocs, subscribeToExperienceMtb } from './firebase/experience-mtb.js';
-import { getStorageImage } from './firebase/experience-mtb.js';
-import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-storage.js"
-
-const txtPais = document.getElementById('txtPais');
-const txtNome = document.getElementById('txtNome');
-const txtDocumento = document.getElementById('txtDocumento');
-const txtDataNascimento = document.getElementById('txtDataNascimento');
-const txtEmail = document.getElementById('txtEmail');
-const txtCidade = document.getElementById('txtCidade');
-const txtWhatsApp = document.getElementById('txtWhatsApp');
-const txtTamanhoCamiseta = document.getElementById('txtTamanhoCamiseta');
-const txtModalidade = document.getElementById('txtModalidade');
-const txtModalidadeRacing = document.getElementById('txtModalidadeRacing');
-const txtModalidadeChallenge = document.getElementById('txtModalidadeChallenge');
-const txtNomeEquipe = document.getElementById('txtNomeEquipe');
-const txtSenha = document.getElementById('txtSenha');
-const txtFotoCard = document.getElementById('txtFotoCard');
-const formCadstro = document.getElementById('formCadstro');
-const btnCadastrar = document.getElementById('btnCadastrar');
-const error = document.querySelector('.error');
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-auth.js';
+import { getDownloadURL, getStorage, ref, uploadBytesResumable } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-storage.js";
+import app from './firebase/app.js';
+import { authLogin, getExperienceMtbdocs, subscribeToExperienceMtb } from "./firebase/experience-mtb.js";
+import { btnCadstro, formCadstro, formLogin, loginDocumento, loginPassword, showLoginError, txtCidade, txtConfirmaSenha, txtDataNascimento, txtDocumento, txtEmail, txtFotoCard, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from './ui.js';
+const storage = getStorage();
+const auth = getAuth(app);
 function limparDados() {
     txtNome.value = ''
     txtDocumento.value = ''
@@ -30,78 +16,112 @@ function limparDados() {
     txtSenha.value = ''
     txtFotoCard.value = ''
 }
-formCadstro.addEventListener('submit', async (event) => {
-    // Previne a submissão do formulário:
-    event.preventDefault();
-    const docsID = await getExperienceMtbdocs()
-    const ID = txtPais.value + txtDocumento.value
-    if (docsID.includes(ID) == true) {
-        alert("Esse Documento já existe")
-        txtDocumento.focus();
-    } else {
-        if (txtModalidade.value == "Racing") {
-            const subscription = {
-                pais: txtPais.value,
-                nome: txtNome.value,
-                documento: txtDocumento.value,
-                dataNascimento: txtDataNascimento.value,
-                email: txtEmail.value,
-                cidade: txtCidade.value,
-                whatsapp: txtWhatsApp.value,
-                tamanhoCamiseta: txtTamanhoCamiseta.value,
-                modalidade: txtModalidade.value,
-                modalidadeRacing: txtModalidadeRacing.value,
-                nomeEquipe: txtNomeEquipe.value,
-                senha: txtSenha.value,
-                fotoCard: txtFotoCard.value,
-            }
-            subscribeToExperienceMtb(subscription, ID);
-            alert("Cadastro Feito com Sucesso!!!")
-            limparDados()
-        } else {
-            const subscription = {
-                pais: txtPais.value,
-                nome: txtNome.value,
-                documento: txtDocumento.value,
-                dataNascimento: txtDataNascimento.value,
-                email: txtEmail.value,
-                cidade: txtCidade.value,
-                whatsapp: txtWhatsApp.value,
-                tamanhoCamiseta: txtTamanhoCamiseta.value,
-                modalidade: txtModalidade.value,
-                modalidadeChallenge: txtModalidadeChallenge.value,
-                nomeEquipe: txtNomeEquipe.value,
-                senha: txtSenha.value,
-                fotoCard: txtFotoCard.value,
-            }
-            subscribeToExperienceMtb(subscription, ID);
-            alert("Cadastro Feito com Sucesso!!!")
-            limparDados()
-        }
+
+async function createAccount() {
+    const login = txtEmail.value
+    const password = txtSenha.value
+    console.log(auth);
+    try {
+        await createUserWithEmailAndPassword(auth, login, password)
+        console.log('Cadastro funcionou')
     }
-});
+    catch (error) {
+        console.log(`There was an error: ${error}`)
+        showLoginError(error)
+    }
+}
+
+formCadstro.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    txtSenha.onchange = validatePassword();
+    txtConfirmaSenha.onkeyup = validatePassword();
+    if (!formCadstro.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+        formCadstro.classList.add('was-validated')
+    }
+    else {
+        const ID = txtPais.value + txtDocumento.value
+        // Previne a submissão do formulário:
+        const docsID = await getExperienceMtbdocs()
+        if (docsID.includes(ID) == true) {
+            alert("Esse Documento já existe")
+            txtDocumento.focus();
+        }
+        else {
+            if (txtModalidade.value == "Racing") {
+                const subscription = {
+                    pais: txtPais.value,
+                    nome: txtNome.value,
+                    documento: txtDocumento.value,
+                    dataNascimento: txtDataNascimento.value,
+                    email: txtEmail.value,
+                    cidade: txtCidade.value,
+                    whatsapp: txtWhatsApp.value,
+                    tamanhoCamiseta: txtTamanhoCamiseta.value,
+                    modalidade: txtModalidade.value,
+                    modalidadeRacing: txtModalidadeRacing.value,
+                    nomeEquipe: txtNomeEquipe.value,
+                    senha: txtSenha.value,
+                    fotoCard: txtFotoCard.value,
+                    comprovante: '',
+                    tipoPagmento: '',
+                    comprovantePagamento: '',
+                    status: 'Pendente',
+                }
+                subscribeToExperienceMtb(subscription, ID);
+                createAccount();
+                alert("Cadastro Feito com Sucesso!!!")
+                limparDados()
+            } else {
+                const subscription = {
+                    pais: txtPais.value,
+                    nome: txtNome.value,
+                    documento: txtDocumento.value,
+                    dataNascimento: txtDataNascimento.value,
+                    email: txtEmail.value,
+                    cidade: txtCidade.value,
+                    whatsapp: txtWhatsApp.value,
+                    tamanhoCamiseta: txtTamanhoCamiseta.value,
+                    modalidade: txtModalidade.value,
+                    modalidadeChallenge: txtModalidadeChallenge.value,
+                    nomeEquipe: txtNomeEquipe.value,
+                    senha: txtSenha.value,
+                    fotoCard: txtFotoCard.value,
+                    comprovante: '',
+                    tipoPagmento: '',
+                    comprovantePagamento: '',
+                    status: 'Pendente',
+                }
+
+                subscribeToExperienceMtb(subscription, ID);
+                alert("Cadastro Feito com Sucesso!!!")
+                limparDados()
+            }
+        }
+
+    }
+}, false);
 //Upload de imagens
-const storage = getStorage();
-
-const input = document.querySelector('input[type=file]');
-
-input.addEventListener('change', (e) => {
+txtFotoCard.addEventListener('change', (e) => {
     let file = e.target.files[0];
-
-    const storageRef = ref(storage, `images/${e.target.files[0].name}`)
+    let fileName = e.target.files[0].name;
+    const today = new Date()
+    let data = today.toISOString();
+    let hj = data.replace(/\.|\:|\-/g, '');
+    console.log("aqui:" + hj)
+    let newName = fileName.replace('.', "-" + hj + ".")
+    const storageRef = ref(storage, `images/${newName}`)
     // // .put(e.target.files[0]);
     // // 'file' comes from the Blob or File API
     // // uploadBytes(storageRef, file).then((snapshot) => {
-    console.log(storageRef);
+    console.log("otro" + storageRef);
     // // });
-
-
     // Create the file metadata
     /** @type {any} */
     const metadata = {
-        contentType: 'image/jpeg'
+        contentType: 'image/jpeg',
     };
-
     // Upload file and metadata to the object 'images/mountains.jpg'
     // const storageRef = ref(storage, 'images/' + file.name);
     const uploadTask = uploadBytesResumable(storageRef, file, metadata);
@@ -142,9 +162,39 @@ input.addEventListener('change', (e) => {
         () => {
             // Upload completed successfully, now we can get the download URL
             getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                console.log('File available at', downloadURL);
+                console.log('URL da img:', downloadURL);
+                // // Create file metadata to update
+                // const newMetadata = {
+
+                // };
+                // // Update metadata properties
+                // updateMetadata(storageRef, newMetadata)
+                //     .then((metadata) => {
+                //         // Updated metadata for 'images/forest.jpg' is returned in the Promise
+                //         console.log(metadata)
+                //     }).catch((error) => {
+                //         // Uh-oh, an error occurred!
+                //     });
             });
         }
     );
 
 });
+// ------------Login------------------
+
+formLogin.addEventListener("submit", (e) => {
+    debugger
+    e.preventDefault();
+    loginDocumentPassword
+});
+const loginDocumentPassword = async () => {
+    const loginDoc = loginDocumento.value;
+    const loginPass = loginPassword.value;
+    console.log('aqui:', loginDoc, loginPass)
+    try {
+        const userCredential = await signInWithEmailAndPassword(auth, loginDoc, loginPass); console.log(userCredential.user);
+    } catch (error) {
+        console.log(error);
+    }
+}
+

@@ -17,7 +17,9 @@ const btnCadastrar = document.getElementById('btnCadastrar');
 const modalidade = document.getElementById("txtModalidade");
 const racing = document.getElementById("racing");
 const challenge = document.getElementById("challenge");
-const input = document.querySelector('input');
+const txtConfirmaSenha = document.getElementById('txtConfirmaSenha');
+const forms = document.querySelectorAll('.needs-validation')
+const formCadstro = document.getElementById('formCadstro');
 
 function VerificaModalidade() {
     if (modalidade.value == "Racing") {
@@ -35,13 +37,12 @@ function VerificaModalidade() {
     }
 }
 
-txtEmail.addEventListener("input", function (event) {
-    // Each time the user types something, we check if the
-    // email field is valid.
-    if (txtEmail.validity.valid) {
-        // In case there is an error message visible, if the field
-        // is valid, we remove the error message.
-        error.innerHTML = ""; // Reset the content of the message
-        error.className = "error"; // Reset the visual state of the message
+function validatePassword() {
+    if (txtSenha.value != txtConfirmaSenha.value) {
+        txtConfirmaSenha.setCustomValidity("Senhas diferentes!");
+        console.log('senha diferente')
+    } else {
+        txtConfirmaSenha.setCustomValidity('');
+        console.log('funcionou')
     }
-}, false);
+}

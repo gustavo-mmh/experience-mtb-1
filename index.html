@@ -14,32 +14,6 @@
 
 <body>
   <header class="header-wrapper">
-    <div class="header">
-      <div class="checkbox-container">
-        <div class="checkbox-wrapper">
-          <input type="checkbox" id="toggle" />
-          <label class="checkbox" for="toggle">
-            <div class="trace"></div>
-            <div class="trace"></div>
-            <div class="trace"></div>
-          </label>
-          <div class="menu"></div>
-          <nav class="menu-items">
-            <ul>
-              <li>
-                <a href="#">Home</a>
-              </li>
-              <li>
-                <a href="#">Sobre</a>
-              </li>
-              <li>
-                <a href="#">Projetos</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </div>
     <img class="img-fluid" src="assets/images/logo.png">
 
     <div class="social-media">
@@ -60,7 +34,8 @@
           <div class="row">
             <div class="col-2"></div>
             <div class="col-8">
-              <form id="formCadstro">
+              <!-- Começa o Formulário -->
+              <form id="formCadstro" class="needs-validation">
                 <div class="mb-2 mt-3">
                   <label for="txtPais" class="form-label">
                     <i class=" fa fa-globe fa-fw" aria-hidden="true"></i>
@@ -182,8 +157,17 @@
                       <i class="fa fa-shield" aria-hidden="true"></i>
                       *Senha:</label>
                     <input type="password" id="txtSenha" class="form-control" name="Senha"
-                      placeholder="Digite uma Senha" required>
-                    <span class="error" aria-live="polite"></span>
+                      placeholder="Digite uma Senha" required="">
+                  </div>
+                  <div class="mb-2 position-relative">
+                    <label for=" confirm_password" class="form-label">
+                      <i class="fa fa-check-double" aria-hidden="true"></i>
+                      *Confirme a Senha:</label>
+                    <input class="form-control" type="password" placeholder="Confirme Senha" id="txtConfirmaSenha"
+                      required="">
+                    <div class="invalid-tooltip">
+                      Senhas diferentes.
+                    </div>
                   </div>
                 </div>
                 <label>
@@ -218,21 +202,25 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="/action_page.php">
+          <form id="formLogin" action="/qwer/index.html">
             <div class="mb-3 mt-3">
-              <label for="email" class="form-label">Login:</label>
-              <input type="email" id="emailLog" class="form-control" placeholder="Digite seu Login" name="email">
+              <label for="loginDocumento" class="form-label">Login:</label>
+              <input id="loginDocumento" type="text" class="form-control" placeholder="Digite seu Login"
+                name="loginDocumento">
             </div>
             <div class="mb-3">
               <label for="pwd" class="form-label">Senha:</label>
-              <input type="password" class="form-control" id="pwd" placeholder="Digite sua Senha" name="pswd">
+              <input type="password" class="form-control" id="loginPassword" placeholder="Digite sua Senha" name="pswd">
+            </div>
+            <div id="divLoginError" class="group">
+              <div id="lblLoginErrorMessage" class="errorlabel">Error message</div>
             </div>
             <div class="form-check mb-3">
               <label class="form-check-label">
                 <input class="form-check-input" type="checkbox" name="remember"> Lembre-me
               </label>
             </div>
-            <button type="submit" class="btn btn-primary float-end">Login</button>
+            <button id="btnLogin" type="submit" class="btn btn-primary float-end">Login</button>
           </form>
         </div>
         <div class="modal-footer">
