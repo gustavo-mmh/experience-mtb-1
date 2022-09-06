@@ -13,17 +13,18 @@ export const txtModalidadeChallenge = document.querySelector('#txtModalidadeChal
 export const txtNomeEquipe = document.querySelector('#txtNomeEquipe');
 export const txtSenha = document.querySelector('#txtSenha');
 export const txtFotoCard = document.querySelector('#txtFotoCard');
-export const formCadstro = document.querySelector('#formCadstro');
-export const btnCadstro = document.querySelector('#btnCadastrar');
+export const formCadastro = document.querySelector('#formCadastro');
+export const btnCadastro = document.querySelector('#btnCadastrar');
 export const txtConfirmaSenha = document.querySelector('#txtConfirmaSenha');
 export const loginDocumento = document.querySelector('#loginDocumento');
 export const loginPassword = document.querySelector('#loginPassword');
 export const formLogin = document.querySelector('#formLogin');
 
 export const btnLogout = document.querySelector('#btnLogout')
+export const btnLogin = document.querySelector('#btnLogin')
 
 export const divAuthState = document.querySelector('#divAuthState')
-export const lblAuthState = document.querySelector('#lblAuthState')
+export const statusLogin = document.querySelector('#statusLogin')
 
 export const divLoginError = document.querySelector('#divLoginError')
 export const lblLoginErrorMessage = document.querySelector('#lblLoginErrorMessage')
@@ -56,5 +57,16 @@ export const showLoginError = (error) => {
 export const showLoginState = (user) => {
     lblAuthState.innerHTML = `You're logged in as ${user.displayName} (uid: ${user.uid}, email: ${user.email}) `
 }
-
-hideLoginError()
+export function limparDados() {
+    txtNome.value = ''
+    txtDocumento.value = ''
+    txtDataNascimento.value = ''
+    txtEmail.value = ''
+    txtCidade.value = ''
+    txtWhatsApp.value = ''
+    txtNomeEquipe.value = ''
+    txtSenha.value = ''
+    txtConfirmaSenha.value = ''
+    txtFotoCard.value = ''
+    formCadastro.classList.remove('was-validated')
+}

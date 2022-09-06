@@ -9,7 +9,7 @@ const firebaseConfig = {
     storageBucket: "experience-mtb.appspot.com",
     messagingSenderId: "1028643705742",
     appId: "1:1028643705742:web:409304d4f3efa30420cadf",
-    measurementId: "G-MVER66E9X2"
+    measurementId: "G-MVER66E9X2",
 };
 
 // Initialize Firebase

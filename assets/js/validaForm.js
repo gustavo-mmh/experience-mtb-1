@@ -19,7 +19,7 @@ const racing = document.getElementById("racing");
 const challenge = document.getElementById("challenge");
 const txtConfirmaSenha = document.getElementById('txtConfirmaSenha');
 const forms = document.querySelectorAll('.needs-validation')
-const formCadstro = document.getElementById('formCadstro');
+const formCadastro = document.getElementById('formCadastro');
 
 function VerificaModalidade() {
     if (modalidade.value == "Racing") {
@@ -40,7 +40,7 @@ function VerificaModalidade() {
 function validatePassword() {
     if (txtSenha.value != txtConfirmaSenha.value) {
         txtConfirmaSenha.setCustomValidity("Senhas diferentes!");
-        console.log('senha diferente')
+        formCadastro.classList.add('was-validated')
     } else {
         txtConfirmaSenha.setCustomValidity('');
         console.log('funcionou')

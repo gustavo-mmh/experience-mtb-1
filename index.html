@@ -35,7 +35,7 @@
             <div class="col-2"></div>
             <div class="col-8">
               <!-- Começa o Formulário -->
-              <form id="formCadstro" class="needs-validation">
+              <form id="formCadastro" class="needs-validation">
                 <div class="mb-2 mt-3">
                   <label for="txtPais" class="form-label">
                     <i class=" fa fa-globe fa-fw" aria-hidden="true"></i>
@@ -51,22 +51,19 @@
                     *Nome Completo:</label>
                   <input type="text" id="txtNome" class="form-control" required name="nome"
                     placeholder="Digite seu Nome">
-                  <span class="error" aria-live="polite"></span>
                 </div>
                 <div class="mb-2">
                   <label for="txtDocumento" class="form-label">
                     <i class=" fa fa-id-card fa-fw" aria-hidden="true"></i>
                     *Documento de Identidade:</label>
-                  <input type="text" class="form-control" required id="txtDocumento" name="documento" pattern="[0-9]+$"
-                    placeholder="Digite seu Documento">
-                  <span class="error" aria-live="polite"></span>
+                  <input type="text" class="form-control" required id="txtDocumento" name="documento" minlength="7"
+                    pattern="[0-9]+$" placeholder="Digite seu Documento">
                 </div>
                 <div class="mb-2">
                   <label for="txtDataNascimento" class="form-label">
                     <i class=" fa fa-calendar-days fa-fw" aria-hidden="true"></i>
                     *Data de nascimento:</label>
                   <input type="date" id="txtDataNascimento" class="form-control" name="dataNascimento" required>
-                  <span class="error" aria-live="polite"></span>
                 </div>
                 <div class="mb-2">
                   <label for="txtEmail" class="form-label">
@@ -74,15 +71,13 @@
                     *E-mail:</label>
                   <input type="email" id="txtEmail" class="form-control" required name="email"
                     placeholder="Digite seu E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-                  <span class="error" aria-live="polite"></span>
                 </div>
                 <div class="mb-2">
                   <label for="txtCidade" class="form-label">
                     <i class=" fa fa-city fa-fw" aria-hidden="true"></i>
                     *Cidade:</label>
                   <input type="text" id="txtCidade" class="form-control" name="cidade" placeholder="Digite sua Cidade"
-                    name="txtCidade">
-                  <span class="error" aria-live="polite"></span>
+                    name="txtCidade" required="">
                 </div>
                 <div class="mb-2">
                   <label for="txtWhatsApp" class="form-label">
@@ -90,7 +85,6 @@
                     *WhatsApp:</label>
                   <input type="tel" id="txtWhatsApp" class="form-control" required="required" maxlength="15"
                     name="txtWhatsApp" pattern="[0-9]+$" placeholder="Digite seu WhatsApp" />
-                  <span class="error" aria-live="polite"></span>
                 </div>
                 <div class="mb-2 mt-3">
                   <label for="txtTamanhoCamiseta" class="form-label">
@@ -156,18 +150,15 @@
                     <label for="txtSenha" class="form-label">
                       <i class="fa fa-shield" aria-hidden="true"></i>
                       *Senha:</label>
-                    <input type="password" id="txtSenha" class="form-control" name="Senha"
-                      placeholder="Digite uma Senha" required="">
+                    <input onchange="VerificaModalidade()" type="password" id="txtSenha" class="form-control"
+                      name="Senha" placeholder="Digite uma Senha" minlength="6" required="">
                   </div>
                   <div class="mb-2 position-relative">
                     <label for=" confirm_password" class="form-label">
                       <i class="fa fa-check-double" aria-hidden="true"></i>
                       *Confirme a Senha:</label>
-                    <input class="form-control" type="password" placeholder="Confirme Senha" id="txtConfirmaSenha"
-                      required="">
-                    <div class="invalid-tooltip">
-                      Senhas diferentes.
-                    </div>
+                    <input class="form-control" onkeyup="validatePassword();" type="password"
+                      placeholder="Confirme Senha" id="txtConfirmaSenha" minlength="6" required="">
                   </div>
                 </div>
                 <label>
@@ -202,7 +193,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form id="formLogin" action="/qwer/index.html">
+          <form id="formLogin">
             <div class="mb-3 mt-3">
               <label for="loginDocumento" class="form-label">Login:</label>
               <input id="loginDocumento" type="text" class="form-control" placeholder="Digite seu Login"
@@ -222,6 +213,7 @@
             </div>
             <button id="btnLogin" type="submit" class="btn btn-primary float-end">Login</button>
           </form>
+          <div id="statusLogin" class="authlabel"></div>
         </div>
         <div class="modal-footer">
         </div>
