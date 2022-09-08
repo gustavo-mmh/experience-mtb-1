@@ -33,7 +33,12 @@ h2 {
   text-transform: uppercase;
   letter-spacing: 4px;
 }
-
+.wpp-fixo {
+  z-index: 9999;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
 .social-media {
   margin-top: 1rem;
   display: flex;

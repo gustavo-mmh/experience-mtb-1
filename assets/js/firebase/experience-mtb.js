@@ -1,4 +1,4 @@
-import { collection, doc, getDoc, getDocs, getFirestore, setDoc } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js';
+import { collection, doc, getDoc, getDocs, getFirestore, setDoc, query, where } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js';
 import { getStorage, ref } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-storage.js";
 import app from './app.js';
 
@@ -35,23 +35,15 @@ export function getStorageImage() {
     const storageRef = ref(storage);
     return storage;
 }
-export async function getCollection(docsID, documento) {
+export async function getCollection(documento) {
     const db = getFirestore(app)
     const expereinceMTBCollection = collection(db, 'experience-mtb')
-    // const querySnapshot = await getDocs(expereinceMTBCollection);
+    const documentoQuery = query(expereinceMTBCollection, where("documento", "==", documento));
+    const querySnapshot = await getDocs(documentoQuery);
+    const docsData = querySnapshot.docs.map(doc => doc.data());
     // querySnapshot.forEach((doc) => {
     //     // doc.data() is never undefined for query doc snapshots
-    //     console.log(doc.id, " => ", doc.data(documento));
+    //     return doc.data();
     // });
-    const docRef = doc(db, "experience-mtb", docsID);
-    const docSnap = await getDoc(docRef);
-
-    if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
-    } else {
-        // doc.data() will be undefined in this case
-        console.log("No such document!");
-    }
-
-
+    return docsData;
 }

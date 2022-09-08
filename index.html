@@ -35,14 +35,15 @@
             <div class="col-2"></div>
             <div class="col-8">
               <!-- Começa o Formulário -->
-              <form id="formCadastro" class="needs-validation">
+              <form id="formCadastro" class="needs-validation" method="post">
                 <div class="mb-2 mt-3">
-                  <label for="txtPais" class="form-label">
+                  <label for="loginPaisPais" class="form-label">
                     <i class=" fa fa-globe fa-fw" aria-hidden="true"></i>
                     *País:</label>
-                  <select id="txtPais" class="form-select" required name="pais" aria-label="Selecione um País">
+                  <select id="loginPais" class="form-select" required name="pais" aria-label="Selecione um País">
                     <option selected>Brasil</option>
                     <option>Uruguai</option>
+                    <option>Argentina</option>
                   </select>
                 </div>
                 <div class="mb-2">
@@ -195,6 +196,16 @@
         <div class="modal-body">
           <form id="formLogin">
             <div class="mb-3 mt-3">
+              <label for="txtPais" class="form-label">
+                <i class=" fa fa-globe fa-fw" aria-hidden="true"></i>
+                País:</label>
+              <select id="txtPais" class="form-select" required name="pais" aria-label="Selecione um País">
+                <option selected>Brasil</option>
+                <option>Uruguai</option>
+                <option>Argentina</option>
+              </select>
+            </div>
+            <div class="mb-3 mt-3">
               <label for="loginDocumento" class="form-label">Login:</label>
               <input id="loginDocumento" type="text" class="form-control" placeholder="Digite seu Login"
                 name="loginDocumento">
@@ -202,9 +213,6 @@
             <div class="mb-3">
               <label for="pwd" class="form-label">Senha:</label>
               <input type="password" class="form-control" id="loginPassword" placeholder="Digite sua Senha" name="pswd">
-            </div>
-            <div id="divLoginError" class="group">
-              <div id="lblLoginErrorMessage" class="errorlabel">Error message</div>
             </div>
             <div class="form-check mb-3">
               <label class="form-check-label">
@@ -288,6 +296,9 @@
           Gustavo M. Mello
         </a> -->
       </div>
+      <a href="#" target="_blank" class="wpp-fixo">
+        <i class="fa fa-whatsapp fa-4x" style="vertical-align: sub; color: #7BBF6A;"></i><br>
+      </a>
     </div>
     </div>
   </footer>

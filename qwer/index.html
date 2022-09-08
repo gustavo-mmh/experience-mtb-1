@@ -27,22 +27,81 @@
       <div class="col col-2"></div>
       <div class="col col-8">
         <div class="card">
-          <div class="card-header bg-info">
+          <div class="card-header .bg-light.bg-gradient">
             Seus dados
           </div>
-          <div class="px-2">
-            <div class="card mb-3" style="max-width: 540px;">
+          <div class="px-2 py-2">
+            <div class="card mb-3  bg-light bg-gradient">
               <div class="row g-0">
                 <div class="col-md-4">
                   <img src="https://via.placeholder.com/300" class="img-fluid rounded-start" alt="...">
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                      additional content.
-                      This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <div class="d-flex ">
+                      <h5 class="card-title"><span class="h6"> Nome:</span> <span id="cardNome"></span>
+                      </h5>
+                    </div>
+                    <div class="d-flex flex-row">
+                      <div class="p-2">
+                        <p class="card-text"><span class="h6"> Documento:</span> <span id="cardDocumento"></span></p>
+                      </div>
+                      <div class="p-2">
+                        <p class="card-text"><span class="h6"> Email:</span> <span id="cardEmail"></span>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="d-flex flex-row">
+                      <div class="p-2">
+                        <p class="card-text"><span class="h6"> WhatsApp:</span> <span id="cardWhatsApp"></span></p>
+                      </div>
+                      <div class="p-2">
+                        <p class="card-text"><span class="h6">Data de Nascimento:</span> <span
+                            id="cardDataNascimento"></span></p>
+                      </div>
+                    </div>
+                    <div class="d-flex flex-row">
+                      <div class="p-2">
+                        <p class="card-text"><span class="h6"> Pais:</span> <span id="cardPais"></span></p>
+                      </div>
+                      <div class="p-2">
+                        <p class="card-text"><span class="h6"> Cidade:</span> <span id="cardCidade"></span>
+                      </div>
+                    </div>
+                    <div class="d-flex flex-row">
+                      <div class="p-2">
+                        <p class="card-text"><span class="h6"> Modalidade:</span> <span id="cardModalidade"></span></p>
+                      </div>
+                      <div class="p-2">
+                        <p class="card-text"><span class="h6"> Categoria:</span> <span id="cardModalidadeRacing"></span>
+                        </p>
+                      </div>
+                      <div class="p-2">
+                        <p class="card-text"><span class="h6"> Categoria:</span> <span
+                            id="cardModalidadeChallenge"></span>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="d-flex flex-row">
+                      <div class="p-2">
+                        <p class="card-text"><span class="h6">Nome da Equipe:</span> <span id="cardNomeEquipe"></span>
+                        </p>
+                      </div>
+                      <div class="p-2">
+                        <p class="card-text"><span class="h6">Tamanho da Camiseta:</span> <span
+                            id="cardTamanhoCamiseta"></span></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row-reverse">
+                    <div class="p-2">
+                      <a href="cadastro-upd.html" class="btn btn-info"><i class="fa fa-edit" aria-hidden="true"></i>
+                        Editar Dados</a>
+                    </div>
+                    <div class="p-2">
+                      <a class="btn btn-success"><i class="fa fa-cart-plus" aria-hidden="true"></i> Efetuar
+                        Pagamento</a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -53,17 +112,16 @@
       <div class="col col-2">
         <form>
           <div class="group">
-            <div id="statusLogin" class="authlabel"></div>
           </div>
-          <button id="btnLogout" type="button" class="button buttonBlue">Log out</button>
+          <a href="../index.html" id="btnLogout" type="button" class="button buttonBlue">Log out</a>
         </form>
       </div>
     </div>
   </div>
   <div class="b-example-divider"></div>
   <div class="container">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-      <div class="col-md-4 d-flex align-items-center">
+    <footer class="d-flex flex-wrap align-items-center py-3 my-4 border-top">
+      <div class="col-md-6 d-flex align-items-center">
         <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
           <img src="../assets/images/logo.png" class="bi" width="30" height="24">
         </a>
@@ -71,7 +129,7 @@
         <span class="mb-3 mb-md-0 text-muted">© 2022. Todos os direitos reservados.</span>
       </div>
 
-      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+      <ul class="nav col-md-6 justify-content-end list-unstyled d-flex">
         <li class="ms-3"><a class="text-muted" href="#"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
         </li>
         <li class="ms-3"><a class="text-muted" href="#"><i class="fa fa-facebook-square fa-2x"

@@ -1,7 +1,9 @@
 import { getExperienceMtbdocsID, subscribeToExperienceMtb } from "../firebase/experience-mtb.js";
 import { formCadastro, limparDados, txtCidade, txtDataNascimento, txtDocumento, txtEmail, txtFotoCard, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../ui.js';
+import { file, getimg, newName, metadata, storageRef, uploadImagem } from "./storage/index.js";
 
 export async function Cadastrar() {
+    getimg
     formCadastro.addEventListener('submit', async (event) => {
         event.preventDefault();
         if (!formCadastro.checkValidity()) {
@@ -19,6 +21,7 @@ export async function Cadastrar() {
             }
             else {
                 if (txtModalidade.value == "Racing") {
+                    uploadImagem(storageRef, file, metadata)
                     const subscription = {
                         pais: txtPais.value,
                         nome: txtNome.value,
@@ -32,12 +35,13 @@ export async function Cadastrar() {
                         modalidadeRacing: txtModalidadeRacing.value,
                         nomeEquipe: txtNomeEquipe.value,
                         senha: txtSenha.value,
-                        fotoCard: txtFotoCard.value,
+                        fotoCard: newName,
                         comprovante: '',
                         tipoPagmento: '',
                         comprovantePagamento: '',
                         status: 'Pendente',
                     }
+
                     subscribeToExperienceMtb(subscription, ID);
                     alert("Cadastro Feito com Sucesso!!!")
                     limparDados()
