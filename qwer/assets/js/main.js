@@ -6,8 +6,12 @@ import app from "../../../assets/js/firebase/app.js";
 
 import { getCollection } from '../../../assets/js/firebase/experience-mtb.js';
 import { btnLogout, cardCidade, cardDataNascimento, cardDocumento, cardEmail, cardFoto, cardModalidade, cardModalidadeChallenge, cardModalidadeRacing, cardNome, cardNomeEquipe, cardPais, cardTamanhoCamiseta, cardWhatsApp } from '../../../assets/js/ui.js';
+if (localStorage.getItem('token') == null) {
+    alert('Você precisa estar logado para acessar essa página')
+    window.location.href = '../../index.html'
+}
+let documento = JSON.parse(localStorage.getItem('documentoLogado'))
 const storage = getStorage(app);
-let documento = "1234567"
 let img
 console.log(documento)
 let docs = await getCollection(documento)
@@ -28,4 +32,8 @@ docs.forEach(item => {
 })
 
 getUrlImage(storage, img, cardFoto)
-btnLogout.addEventListener('submit', () => { window.location.href = '../../index.html' })
+btnLogout.addEventListener('click', () => {
+    localStorage.clear()
+    window.location.href = '../../index.html'
+})
+
