@@ -31,6 +31,7 @@ export const cardModalidadeRacing = document.querySelector('#cardModalidadeRacin
 export const cardModalidadeChallenge = document.querySelector('#cardModalidadeChallenge');
 export const cardNomeEquipe = document.querySelector('#cardNomeEquipe');
 export const cardTamanhoCamiseta = document.querySelector('#cardTamanhoCamiseta');
+export const cardFoto = document.querySelector('#cardFoto');
 
 export const btnLogout = document.querySelector('#btnLogout')
 export const btnLogin = document.querySelector('#btnLogin')
