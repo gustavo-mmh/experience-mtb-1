@@ -27,11 +27,11 @@ export const cardDataNascimento = document.querySelector('#cardDataNascimento');
 export const cardPais = document.querySelector('#cardPais');
 export const cardCidade = document.querySelector('#cardCidade');
 export const cardModalidade = document.querySelector('#cardModalidade');
-export const cardModalidadeRacing = document.querySelector('#cardModalidadeRacing');
-export const cardModalidadeChallenge = document.querySelector('#cardModalidadeChallenge');
+export const cardCategoria = document.querySelector('#cardCategoria');
 export const cardNomeEquipe = document.querySelector('#cardNomeEquipe');
 export const cardTamanhoCamiseta = document.querySelector('#cardTamanhoCamiseta');
 export const cardFoto = document.querySelector('#cardFoto');
+export const cardStatus = document.querySelector('#cardStatus');
 
 export const btnLogout = document.querySelector('#btnLogout')
 export const btnLogin = document.querySelector('#btnLogin')

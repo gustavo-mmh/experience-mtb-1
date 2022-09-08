@@ -5,7 +5,7 @@ import app from "../../../assets/js/firebase/app.js";
 // import app from "../../../assets/js/firebase/app.js";
 
 import { getCollection } from '../../../assets/js/firebase/experience-mtb.js';
-import { btnLogout, cardCidade, cardDataNascimento, cardDocumento, cardEmail, cardFoto, cardModalidade, cardModalidadeChallenge, cardModalidadeRacing, cardNome, cardNomeEquipe, cardPais, cardTamanhoCamiseta, cardWhatsApp } from '../../../assets/js/ui.js';
+import { btnLogout, cardCategoria, cardCidade, cardDataNascimento, cardDocumento, cardEmail, cardFoto, cardModalidade, cardNome, cardNomeEquipe, cardPais, cardStatus, cardTamanhoCamiseta, cardWhatsApp } from '../../../assets/js/ui.js';
 if (localStorage.getItem('token') == null) {
     alert('Você precisa estar logado para acessar essa página')
     window.location.href = '../../index.html'
@@ -24,10 +24,20 @@ docs.forEach(item => {
     cardPais.innerHTML = item.pais
     cardCidade.innerHTML = item.cidade
     cardModalidade.innerHTML = item.modalidade
-    cardModalidadeRacing.innerHTML = item.modalidadeRacing
-    cardModalidadeChallenge.innerHTML = item.modalidadeChallenge
+    if (item.modalidade == "Racing") {
+        cardCategoria.innerHTML = item.modalidadeRacing
+    } else {
+        cardCategoria.innerHTML = item.modalidadeChallenge
+    }
     cardNomeEquipe.innerHTML = item.nomeEquipe
     cardTamanhoCamiseta.innerHTML = item.tamanhoCamiseta
+    if (item.status == 'Pendente') {
+        cardStatus.classList.add('text-danger');
+        cardStatus.innerHTML = item.status
+    } else {
+        cardStatus.classList.add('text-success');
+        cardStatus.innerHTML = item.status
+    }
     img = item.fotoCard
 })
 
