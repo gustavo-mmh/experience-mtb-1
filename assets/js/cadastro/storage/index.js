@@ -5,8 +5,8 @@ export let metadata;
 export let storageRef;
 export let file;
 export let newName;
-export function getimg() {
-    txtFotoCard.addEventListener('change', (e) => {
+export function getimg(input) {
+    input.addEventListener('change', (e) => {
         //pega os dados da img
         file = e.target.files[0];
         //pega o nome da img
@@ -18,7 +18,8 @@ export function getimg() {
         console.log("aqui:" + hj)
         console.log(e)
         //adiciona a data ao nome
-        newName = fileName.replace('.', "-" + hj + ".")
+        let namerplace = fileName.replace('.', "-" + hj + ".")
+        newName = namerplace.replace(' ', "_")
         storageRef = ref(storage, `images/${newName}`)
         // // .put(e.target.files[0]);
         // // 'file' comes from the Blob or File API

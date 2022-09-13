@@ -103,8 +103,8 @@
                   <label for="txtModalidade" class="form-label">
                     <i class="fa-solid fa-person-biking fa-fw" aria-hidden="true"></i>
                     *Modalidade:</label>
-                  <select onchange="VerificaModalidade()" required id="txtModalidade" class="form-select"
-                    name="modalidade" aria-label="Selecione uma Modalidade">
+                  <select required id="txtModalidade" class="form-select" name="modalidade"
+                    aria-label="Selecione uma Modalidade">
                     <option value="Racing" selected>Racing</option>
                     <option value="Challenge">Challenge</option>
                   </select>
@@ -151,22 +151,28 @@
                     <label for="txtSenha" class="form-label">
                       <i class="fa fa-shield" aria-hidden="true"></i>
                       *Senha:</label>
-                    <input onchange="VerificaModalidade()" type="password" id="txtSenha" class="form-control"
-                      name="Senha" placeholder="Digite uma Senha" minlength="6" required="">
+                    <input type="password" id="txtSenha" class="form-control" name="Senha"
+                      placeholder="Digite uma Senha" minlength="6" required="">
                   </div>
                   <div class="mb-2 position-relative">
                     <label for=" confirm_password" class="form-label">
                       <i class="fa fa-check-double" aria-hidden="true"></i>
                       *Confirme a Senha:</label>
-                    <input class="form-control" onkeyup="validatePassword();" type="password"
-                      placeholder="Confirme Senha" id="txtConfirmaSenha" minlength="6" required="">
+                    <input class="form-control" type="password" placeholder="Confirme Senha" id="txtConfirmaSenha"
+                      minlength="6" required="">
                   </div>
+                </div>
+                <div class="mb">
+                  <label>
+                    <input type="checkbox" id="checkboxTermos" name="meucheckbox" required> *Li e Aceito os Termos <a
+                      href="#" target="_blank">Termos</a>
+                  </label>
                 </div>
                 <label>
                   Os campos com * são obrigatórios
                 </label>
                 <div class="form-group">
-                  <button type="submit" id="btnCadastrar" class="btn btn-success float-end">
+                  <button type="submit" id="btnCadastrar" class="btn btn-success float-end" disabled>
                     <i class="fa fa-check" aria-hidden="true"></i>
                     Cadastrar</button>
                   <button type="reset" class="btn btn-warning float-end">
@@ -302,7 +308,6 @@
     </div>
     </div>
   </footer>
-  <script src="assets/js/validaForm.js"></script>
   <script type="module" src="assets/js/main.js"></script>
   <script src="https://kit.fontawesome.com/4210741bcc.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>

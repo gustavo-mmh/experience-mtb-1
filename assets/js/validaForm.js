@@ -1,48 +1,57 @@
-var form = document.getElementsByTagName('form')[0];
-const txtPais = document.getElementById('txtPais');
-const txtNome = document.getElementById('txtNome');
-const txtDocumento = document.getElementById('txtDocumento');
-const txtDataNascimento = document.getElementById('txtDataNascimento');
-const txtEmail = document.getElementById('txtEmail');
-const txtCidade = document.getElementById('txtCidade');
-const txtWhatsApp = document.getElementById('txtWhatsApp');
-const txtTamanhoCamiseta = document.getElementById('txtTamanhoCamiseta');
-const txtModalidade = document.getElementById('txtModalidade');
-const txtModalidadeRacing = document.getElementById('txtModalidadeRacing');
-const txtModalidadeChallenge = document.getElementById('txtModalidadeChallenge');
-const txtNomeEquipe = document.getElementById('txtNomeEquipe');
-const txtSenha = document.getElementById('txtSenha');
-const txtFotoCard = document.getElementById('txtFotoCard');
-const btnCadastrar = document.getElementById('btnCadastrar');
-const modalidade = document.getElementById("txtModalidade");
-const racing = document.getElementById("racing");
-const challenge = document.getElementById("challenge");
-const txtConfirmaSenha = document.getElementById('txtConfirmaSenha');
-const forms = document.querySelectorAll('.needs-validation')
-const formCadastro = document.getElementById('formCadastro');
+import { btnCadastro, checkboxTermos, divChallenge, divRacing, formCadastro, required, txtConfirmaSenha, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtSenha } from "./ui.js";
 
-function VerificaModalidade() {
-    if (modalidade.value == "Racing") {
-        racing.style.display = "block";
-        var required = document.createAttribute("required");
-        txtModalidadeRacing.setAttributeNode(required);
-        challenge.style.display = "none";
+export function VerificaModalidade() {
+    if (txtModalidade.value == "Racing") {
+        divRacing.style.display = "block";
+        divChallenge.style.display = "none";
         txtModalidadeChallenge.removeAttribute("required");
+        txtModalidadeRacing.setAttributeNode(required);
     } else {
-        challenge.style.display = "block";
-        var required = document.createAttribute("required");
-        txtModalidadeChallenge.setAttributeNode(required);
-        racing.style.display = "none";
+        divChallenge.style.display = "block";
+        divRacing.style.display = "none";
         txtModalidadeRacing.removeAttribute("required");
+        txtModalidadeChallenge.setAttributeNode(required);
     }
 }
 
-function validatePassword() {
+export function validatePassword() {
     if (txtSenha.value != txtConfirmaSenha.value) {
-        txtConfirmaSenha.setCustomValidity("Senhas diferentes!");
         formCadastro.classList.add('was-validated')
+        txtConfirmaSenha.setCustomValidity("Senhas diferentes!");
+
     } else {
         txtConfirmaSenha.setCustomValidity('');
-        console.log('funcionou')
+    }
+}
+export function bloqueio(divElement, element) {
+    if (divElement.style.display == "none") {
+        divElement.style.display = "block";
+        element.setAttributeNode(required);
+    } else {
+        divElement.style.display = "none";
+        element.removeAttribute("required");
+        element.value = '';
+    }
+}
+export function bloqueioSenha(divElement, element, element2) {
+    if (divElement.style.display == "none") {
+        divElement.style.display = "block";
+        element.setAttributeNode(required);
+        element2.setAttributeNode(required);
+    } else {
+        divElement.style.display = "none";
+        element.removeAttribute("required");
+        element2.removeAttribute("required");
+        element.value = '';
+        element2.value = '';
+    }
+}
+
+export function bloqueioCadastro() {
+    if (checkboxTermos.checked) {
+        btnCadastro.disabled = false;
+    } else {
+        btnCadastro.disabled = true;
+        // btnCadastro.classList.add('disabled');
     }
 }

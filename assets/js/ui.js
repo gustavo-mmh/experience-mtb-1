@@ -1,3 +1,6 @@
+export const required = document.createAttribute("required");
+export const formCadastro = document.querySelector('#formCadastro');
+export const formUpdate = document.querySelector('#formUpdate');
 export const txtNome = document.querySelector('#txtNome');
 export const txtDocumento = document.querySelector('#txtDocumento');
 export const txtEmail = document.querySelector('#txtEmail');
@@ -12,13 +15,13 @@ export const txtNomeEquipe = document.querySelector('#txtNomeEquipe');
 export const txtTamanhoCamiseta = document.querySelector('#txtTamanhoCamiseta');
 export const txtSenha = document.querySelector('#txtSenha');
 export const txtFotoCard = document.querySelector('#txtFotoCard');
-export const formCadastro = document.querySelector('#formCadastro');
-export const btnCadastro = document.querySelector('#btnCadastrar');
+export const txtRefFotoCard = document.querySelector('#txtRefFotoCard');
 export const txtConfirmaSenha = document.querySelector('#txtConfirmaSenha');
+export const formLogin = document.querySelector('#formLogin');
+export const imgThumbnail = document.querySelector('#imgThumbnail');
 export const loginDocumento = document.querySelector('#loginDocumento');
 export const loginPais = document.querySelector('#loginPais');
 export const loginPassword = document.querySelector('#loginPassword');
-export const formLogin = document.querySelector('#formLogin');
 export const cardNome = document.querySelector('#cardNome');
 export const cardDocumento = document.querySelector('#cardDocumento');
 export const cardEmail = document.querySelector('#cardEmail');
@@ -33,9 +36,19 @@ export const cardTamanhoCamiseta = document.querySelector('#cardTamanhoCamiseta'
 export const cardFoto = document.querySelector('#cardFoto');
 export const cardStatus = document.querySelector('#cardStatus');
 
-export const btnLogout = document.querySelector('#btnLogout')
-export const btnLogin = document.querySelector('#btnLogin')
 
+export const checkboxSenha = document.querySelector('#checkboxSenha');
+export const checkboxTermos = document.querySelector('#checkboxTermos');
+export const checkboxFoto = document.querySelector('#checkboxFoto');
+
+export const btnCadastro = document.querySelector('#btnCadastrar');
+export const btnLogin = document.querySelector('#btnLogin')
+export const btnLogout = document.querySelector('#btnLogout')
+
+export const divFoto = document.querySelector('#divFoto');
+export const divSenha = document.querySelector('#Senha');
+export const divRacing = document.querySelector('#racing');
+export const divChallenge = document.querySelector('#challenge');
 export const divAuthState = document.querySelector('#divAuthState')
 export const statusLogin = document.querySelector('#statusLogin')
 

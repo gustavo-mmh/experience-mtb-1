@@ -1,9 +1,23 @@
 import { getExperienceMtbdocsID, subscribeToExperienceMtb } from "../firebase/experience-mtb.js";
-import { formCadastro, limparDados, txtCidade, txtDataNascimento, txtDocumento, txtEmail, txtFotoCard, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../ui.js';
-import { file, getimg, newName, metadata, storageRef, uploadImagem } from "./storage/index.js";
+import { checkboxTermos, formCadastro, limparDados, txtCidade, txtConfirmaSenha, txtDataNascimento, txtDocumento, txtEmail, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../ui.js';
+import { bloqueioCadastro, validatePassword, VerificaModalidade } from "../validaForm.js";
+import { file, getimg, metadata, newName, storageRef, uploadImagem } from "./storage/index.js";
 
 export async function Cadastrar() {
-    getimg()
+
+    txtModalidade.addEventListener('change', () => {
+        VerificaModalidade()
+    })
+    txtSenha.addEventListener('keyup', () => {
+        validatePassword()
+    })
+    txtConfirmaSenha.addEventListener('keyup', () => {
+        validatePassword()
+    })
+    checkboxTermos.addEventListener('click', () => {
+        bloqueioCadastro()
+    })
+    getimg(txtFotoCard)
     formCadastro.addEventListener('submit', async (event) => {
         event.preventDefault();
         if (!formCadastro.checkValidity()) {
