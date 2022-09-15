@@ -39,51 +39,51 @@
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
-                    <div class="d-flex ">
+                    <div class="row">
                       <h5 class="card-title"><span class="h6"> Nome:</span> <span id="cardNome"></span>
                       </h5>
                     </div>
-                    <div class="d-flex flex-row">
-                      <div class="p-2">
+                    <div class="row">
+                      <div class="col-5">
                         <p class="card-text"><span class="h6"> Documento:</span> <span id="cardDocumento"></span></p>
                       </div>
-                      <div class="p-2">
+                      <div class="col-7">
                         <p class="card-text"><span class="h6"> Email:</span> <span id="cardEmail"></span>
                         </p>
                       </div>
                     </div>
-                    <div class="d-flex flex-row">
-                      <div class="p-2">
+                    <div class="row">
+                      <div class="col-5">
                         <p class="card-text"><span class="h6"> WhatsApp:</span> <span id="cardWhatsApp"></span></p>
                       </div>
-                      <div class="p-2">
+                      <div class="col-7">
                         <p class="card-text"><span class="h6">Data de Nascimento:</span> <span
                             id="cardDataNascimento"></span></p>
                       </div>
                     </div>
-                    <div class="d-flex flex-row">
-                      <div class="p-2">
+                    <div class="row">
+                      <div class="col-5">
                         <p class="card-text"><span class="h6"> Pais:</span> <span id="cardPais"></span></p>
                       </div>
-                      <div class="p-2">
+                      <div class="col-7">
                         <p class="card-text"><span class="h6"> Cidade:</span> <span id="cardCidade"></span>
                       </div>
                     </div>
-                    <div class="d-flex flex-row">
-                      <div class="p-2">
+                    <div class="row">
+                      <div class="col-5">
                         <p class="card-text"><span class="h6"> Modalidade:</span> <span id="cardModalidade"></span></p>
                       </div>
-                      <div class="p-2">
+                      <div class="col-7">
                         <p class="card-text"><span class="h6"> Categoria:</span> <span id="cardCategoria"></span>
                         </p>
                       </div>
                     </div>
-                    <div class="d-flex flex-row">
-                      <div class="p-2">
+                    <div class="row">
+                      <div class="col-5">
                         <p class="card-text"><span class="h6">Nome da Equipe:</span> <span id="cardNomeEquipe"></span>
                         </p>
                       </div>
-                      <div class="p-2">
+                      <div class="col-7">
                         <p class="card-text"><span class="h6">Tamanho da Camiseta:</span> <span
                             id="cardTamanhoCamiseta"></span></p>
                       </div>
@@ -94,17 +94,39 @@
 
                     </div>
                   </div>
+                  <form class="row" id="formComprovante">
+                    <div class="row">
+                      <label for="txtComprovante">
+                        <i class="fa fa-receipt fa-fw" aria-hidden="true"></i>
+                        Envie o Comprovante:
+                      </label>
+                      <div id="comprovante">
+                      </div>
+                    </div>
+                    <div class="row p-2">
+                      <div class="form-group">
+                        <button type="submit" id="btnCadastrar" class="btn btn-outline-secondary">
+                          <i class="fa fa-check" aria-hidden="true"></i>
+                          Enviar</button>
+                        <button type="reset" class="btn btn-outline-warning">
+                          <i class="fa fa-eraser" aria-hidden="true"></i>
+                          Limpar</button>
+                      </div>
+                    </div>
+
+                  </form>
                   <div class="d-flex flex-row-reverse">
                     <div class="p-2">
                       <a href="cadastro-upd.html" class="btn btn-outline-primary"><i class="fa fa-edit"
                           aria-hidden="true"></i>
                         Editar Dados</a>
                     </div>
-                    <div class="p-2">
-                      <a href="https://www.mercadopago.com.br/checkout/v1/payment/redirect/?source=link&preference-id=379326377-71379965-32e5-4d24-b651-a4195dfbad30&router-request-id=7fd022fb-d59b-4d8e-8727-f87b600cb28d"
+                    <div class="p-2" id="pagamento">
+                      <!-- <a href="https://www.mercadopago.com.br/checkout/v1/payment/redirect/?source=link&preference-id=379326377-71379965-32e5-4d24-b651-a4195dfbad30&router-request-id=7fd022fb-d59b-4d8e-8727-f87b600cb28d"
                         target="_blank" class="btn btn-outline-success"><i class="fa fa-cart-plus"
-                          aria-hidden="true"></i> Efetuar
-                        Pagamento</a>
+                          aria-hidden="true"></i>
+                        Efetuar
+                        Pagamento</a> -->
                     </div>
                   </div>
                 </div>

@@ -1,5 +1,5 @@
 import { collection, doc, getDoc, getDocs, getFirestore, setDoc, query, where, updateDoc } from 'https://www.gstatic.com/firebasejs/9.9.3/firebase-firestore.js';
-import { getStorage, ref } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-storage.js";
+import { getStorage, ref, uploadBytesResumable, deleteObject } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-storage.js";
 import app from './app.js';
 const db = getFirestore(app)
 const expereinceMTBCollection = collection(db, 'experience-mtb')
@@ -26,12 +26,6 @@ export async function getExperienceMtbdocsID() {
     const docsID = experienceMtbSnapshot.docs.map(doc => doc.id);
     return docsID;
 }
-export function getStorageImage() {
-    const storage = getStorage(app);
-    console.log(storage)
-    const storageRef = ref(storage);
-    return storage;
-}
 export async function getCollection(documento) {
     const documentoQuery = query(expereinceMTBCollection, where("documento", "==", documento));
     const querySnapshot = await getDocs(documentoQuery);
@@ -44,8 +38,26 @@ export async function updateCollection(documento, subscription) {
     // const docsData = querySnapshot.docs.map(doc => doc.data());
     // let docData = new Usuario(subscription);
     // console.log(subscription);
-    await updateDoc(experienceMTBRef, {
-        subscription
-    });
+    await updateDoc(experienceMTBRef, subscription);
 
 }
+// -----------------------------
+export function uploadImagem(file, imgRef, metadata) {
+    debugger
+    const storage = getStorage(app);
+    const storageRef = ref(storage, `images/${imgRef}`);
+    uploadBytesResumable(storageRef, file, metadata);
+}
+export function deleteImage(imgRef) {
+    const storage = getStorage(app);
+    // Create a reference to the file to delete
+    const imageRef = ref(storage, `images/${imgRef}`);
+
+    // Delete the file
+    deleteObject(imageRef).then(() => {
+        // File deleted successfully
+    }).catch((error) => {
+        // Uh-oh, an error occurred!
+    });
+}
+

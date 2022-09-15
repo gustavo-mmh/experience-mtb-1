@@ -1,10 +1,10 @@
 import { getStorage } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-storage.js";
 import app from "../../../assets/js/firebase/app.js";
 import { bloqueio, bloqueioSenha, validatePassword, VerificaModalidade } from "../../../assets/js/validaForm.js";
-
-import { getUrlImage } from "../../../assets/js/cadastro/storage/urlImg.js";
 import { getCollection } from "../../../assets/js/firebase/experience-mtb.js";
-import { checkboxFoto, checkboxSenha, divFoto, divSenha, imgThumbnail, txtCidade, txtConfirmaSenha, txtDataNascimento, txtDocumento, txtEmail, txtFotoCard, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../../../assets/js/ui.js';
+import { checkboxFoto, checkboxSenha, divFoto, divSenha, formUpdate, imgThumbnail, txtCidade, txtConfirmaSenha, txtDataNascimento, txtDocumento, txtEmail, txtFotoCard, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../../../assets/js/ui.js';
+import { getUrlImage } from "../../../assets/js/cadastro/storage/urlImg.js";
+export let img
 export async function getParticipante() {
     txtModalidade.addEventListener('change', () => {
         VerificaModalidade()
@@ -16,14 +16,14 @@ export async function getParticipante() {
         bloqueioSenha(divSenha, txtSenha, txtConfirmaSenha)
     })
     txtSenha.addEventListener('keyup', () => {
-        validatePassword()
+        validatePassword(formUpdate, txtConfirmaSenha, txtSenha)
     })
     txtConfirmaSenha.addEventListener('keyup', () => {
-        validatePassword()
+        validatePassword(formUpdate, txtConfirmaSenha, txtSenha)
     })
     let documento = JSON.parse(localStorage.getItem('documentoLogado'))
     const storage = getStorage(app);
-    let img
+
     let docs = await getCollection(documento)
     docs.forEach(item => {
         txtPais.value = item.pais
@@ -44,8 +44,4 @@ export async function getParticipante() {
         img = item.fotoCard
     })
     getUrlImage(storage, img, imgThumbnail)
-    btnLogout.addEventListener('click', () => {
-        localStorage.clear()
-        window.location.href = '../../index.html'
-    })
 }

@@ -1,7 +1,10 @@
 export const required = document.createAttribute("required");
+export const formComprovante = document.querySelector('#formComprovante');
 export const formCadastro = document.querySelector('#formCadastro');
 export const formUpdate = document.querySelector('#formUpdate');
+export const formLogin = document.querySelector('#formLogin');
 export const txtNome = document.querySelector('#txtNome');
+export const txtComprovante = document.querySelector('#txtComprovante');
 export const txtDocumento = document.querySelector('#txtDocumento');
 export const txtEmail = document.querySelector('#txtEmail');
 export const txtWhatsApp = document.querySelector('#txtWhatsApp');
@@ -17,7 +20,6 @@ export const txtSenha = document.querySelector('#txtSenha');
 export const txtFotoCard = document.querySelector('#txtFotoCard');
 export const txtRefFotoCard = document.querySelector('#txtRefFotoCard');
 export const txtConfirmaSenha = document.querySelector('#txtConfirmaSenha');
-export const formLogin = document.querySelector('#formLogin');
 export const imgThumbnail = document.querySelector('#imgThumbnail');
 export const loginDocumento = document.querySelector('#loginDocumento');
 export const loginPais = document.querySelector('#loginPais');
@@ -45,6 +47,7 @@ export const btnCadastro = document.querySelector('#btnCadastrar');
 export const btnLogin = document.querySelector('#btnLogin')
 export const btnLogout = document.querySelector('#btnLogout')
 
+export const divComprovante = document.querySelector('#comprovante');
 export const divFoto = document.querySelector('#divFoto');
 export const divSenha = document.querySelector('#Senha');
 export const divRacing = document.querySelector('#racing');
@@ -52,6 +55,7 @@ export const divChallenge = document.querySelector('#challenge');
 export const divAuthState = document.querySelector('#divAuthState')
 export const statusLogin = document.querySelector('#statusLogin')
 
+export const divPagamento = document.querySelector('#pagamento')
 export const divLoginError = document.querySelector('#divLoginError')
 export const lblLoginErrorMessage = document.querySelector('#lblLoginErrorMessage')
 

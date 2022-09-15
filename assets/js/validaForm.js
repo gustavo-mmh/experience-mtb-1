@@ -14,13 +14,12 @@ export function VerificaModalidade() {
     }
 }
 
-export function validatePassword() {
-    if (txtSenha.value != txtConfirmaSenha.value) {
-        formCadastro.classList.add('was-validated')
-        txtConfirmaSenha.setCustomValidity("Senhas diferentes!");
-
+export function validatePassword(form, element, element2) {
+    if (element.value != element2.value) {
+        form.classList.add('was-validated')
+        element.setCustomValidity("Senhas diferentes!");
     } else {
-        txtConfirmaSenha.setCustomValidity('');
+        element.setCustomValidity('');
     }
 }
 export function bloqueio(divElement, element) {
@@ -29,8 +28,8 @@ export function bloqueio(divElement, element) {
         element.setAttributeNode(required);
     } else {
         divElement.style.display = "none";
-        element.removeAttribute("required");
         element.value = '';
+        element.removeAttribute("required");
     }
 }
 export function bloqueioSenha(divElement, element, element2) {

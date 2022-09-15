@@ -1,8 +1,11 @@
 //Upload de imagens
-export let imgRef;
+export let imgRef
+export let metadata
+export let file
 export function getImgRef(input) {
     input.addEventListener('change', (e) => {
-        let fileName = e.target.files[0].name;
+        file = e.target.files[0];
+        const fileName = e.target.files[0].name;
         //pega a data de hj
         const today = new Date()
         let data = today.toISOString();
@@ -10,7 +13,10 @@ export function getImgRef(input) {
         console.log("aqui:" + hj)
         console.log(e)
         //adiciona a data ao nome
-        let namerplace = fileName.replace('.', "-" + hj + ".")
-        imgRef = namerplace.replace(' ', "_")
+        let namereplace = fileName.replace('.', "-" + hj + ".")
+        imgRef = namereplace.replace(' ', "_")
+        metadata = {
+            contentType: 'image/jpeg',
+        };
     })
 }

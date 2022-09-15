@@ -1,4 +1,4 @@
-import { getStorage, ref, uploadBytesResumable } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-storage.js";
+import { getStorage, ref } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-storage.js";
 const storage = getStorage();
 //Upload de imagens
 export let metadata;
@@ -86,7 +86,4 @@ export function getimg(input) {
         // }
         // );
     });
-}
-export function uploadImagem(storageRef, file, metadata) {
-    uploadBytesResumable(storageRef, file, metadata);
 }

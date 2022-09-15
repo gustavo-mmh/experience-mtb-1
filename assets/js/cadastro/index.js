@@ -1,7 +1,8 @@
-import { getExperienceMtbdocsID, subscribeToExperienceMtb } from "../firebase/experience-mtb.js";
+import { getExperienceMtbdocsID, subscribeToExperienceMtb, uploadImagem } from "../firebase/experience-mtb.js";
 import { checkboxTermos, formCadastro, limparDados, txtCidade, txtConfirmaSenha, txtDataNascimento, txtDocumento, txtEmail, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../ui.js';
 import { bloqueioCadastro, validatePassword, VerificaModalidade } from "../validaForm.js";
-import { file, getimg, metadata, newName, storageRef, uploadImagem } from "./storage/index.js";
+import { file, getImgRef, imgRef, metadata } from "./storage/getImg.js";
+// import { file, getimg, metadata, newName, storageRef } from "./storage/index.js";
 
 export async function Cadastrar() {
 
@@ -9,15 +10,15 @@ export async function Cadastrar() {
         VerificaModalidade()
     })
     txtSenha.addEventListener('keyup', () => {
-        validatePassword()
+        validatePassword(formCadastro, txtConfirmaSenha, txtSenha)
     })
     txtConfirmaSenha.addEventListener('keyup', () => {
-        validatePassword()
+        validatePassword(formCadastro, txtConfirmaSenha, txtSenha)
     })
     checkboxTermos.addEventListener('click', () => {
         bloqueioCadastro()
     })
-    getimg(txtFotoCard)
+    getImgRef(txtFotoCard)
     formCadastro.addEventListener('submit', async (event) => {
         event.preventDefault();
         if (!formCadastro.checkValidity()) {
@@ -48,14 +49,14 @@ export async function Cadastrar() {
                         modalidadeRacing: txtModalidadeRacing.value,
                         nomeEquipe: txtNomeEquipe.value,
                         senha: txtSenha.value,
-                        fotoCard: newName,
+                        fotoCard: imgRef,
                         comprovante: '',
                         tipoPagmento: '',
                         comprovantePagamento: '',
                         status: 'Pendente',
                     }
 
-                    uploadImagem(storageRef, file, metadata)
+                    uploadImagem(file, imgRef, metadata)
                     subscribeToExperienceMtb(subscription, ID);
                     alert("Cadastro Feito com Sucesso!!!")
                     limparDados()
@@ -73,7 +74,7 @@ export async function Cadastrar() {
                         modalidadeChallenge: txtModalidadeChallenge.value,
                         nomeEquipe: txtNomeEquipe.value,
                         senha: txtSenha.value,
-                        fotoCard: newName,
+                        fotoCard: imgRef,
                         comprovante: '',
                         tipoPagmento: '',
                         comprovantePagamento: '',
