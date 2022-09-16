@@ -40,11 +40,11 @@ docs.forEach(item => {
     if (item.status == 'Pendente') {
         cardStatus.classList.add('text-danger');
         cardStatus.innerHTML = item.status
-        let inputComprovante = document.createElement('input');
-        inputComprovante.type = "file"
-        inputComprovante.accept = "image/*"
-        inputComprovante.id = "txtComprovante"
-        inputComprovante.classList.add("form-control")
+        // let inputComprovante = document.createElement('input');
+        // inputComprovante.type = "file"
+        // inputComprovante.accept = "image/*"
+        // inputComprovante.id = "txtComprovante"
+        // inputComprovante.classList.add("form-control")
         // divComprovante.appendChild(inputComprovante)
         let a = document.createElement('a');
         let icon = document.createElement('i');
@@ -66,12 +66,24 @@ docs.forEach(item => {
     else if (item.status == 'Em Analise') {
         cardStatus.classList.add('text-warning');
         cardStatus.innerHTML = item.status
-        let inputComprovante = document.createElement('input');
-        inputComprovante.type = "file"
-        inputComprovante.accept = "image/*"
-        inputComprovante.id = "txtComprovante"
-        inputComprovante.classList.add("form-control")
+        // let inputComprovante = document.createElement('input');
+        // inputComprovante.type = "file"
+        // inputComprovante.accept = "image/*"
+        // inputComprovante.id = "txtComprovante"
+        // inputComprovante.classList.add("form-control")
         // divComprovante.appendChild(inputComprovante)
+        let btn = document.createElement('button')
+        let iconCheck = document.createElement('i');
+        btn.type = "submit"
+        btn.classList.add('btn')
+        btn.classList.add('btn-outline-secondary')
+        btn.id = "btnCadastrar"
+        iconCheck.classList.add('fa')
+        iconCheck.classList.add('fa-check')
+        iconCheck.classList.add('fa-fw')
+        let txt = document.createTextNode("Enviar");
+        btn.appendChild(iconCheck);
+        btn.appendChild(txt);
         let a = document.createElement('a');
         let icon = document.createElement('i');
         icon.classList.add('fa')
@@ -89,7 +101,7 @@ docs.forEach(item => {
         let ID = pais + doc
         let img2 = item.comprovantePagamento;
         setTimeout(function () {
-            updateComprovante(ID, inputComprovante)
+            updateComprovante(ID, txtComprovante)
         }, 4000);
     }
     else {
