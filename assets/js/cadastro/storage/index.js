@@ -15,8 +15,6 @@ export function getimg(input) {
         const today = new Date()
         let data = today.toISOString();
         let hj = data.replace(/\.|\:|\-/g, '');
-        console.log("aqui:" + hj)
-        console.log(e)
         //adiciona a data ao nome
         let namerplace = fileName.replace('.', "-" + hj + ".")
         newName = namerplace.replace(' ', "_")
@@ -24,7 +22,6 @@ export function getimg(input) {
         // // .put(e.target.files[0]);
         // // 'file' comes from the Blob or File API
         // // uploadBytes(storageRef, file).then((snapshot) => {
-        console.log("otro" + storageRef);
         // // });
         // Create the file metadata
         /** @type {any} */

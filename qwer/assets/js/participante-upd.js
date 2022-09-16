@@ -60,7 +60,6 @@ export function updateParticipante() {
                     nomeEquipe: txtNomeEquipe.value,
                 }
                 updateCollection(ID, subscription)
-                console.log(subscription)
                 alert('Cadastro Atualizado com sucesso!')
                 window.location.reload()
             }

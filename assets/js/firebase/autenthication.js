@@ -10,10 +10,10 @@ async function createAccount() {
             .then(data => {
                 const uid = data.user.uid
             })
-        console.log('Cadastro funcionou')
+        // console.log('Cadastro funcionou')
     }
     catch (error) {
-        console.log(`There was an error: ${error}`)
+        // console.log(`There was an error: ${error}`)
     }
 }
 
@@ -26,22 +26,19 @@ async function loginDocumentPassword() {
         // monitorAuthState()
         // location.href = "./qwer/";
         await signInWithEmailAndPassword(auth, loginDoc, loginPass).then(async (data) => {
-            debugger
+
             const uid = data.user.uid
-            console.log('UID:', uid);
             const doc = await getExperienceMtbdocs(uid)
-            console.log('DocsID:', doc);
             try {
                 statusLogin.innerHTML = JSON.stringify(doc);
 
-                console.log(`chegou aqui`)
             } catch (e) {
                 console.log('erro de login')
             }
         });
 
     } catch (error) {
-        debugger
+
         statusLogin.innerHTML = `Error: ${error}`;
     }
 }
@@ -49,7 +46,7 @@ async function loginDocumentPassword() {
 async function monitorAuthState() {
     onAuthStateChanged(auth, user => {
         if (user) {
-            console.log(user)
+            // console.log(user)
             showLoginState(user)
             hideLoginError()
         }

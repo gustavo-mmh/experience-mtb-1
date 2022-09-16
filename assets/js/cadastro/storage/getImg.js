@@ -10,8 +10,6 @@ export function getImgRef(input) {
         const today = new Date()
         let data = today.toISOString();
         let hj = data.replace(/\.|\:|\-/g, '');
-        console.log("aqui:" + hj)
-        console.log(e)
         //adiciona a data ao nome
         let namereplace = fileName.replace('.', "-" + hj + ".")
         imgRef = namereplace.replace(' ', "_")

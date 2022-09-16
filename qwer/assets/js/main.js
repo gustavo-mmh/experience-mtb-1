@@ -16,7 +16,6 @@ const storage = getStorage(app);
 let img
 let doc
 let pais
-console.log(documento)
 let docs = await getCollection(documento)
 docs.forEach(item => {
     doc = item.documento

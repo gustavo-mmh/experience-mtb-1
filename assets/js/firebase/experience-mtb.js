@@ -34,7 +34,7 @@ export async function getCollection(documento) {
 }
 export async function updateCollection(documento, subscription) {
     const experienceMTBRef = doc(db, "experience-mtb", documento);
-    debugger
+
     // const docsData = querySnapshot.docs.map(doc => doc.data());
     // let docData = new Usuario(subscription);
     // console.log(subscription);
@@ -43,7 +43,7 @@ export async function updateCollection(documento, subscription) {
 }
 // -----------------------------
 export function uploadImagem(file, imgRef, metadata) {
-    debugger
+
     const storage = getStorage(app);
     const storageRef = ref(storage, `${imgRef}`);
     uploadBytesResumable(storageRef, file, metadata);
@@ -55,10 +55,10 @@ export function deleteImage(imgRef) {
 
     // Delete the file
     deleteObject(imageRef).then(() => {
-        console.log('Imagem deletada');
+        // console.log('Imagem deletada');
     }).catch((error) => {
         // Uh-oh, an error occurred!
-        console.log(error);
+        // console.log(error);
     });
 }
 
