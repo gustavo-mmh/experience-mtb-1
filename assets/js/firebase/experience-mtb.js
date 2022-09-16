@@ -45,19 +45,20 @@ export async function updateCollection(documento, subscription) {
 export function uploadImagem(file, imgRef, metadata) {
     debugger
     const storage = getStorage(app);
-    const storageRef = ref(storage, `images/${imgRef}`);
+    const storageRef = ref(storage, `${imgRef}`);
     uploadBytesResumable(storageRef, file, metadata);
 }
 export function deleteImage(imgRef) {
     const storage = getStorage(app);
     // Create a reference to the file to delete
-    const imageRef = ref(storage, `images/${imgRef}`);
+    const imageRef = ref(storage, `${imgRef}`);
 
     // Delete the file
     deleteObject(imageRef).then(() => {
-        // File deleted successfully
+        console.log('Imagem deletada');
     }).catch((error) => {
         // Uh-oh, an error occurred!
+        console.log(error);
     });
 }
 

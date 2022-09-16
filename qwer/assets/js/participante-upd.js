@@ -1,13 +1,13 @@
 import { file, getImgRef, imgRef, metadata } from "../../../assets/js/cadastro/storage/getImg.js";
 import { deleteImage, updateCollection, uploadImagem } from "../../../assets/js/firebase/experience-mtb.js";
-import { txtFotoCard, txtModalidade, txtModalidadeRacing, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta } from "../../../assets/js/ui.js";
+import { formComprovante, formUpdate, txtComprovante, txtFotoCard, txtModalidade, txtModalidadeRacing, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta } from "../../../assets/js/ui.js";
 import { img } from "./participante-get.js";
-let doc = localStorage.getItem('documentoLogado').replace(/\"|\"|\-/g, '');
-const ID = txtPais.value + doc;
-console.log(ID);
 export function updateParticipante() {
+    let doc = localStorage.getItem('documentoLogado').replace(/\"|\"|\-/g, '');
+    const ID = txtPais.value + doc;
     getImgRef(txtFotoCard)
     formUpdate.addEventListener('submit', async (event) => {
+
         event.preventDefault();
         if (txtModalidade.value == "Racing") {
             if (txtFotoCard.value != '' && txtSenha.value != '') {
@@ -19,8 +19,10 @@ export function updateParticipante() {
                     senha: txtSenha.value,
                     fotoCard: imgRef,
                 }
-                uploadImagem(file, imgRef, metadata)
-                deleteImage(img)
+                let ref = `images/${imgRef}`
+                uploadImagem(file, ref, metadata)
+                let ref2 = `images/${img}`
+                deleteImage(ref2)
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
                 // window.location.reload()
@@ -43,8 +45,10 @@ export function updateParticipante() {
                     nomeEquipe: txtNomeEquipe.value,
                     fotoCard: imgRef,
                 }
-                uploadImagem(file, imgRef, metadata)
-                deleteImage(img)
+                let ref = `images/${imgRef}`
+                uploadImagem(file, ref, metadata)
+                let ref2 = `images/${img}`
+                deleteImage(ref2)
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
                 // window.location.reload()
@@ -71,8 +75,10 @@ export function updateParticipante() {
                     senha: txtSenha.value,
                     fotoCard: imgRef,
                 }
-                uploadImagem(file, imgRef, metadata)
-                deleteImage(img)
+                let ref = `images/${imgRef}`
+                uploadImagem(file, ref, metadata)
+                let ref2 = `images/${img}`
+                deleteImage(ref2)
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
                 window.location.reload()
@@ -95,8 +101,10 @@ export function updateParticipante() {
                     nomeEquipe: txtNomeEquipe.value,
                     fotoCard: imgRef,
                 }
-                uploadImagem(file, imgRef, metadata)
-                deleteImage(img)
+                let ref = `images/${imgRef}`
+                uploadImagem(file, ref, metadata)
+                let ref2 = `images/${img}`
+                deleteImage(ref2)
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
                 window.location.reload()
@@ -113,5 +121,38 @@ export function updateParticipante() {
             }
         }
 
+    })
+}
+
+export async function createComprovante(id) {
+    getImgRef(txtComprovante)
+    formComprovante.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        let ref = `comprovantes/${imgRef}`
+        let subscription = {
+            comprovantePagamento: imgRef,
+            status: "Em Analise"
+        }
+        uploadImagem(file, ref, metadata)
+        updateCollection(id, subscription)
+        alert
+    })
+}
+export async function updateComprovante(id, img) {
+    getImgRef(txtComprovante)
+    formComprovante.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        let ref = `comprovantes/${imgRef}`
+        let ref2 = `comprovantes/${img}`
+        let subscription = {
+            comprovantePagamento: imgRef,
+            status: "Em Analise"
+        }
+        uploadImagem(file, ref, metadata)
+        deleteImage(ref2)
+        updateCollection(id, subscription)
+        setTimeout(function () {
+            window.location.reload(1);
+        }, 2000);
     })
 }
