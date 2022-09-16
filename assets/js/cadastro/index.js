@@ -54,8 +54,8 @@ export async function Cadastrar() {
                         comprovantePagamento: '',
                         status: 'Pendente',
                     }
-                    let ref = `images/${imgRef}`
-                    uploadImagem(file, ref, metadata)
+
+                    uploadImagem(storageRef, file, metadata)
                     subscribeToExperienceMtb(subscription, ID);
                     alert("Cadastro Feito com Sucesso!!!")
                     limparDados()
@@ -79,9 +79,7 @@ export async function Cadastrar() {
                         comprovantePagamento: '',
                         status: 'Pendente',
                     }
-
-                    let ref = `images/${imgRef}`
-                    uploadImagem(file, ref, metadata)
+                    uploadImagem(storageRef, file, metadata)
                     subscribeToExperienceMtb(subscription, ID);
                     alert("Cadastro Feito com Sucesso!!!")
                     limparDados()
