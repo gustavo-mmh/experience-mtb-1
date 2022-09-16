@@ -82,5 +82,6 @@ export function limparDados() {
     txtSenha.value = ''
     txtConfirmaSenha.value = ''
     txtFotoCard.value = ''
+    checkboxTermos.checked = false
     formCadastro.classList.remove('was-validated')
 }
