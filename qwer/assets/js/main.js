@@ -46,6 +46,20 @@ docs.forEach(item => {
         // inputComprovante.id = "txtComprovante"
         // inputComprovante.classList.add("form-control")
         // divComprovante.appendChild(inputComprovante)
+        let btn = document.createElement('button')
+        let iconCheck = document.createElement('i');
+        btn.type = "submit"
+        btn.classList.add('btn')
+        btn.classList.add('btn-outline-secondary')
+        btn.id = "btnCadastrar"
+        iconCheck.classList.add('fa')
+        iconCheck.classList.add('fa-check')
+        iconCheck.classList.add('fa-fw')
+        let txt = document.createTextNode("Enviar");
+        btn.appendChild(iconCheck);
+        btn.appendChild(txt);
+        document.querySelector('#envio').appendChild(btn)
+
         let a = document.createElement('a');
         let icon = document.createElement('i');
         icon.classList.add('fa')
@@ -84,6 +98,7 @@ docs.forEach(item => {
         let txt = document.createTextNode("Enviar");
         btn.appendChild(iconCheck);
         btn.appendChild(txt);
+        document.querySelector('#envio').appendChild(btn)
         let a = document.createElement('a');
         let icon = document.createElement('i');
         icon.classList.add('fa')
@@ -101,7 +116,7 @@ docs.forEach(item => {
         let ID = pais + doc
         let img2 = item.comprovantePagamento;
         setTimeout(function () {
-            updateComprovante(ID, txtComprovante)
+            updateComprovante(ID, img2)
         }, 4000);
     }
     else {

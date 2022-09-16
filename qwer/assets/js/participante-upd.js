@@ -135,7 +135,10 @@ export async function createComprovante(id) {
         }
         uploadImagem(file, ref, metadata)
         updateCollection(id, subscription)
-        alert
+        alert('Comprovante Enviado com sucesso')
+        setTimeout(function () {
+            window.location.reload(1);
+        }, 4000);
     })
 }
 export async function updateComprovante(id, img) {
@@ -151,8 +154,9 @@ export async function updateComprovante(id, img) {
         uploadImagem(file, ref, metadata)
         deleteImage(ref2)
         updateCollection(id, subscription)
+        alert('Comprovante Enviado com sucesso')
         setTimeout(function () {
             window.location.reload(1);
-        }, 2000);
+        }, 4000);
     })
 }
