@@ -11,7 +11,7 @@ if (localStorage.getItem('token') == '') {
     updateParticipante()
     btnLogout.addEventListener('click', () => {
         localStorage.clear()
-        window.location.href = '../../index.html'
+        window.location.href = '../index.html'
     })
 }
 
