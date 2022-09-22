@@ -1,32 +1,38 @@
 import { file, getImgRef, imgRef, metadata } from "../../../assets/js/cadastro/storage/getImg.js";
 import { deleteImage, updateCollection, uploadImagem } from "../../../assets/js/firebase/experience-mtb.js";
-import { formComprovante, formUpdate, txtComprovante, txtFotoCard, txtModalidade, txtModalidadeRacing, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta } from "../../../assets/js/ui.js";
+import { checkboxFoto, checkboxSenha, formComprovante, formUpdate, txtComprovante, txtFotoCard, txtModalidade, txtModalidadeRacing, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta } from "../../../assets/js/ui.js";
 import { img } from "./participante-get.js";
 export function updateParticipante() {
     let doc = localStorage.getItem('documentoLogado').replace(/\"|\"|\-/g, '');
     const ID = txtPais.value + doc;
     getImgRef(txtFotoCard)
+    let fotoCard1 = ''
     formUpdate.addEventListener('submit', async (event) => {
 
         event.preventDefault();
         if (txtModalidade.value == "Racing") {
-            if (txtFotoCard.value != '' && txtSenha.value != '') {
+            if (checkboxFoto.checked && checkboxSenha.checked) {
+                if (imgRef != null) {
+                    fotoCard1 = imgRef
+                    let ref = `images/${imgRef}`
+                    uploadImagem(file, ref, metadata)
+                }
                 const subscription = {
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
                     modalidade: txtModalidade.value,
                     modalidadeRacing: txtModalidadeRacing.value,
                     nomeEquipe: txtNomeEquipe.value,
                     senha: txtSenha.value,
-                    fotoCard: imgRef,
+                    fotoCard: fotoCard1,
                 }
-                let ref = `images/${imgRef}`
-                uploadImagem(file, ref, metadata)
                 let ref2 = `images/${img}`
                 deleteImage(ref2)
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
-                // window.location.reload()
-            } else if (txtFotoCard.value == '' && txtSenha.value != '') {
+                setTimeout(function () {
+                    window.location.reload(1);
+                }, 4000);
+            } else if (checkboxFoto.checked == false && checkboxSenha.checked) {
                 const subscription = {
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
                     modalidade: txtModalidade.value,
@@ -36,22 +42,29 @@ export function updateParticipante() {
                 }
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
-                window.location.reload()
-            } else if (txtSenha.value == '' && txtFotoCard.value != '') {
+                setTimeout(function () {
+                    window.location.reload(1);
+                }, 4000);
+            } else if (checkboxSenha.checked == false && checkboxFoto.checked) {
+                if (imgRef != null) {
+                    fotoCard1 = imgRef
+                    let ref = `images/${imgRef}`
+                    uploadImagem(file, ref, metadata)
+                }
                 const subscription = {
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
                     modalidade: txtModalidade.value,
                     modalidadeRacing: txtModalidadeRacing.value,
                     nomeEquipe: txtNomeEquipe.value,
-                    fotoCard: imgRef,
+                    fotoCard: fotoCard1,
                 }
-                let ref = `images/${imgRef}`
-                uploadImagem(file, ref, metadata)
                 let ref2 = `images/${img}`
                 deleteImage(ref2)
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
-                // window.location.reload()
+                setTimeout(function () {
+                    window.location.reload(1);
+                }, 4000);
             } else {
                 const subscription = {
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
@@ -61,27 +74,35 @@ export function updateParticipante() {
                 }
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
-                window.location.reload()
+                setTimeout(function () {
+                    window.location.reload(1);
+                }, 4000);
             }
         }
+        // -----------------------CHLANGER--------------------------------
         else {
-            if (txtFotoCard.value != '' && txtSenha.value != '') {
+            if (checkboxFoto.checked && checkboxSenha.checked) {
+                if (imgRef != null) {
+                    fotoCard1 = imgRef
+                    let ref = `images/${imgRef}`
+                    uploadImagem(file, ref, metadata)
+                }
                 const subscription = {
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
                     modalidade: txtModalidade.value,
                     modalidadeChallenge: txtModalidadeChallenge.value,
                     nomeEquipe: txtNomeEquipe.value,
                     senha: txtSenha.value,
-                    fotoCard: imgRef,
+                    fotoCard: fotoCard1,
                 }
-                let ref = `images/${imgRef}`
-                uploadImagem(file, ref, metadata)
                 let ref2 = `images/${img}`
                 deleteImage(ref2)
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
-                window.location.reload()
-            } else if (txtFotoCard.value == '' && txtSenha.value != '') {
+                setTimeout(function () {
+                    window.location.reload(1);
+                }, 4000);
+            } else if (checkboxFoto.checked == false && checkboxSenha.checked) {
                 const subscription = {
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
                     modalidade: txtModalidade.value,
@@ -91,8 +112,15 @@ export function updateParticipante() {
                 }
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
-                window.location.reload()
-            } else if (txtSenha.value == '' && txtFotoCard.value != '') {
+                setTimeout(function () {
+                    window.location.reload(1);
+                }, 4000);
+            } else if (checkboxSenha.checked == false && checkboxFoto.checked) {
+                if (imgRef != null) {
+                    fotoCard1 = imgRef
+                    let ref = `images/${imgRef}`
+                    uploadImagem(file, ref, metadata)
+                }
                 const subscription = {
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
                     modalidade: txtModalidade.value,
@@ -100,13 +128,13 @@ export function updateParticipante() {
                     nomeEquipe: txtNomeEquipe.value,
                     fotoCard: imgRef,
                 }
-                let ref = `images/${imgRef}`
-                uploadImagem(file, ref, metadata)
                 let ref2 = `images/${img}`
                 deleteImage(ref2)
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
-                window.location.reload()
+                setTimeout(function () {
+                    window.location.reload(1);
+                }, 4000);
             } else {
                 const subscription = {
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
@@ -116,7 +144,9 @@ export function updateParticipante() {
                 }
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
-                window.location.reload()
+                setTimeout(function () {
+                    window.location.reload(1);
+                }, 4000);
             }
         }
 
