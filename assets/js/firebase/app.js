@@ -1,9 +1,9 @@
 // Import the functions you need from the SDKs you need
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-analytics.js";
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.9.3/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
 
 const firebaseConfig = {
-      apiKey: "AIzaSyAN3IFMINVWw6965cJdLI4VSz1G-rZQY7s",
+    apiKey: "AIzaSyAN3IFMINVWw6965cJdLI4VSz1G-rZQY7s",
     authDomain: "experience-mtb-6574d.firebaseapp.com",
     projectId: "experience-mtb-6574d",
     storageBucket: "experience-mtb-6574d.appspot.com",

@@ -2,163 +2,267 @@
 <html lang="pt-br">
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta charset="utf-8">
-  <meta name="robots" content="noindex" />
-  <link rel="icon" href="../assets/images/favicon1.ico" />
-  <!--[if IE]><link rel="shortcut icon" href="../../assets/images/favicon.ico"><![endif]-->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
-  <script type="module" src="../assets/js/validaForm.js"></script>
-  <title>Painel Administrativo Experience-MTB</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="../assets/images/favicon1.ico" />
+    <!--[if IE]><link rel="shortcut icon" href="../assets/images/favicon.ico"><![endif]-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+    <title>Painel Administrativo Experience-MTB</title>
 </head>
 
 <body>
-  <header>
-    <div class="cabecalho container-fluid py-5 text-center">
-      <h2 class="pb-2 border-bottom"><a class="text-light text-decoration-none" href="index.html"> <img
-            src="../assets/images/favicon.png" alt="logo" class="logo-qwer"></a></h2>
-
-      <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-      </div>
-    </div>
-    <div class="b-example-divider text-center">
-      <button id="btnLogout" type="button" class="m-1 btn btn-outline-danger float-end">Log out</button>
-    </div>
-  </header>
-  <div class="container-fluid py-2">
-    <div class="row">
-      <div class="col-lg-2 col-md-1 col-sm-0"></div>
-      <div class="col-lg-8 col-md-10 col-sm-12">
-        <div class="card">
-          <div class="card-header .bg-light.bg-gradient">
-            Seus dados
-          </div>
-          <div class="px-2 py-2">
-            <div class="card mb-3 bg-light bg-gradient">
-              <div class="row g-0">
-                <div class="col-lg-4 col-md-4 col-sm-12 text-center">
-                  <img id="cardFoto" class="img-fluid img-thumbnail rounded-start fotoCard" alt="Foto do Card">
-                </div>
-                <div class="col-lg-8 col-md-8 col-sm-12">
-                  <div class="card-body">
-                    <div class="row">
-                      <h5 class="card-title"><span class="h6"> Nome:</span> <span id="cardNome"></span>
-                      </h5>
-                    </div>
-                    <div class="row">
-                      <div class="col-lg-5 col-md-5 col-sm-12">
-                        <p class="card-text"><span class="h6"> Documento:</span> <span id="cardDocumento"></span></p>
-                      </div>
-                      <div class="col-lg-7 col-md-7 col-sm-12">
-                        <p class="card-text"><span class="h6"> Email:</span> <span id="cardEmail"></span>
-                        </p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-lg-5 col-md-5 col-sm-12">
-                        <p class="card-text"><span class="h6"> WhatsApp:</span> <span id="cardWhatsApp"></span></p>
-                      </div>
-                      <div class="col-lg-7 col-md-7 col-sm-12">
-                        <p class="card-text"><span class="h6">Data de Nascimento:</span> <span
-                            id="cardDataNascimento"></span></p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-lg-5 col-md-5 col-sm-12">
-                        <p class="card-text"><span class="h6"> Pais:</span> <span id="cardPais"></span></p>
-                      </div>
-                      <div class="col-lg-7 col-md-7 col-sm-12">
-                        <p class="card-text"><span class="h6"> Cidade:</span> <span id="cardCidade"></span>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-lg-5 col-md-5 col-sm-12">
-                        <p class="card-text"><span class="h6"> Modalidade:</span> <span id="cardModalidade"></span></p>
-                      </div>
-                      <div class="col-lg-7 col-md-7 col-sm-12">
-                        <p class="card-text"><span class="h6"> Categoria:</span> <span id="cardCategoria"></span>
-                        </p>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-lg-5 col-md-5 col-sm-12">
-                        <p class="card-text"><span class="h6">Nome da Equipe:</span> <span id="cardNomeEquipe"></span>
-                        </p>
-                      </div>
-                      <div class="col-lg-7 col-md-7 col-sm-12">
-                        <p class="card-text"><span class="h6">Tamanho da Camiseta:</span> <span
-                            id="cardTamanhoCamiseta"></span></p>
-                      </div>
-                    </div>
-                    <div class="d-flex">
-                      <p class="card-text"><span class="h6">Status do Pagamento:</span> <span id="cardStatus"></span>
-                      </p>
-
-                    </div>
-                  </div>
-                  <form class="row" id="formComprovante">
-                    <div class="row">
-                      <label for="txtComprovante">
-                        <i class="fa fa-receipt fa-fw" aria-hidden="true"></i>
-                        Envie o Comprovante:
-                      </label>
-                      <div id="comprovante">
-                        <input type="file" accept="image/*" id="txtComprovante" class="form-control">
-                      </div>
-                    </div>
-                    <div class="row p-2">
-                      <div class="form-group" id="envio">
-                        <button type="reset" class="btn btn-outline-warning">
-                          <i class="fa fa-eraser" aria-hidden="true"></i>
-                          Limpar</button>
-                      </div>
-                    </div>
-
-                  </form>
-                  <div class="d-flex flex-row-reverse">
-                    <div class="p-2">
-                      <a href="cadastro-upd.html" class="btn btn-outline-primary"><i class="fa fa-edit"
-                          aria-hidden="true"></i>
-                        Editar Dados</a>
-                    </div>
-                    <div class="p-2" id="pagamento">
-                    </div>
-                  </div>
-                </div>
-              </div>
+    <header>
+        <div class="cabecalho container-fluid py-5 text-center">
+            <h2 class="pb-2 border-bottom"><a class="text-light text-decoration-none" href="index.html"> <img
+                        src="../assets/images/favicon.png" alt="logo" class="logo-qwer"></a></h2>
+            <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
             </div>
-          </div>
         </div>
-      </div>
-      <div class="col-lg-2 col-md-1 col-sm-0">
-      </div>
+        <div class="b-example-divider text-center">
+            <img src="../assets/images/favicon.png" alt="logo" sizes="45">
+            <button id="btnLogout" type="button" class="m-1 btn btn-outline-danger float-end">Log out</button>
+        </div>
+    </header>
+    <div class="container-fluid py-2">
+        <div class="row">
+            <div class="col-lg-2 col-md-1 col-sm-0"></div>
+            <div class="col-lg-8 col-md-10 col-sm-12">
+                <div class="p-2 text-center">
+                    <div class="form-group">
+                        <a href="javascript:history.go(-1)" class="btn btn-outline-dark">
+                            <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
+                        </a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header bg-info">
+                        Seus dados
+                    </div>
+                    <div class="px-2">
+                        <form id="formUpdate">
+                            <div class="mb-2">
+                                <label for="txtNome" class="form-label">
+                                    <i class=" fa fa-user fa-fw" aria-hidden="true"></i>
+                                    *Nome Completo:</label>
+                                <input type="text" id="txtNome" class="form-control" readonly="" disabled="" required
+                                    name="nome" placeholder="Digite seu Nome">
+                                <span class="error" aria-live="polite"></span>
+                            </div>
+                            <div class="mb-2 mt-3">
+                                <label for="txtPais" class="form-label">
+                                    <i class=" fa fa-globe fa-fw" aria-hidden="true"></i>
+                                    *País:</label>
+                                <select id="txtPais" class="form-select" required="" readonly="" disabled="" name="pais"
+                                    aria-label="Selecione um País">
+                                    <option selected>Brasil</option>
+                                    <option>Uruguai</option>
+                                </select>
+                            </div>
+                            <div class="mb-2">
+                                <label for="txtCidade" class="form-label">
+                                    <i class=" fa fa-city fa-fw" aria-hidden="true"></i>
+                                    *Cidade:</label>
+                                <input type="text" id="txtCidade" class="form-control" name="cidade"
+                                    placeholder="Digite sua Cidade" required="" readonly="" disabled=""
+                                    name="txtCidade">
+                                <span class="error" aria-live="polite"></span>
+                            </div>
+                            <div class="mb-2">
+                                <label for="txtDocumento" class="form-label">
+                                    <i class=" fa fa-id-card fa-fw" aria-hidden="true"></i>
+                                    *Documento de Identidade:</label>
+                                <input type="text" class="form-control" required="" readonly="" disabled=""
+                                    id="txtDocumento" name="documento" pattern="[0-9]+$"
+                                    placeholder="Digite seu Documento">
+                                <span class="error" aria-live="polite"></span>
+                            </div>
+                            <div class="mb-2">
+                                <label for="txtDataNascimento" class="form-label">
+                                    <i class=" fa fa-calendar-days fa-fw" aria-hidden="true"></i>
+                                    *Data de nascimento:</label>
+                                <input type="date" id="txtDataNascimento" class="form-control" name="dataNascimento"
+                                    required="" readonly="" disabled="">
+                                <span class="error" aria-live="polite"></span>
+                            </div>
+                            <div class="mb-2">
+                                <label for="txtEmail" class="form-label">
+                                    <i class=" fa fa-at fa-fw" aria-hidden="true"></i>
+                                    *E-mail:</label>
+                                <input type="email" id="txtEmail" class="form-control" required="" readonly=""
+                                    disabled="" name="email" placeholder="Digite seu E-mail"
+                                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                                <span class="error" aria-live="polite"></span>
+                            </div>
+                            <div class="mb-2">
+                                <label for="txtWhatsApp" class="form-label">
+                                    <i class=" fa fa-whatsapp fa-fw" aria-hidden="true"></i>
+                                    *WhatsApp:</label>
+                                <input type="tel" id="txtWhatsApp" class="form-control" required="" readonly=""
+                                    disabled="" maxlength="15" name="txtWhatsApp" pattern="[0-9]+$"
+                                    placeholder="Digite seu WhatsApp" />
+                                <span class="error" aria-live="polite"></span>
+                            </div>
+                            <div class="mb-2 mt-3">
+                                <label for="txtModalidade" class="form-label">
+                                    <i class="fa-solid fa-person-biking fa-fw" aria-hidden="true"></i>
+                                    *Modalidade:</label>
+                                <select required id="txtModalidade" class="form-select" name="modalidade"
+                                    aria-label="Selecione uma Modalidade">
+                                    <option value="Racing" selected>Racing</option>
+                                    <option value="Challenge">Challenge</option>
+                                </select>
+                            </div>
+                            <div id="racing" class="mb-2 mt-3">
+                                <label for="txtModalidadeRacing" class="form-label">
+                                    *Modalidade Racing:</label>
+                                <select id="txtModalidadeRacing" class="form-select" name="racing"
+                                    aria-label="Selecione uma Modalidade">
+                                    <option value="" selected>Selecione uma Categoria</option>
+                                    <optgroup label="Categoria Promocional">
+                                        <option value="Promocional">Promocional</option>
+                                    </optgroup>
+                                    <optgroup label="Categoria Elite">
+                                        <option value="Elite">Elite (18+)</option>
+                                    </optgroup>
+                                    <optgroup label="Categoria Por Idade">
+                                        <option value="Sub.30">Sub. 30 (até 29 anos)</option>
+                                        <option value="Master A1">Master A1 (30 à 34 anos)</option>
+                                        <option value="Master A2">Master A2 (35 à 39 anos)</option>
+                                        <option value="Master B1">Master B1 (40 à 44 anos)</option>
+                                        <option value="Master B2">Master B2 (45 à 49 anos)</option>
+                                        <option value="Master C1">Master C1 (50 à 54 anos)</option>
+                                        <option value="Master C2">Master C2 (55 à 59 anos)</option>
+                                        <option value="Master D">Master D (60 anos+)</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div id="challenge" class="mb-2 mt-3" style="display: none;">
+                                <label for="txtModalidadeChallenge" class="form-label">
+                                    *Modalidade Challenge:</label>
+                                <select id="txtModalidadeChallenge" class="form-select" name="challenge"
+                                    aria-label="Selecione uma Modalidade">
+                                    <option value="Soft">Soft (Suave)</option>
+                                    <option value="Light">Light (Leve)</option>
+                                    <option value="Hard">Hard (Duro)</option>
+                                </select>
+                            </div>
+                            <div class="mb-2">
+                                <label for="txtNomeEquipe" class="form-label">
+                                    <i class="fa fa-people-group fa-fw" aria-hidden="true"></i>
+                                    Nome da Equipe:</label>
+                                <input type="text" id="txtNomeEquipe" class="form-control" name="nomeEquipe"
+                                    placeholder="Digite o Nome da Equipe">
+                            </div>
+                            <div class="mb-2 mt-3">
+                                <label for="txtTamanhoCamiseta" class="form-label">
+                                    <i class=" fa fa-shirt fa-fw" aria-hidden="true"></i>
+                                    *Tamanho da Camiseta:</label>
+                                <select id="txtTamanhoCamiseta" class="form-select" required="" name="tamanhoCamiseta"
+                                    aria-label="Selecione um tamanho">
+                                    <option>P</option>
+                                    <option>M</option>
+                                    <option>G</option>
+                                    <option>GG</option>
+                                </select>
+                            </div>
+
+
+                            <div class="mb-2 text-center">
+                                <label>
+                                    <input type="checkbox" id="checkboxFoto" checked="" name="meucheckbox"> Desja mudar
+                                    a Foto?
+                                    <p class="text-muted">
+                                        Desmarque esta opção caso não queira alterar a foto.
+                                    </p>
+                                </label>
+                            </div>
+                            <div class="mb-2 text-center">
+                                <label><i class="fa fa-picture-o" aria-hidden="true"></i> Foto Atual:</label>
+                            </div>
+                            <div class="mb-3 text-center">
+                                <img id="imgThumbnail" class="img-thumbnail" width="150" alt="Foto atual">
+                            </div>
+                            <div class="mb-2" id="divFoto">
+                                <label for="txtFotoCard">
+                                    <i class="fa fa-picture-o fa-fw" aria-hidden="true"></i>
+                                    Foto para o Card:
+                                </label>
+                                <div class="input-group mb-3">
+                                    <input type="file" accept="image/*" id="txtFotoCard" class="form-control"
+                                        name="txtFotoCard">
+                                </div>
+                            </div>
+
+                            <div class="mb-2 text-center">
+                                <label>
+                                    <input type="checkbox" id="checkboxSenha" checked="" name="meucheckbox"> Desja
+                                    atualizar a Senha?
+                                    <p class="text-muted">
+                                        Desmarque esta opção caso não queira alterar a Senha.
+                                    </p>
+                                </label>
+                            </div>
+                            <div class="mb-2" id="Senha">
+                                <div class="mb-2">
+                                    <label for="txtSenha" class="form-label">
+                                        <i class="fa fa-shield" aria-hidden="true"></i>
+                                        *Senha:</label>
+                                    <input type="password" id="txtSenha" class="form-control" name="Senha"
+                                        placeholder="Digite uma Senha" required>
+                                    <span class="error" aria-live="polite"></span>
+                                </div>
+                                <div class="mb-2 position-relative">
+                                    <label for=" confirm_password" class="form-label">
+                                        <i class="fa fa-check-double" aria-hidden="true"></i>
+                                        *Confirme a Senha:</label>
+                                    <input class="form-control" type="password" placeholder="Confirme Senha"
+                                        id="txtConfirmaSenha" minlength="6" required="">
+                                </div>
+                            </div>
+                            <label>
+                                Os campos com * são obrigatórios
+                            </label>
+                            <div class="form-group text-center">
+                                <button type="submit" id="btnCadastrar" class="btn btn-info">
+                                    <i class="fa fa-edit" aria-hidden="true"></i>
+                                    Atualizar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-1 col-sm-0">
+
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="b-example-divider"></div>
-  <div class="container">
-    <footer class="d-flex flex-wrap align-items-center py-3 my-4 border-top">
-      <div class="col-md-6 d-flex align-items-center">
-        <a href="index.html" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-          <img src="../assets/images/favicon.png" title="Logo" class="bi" width="30" height="24">
-        </a>
+    <div class="b-example-divider"></div>
+    <div class="container">
+        <footer class="d-flex flex-wrap align-items-center py-3 my-4 border-top">
+            <div class="col-md-6 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                    <img src="../assets/images/favicon.png" class="bi" width="30" height="24">
+                </a>
 
-        <span class="mb-3 mb-md-0 text-muted">© 2022. Todos os direitos reservados.</span>
-      </div>
+                <span class="mb-3 mb-md-0 text-muted">© 2022. Todos os direitos reservados.</span>
+            </div>
 
-      <ul class="nav col-md-6 justify-content-end list-unstyled d-flex">
-        <li class="ms-3"><a class="text-muted" title="Instagram" href="https://www.instagram.com/experience.mtb/"
-            target="_blank"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
-        </li>
-        <li class="ms-3"><a class="text-muted" title="Facebook" href="https://www.facebook.com/Experiencemtb"
-            target="_blank"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
-        </li>
-      </ul>
-    </footer>
-  </div>
-  <script type="module" src="./assets/js/main.js"></script>
-  <script src="https://kit.fontawesome.com/4210741bcc.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+            <ul class="nav col-md-6 justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a class="text-muted" href="https://www.instagram.com/experience.mtb/"
+                        target="_blank"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
+                </li>
+                <li class="ms-3"><a class="text-muted" href="https://www.facebook.com/Experiencemtb" target="_blank"><i
+                            class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+    <script type="module" src="./assets/js/participante.js"></script>
+    <script type="module" src="../assets/js/validaForm.js"></script>
+    <script src="https://kit.fontawesome.com/4210741bcc.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
