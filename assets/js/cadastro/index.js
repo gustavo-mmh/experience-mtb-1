@@ -69,7 +69,7 @@ export async function Cadastrar() {
                     subscribeToExperienceMtb(subscription, ID);
                     alert("Cadastro Feito com Sucesso!!!")
                     let ref = `images/${imgRef}`
-                    uploadImagem(file, ref, metadata, login(formCadastro, txtDocumento, txtSenha, txtPais))
+                    uploadImagem(file, ref, metadata)
                     limparDados()
                 } else {
                     if (imgRef != null) {

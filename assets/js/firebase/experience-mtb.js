@@ -44,7 +44,7 @@ export async function updateCollection(documento, subscription) {
 
 }
 // -----------------------------
-export function uploadImagem(file, imgRef, metadata, redirec) {
+export function uploadImagem(file, imgRef, metadata) {
 
     const storage = getStorage(app);
     const storageRef = ref(storage, `${imgRef}`);
@@ -83,7 +83,7 @@ export function uploadImagem(file, imgRef, metadata, redirec) {
             }
         },
         () => {
-            redirec
+            // redirec
         }
     );
 
