@@ -1,7 +1,8 @@
 import { getCollection, getExperienceMtbdocsID } from "../firebase/experience-mtb.js";
-import { formLogin, loginDocumento, loginPais, loginPassword, statusLogin } from "../ui.js";
-export async function login() {
-    formLogin.addEventListener('submit', async (e) => {
+import { statusLogin } from "../ui.js";
+export async function login(form, loginDocumento, loginPassword, loginPais) {
+    form.addEventListener('submit', async (e) => {
+        debugger
         e.preventDefault();
         // Previne a submissão do formulário:
         let documentoValue = loginDocumento.value
