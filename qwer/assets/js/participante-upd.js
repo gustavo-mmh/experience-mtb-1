@@ -1,6 +1,6 @@
 import { file, getImgRef, imgRef, metadata } from "../../../assets/js/cadastro/storage/getImg.js";
 import { deleteImage, updateCollection, uploadImagem } from "../../../assets/js/firebase/experience-mtb.js";
-import { checkboxFoto, checkboxSenha, formComprovante, formUpdate, txtComprovante, txtFotoCard, txtModalidade, txtModalidadeRacing, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta } from "../../../assets/js/ui.js";
+import { checkboxFoto, checkboxSenha, formComprovante, formUpdate, txtComprovante, txtFormadePagamento, txtFotoCard, txtModalidade, txtModalidadeRacing, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta } from "../../../assets/js/ui.js";
 import { img } from "./participante-get.js";
 export function updateParticipante() {
     let doc = localStorage.getItem('documentoLogado').replace(/\"|\"|\-/g, '');
@@ -154,15 +154,22 @@ export function updateParticipante() {
 }
 
 export async function createComprovante(id) {
+    let fotoCard1 = ''
     getImgRef(txtComprovante)
     formComprovante.addEventListener('submit', async (event) => {
         event.preventDefault();
+        let pagamento = txtFormadePagamento.value
+        if (imgRef != null) {
+            fotoCard1 = imgRef
+            let ref = `images/${imgRef}`
+            uploadImagem(file, ref, metadata)
+        }
         let ref = `comprovantes/${imgRef}`
         let subscription = {
-            comprovantePagamento: imgRef,
-            status: "Em Analise"
+            comprovantePagamento: fotoCard1,
+            formaDePagamento: pagamento,
+            status: "Em Analise",
         }
-        uploadImagem(file, ref, metadata)
         updateCollection(id, subscription)
         alert('Comprovante Enviado com sucesso')
         setTimeout(function () {
