@@ -4,7 +4,8 @@ import { checkboxFoto, checkboxSenha, formComprovante, formUpdate, txtComprovant
 import { img } from "./participante-get.js";
 export function updateParticipante() {
     let doc = localStorage.getItem('documentoLogado').replace(/\"|\"|\-/g, '');
-    const ID = txtPais.value + doc;
+    let pais = localStorage.getItem('paislogado').replace(/\"|\"|\-/g, '');
+    const ID = pais + doc;
     getImgRef(txtFotoCard)
     let fotoCard1 = ''
     formUpdate.addEventListener('submit', async (event) => {
@@ -30,7 +31,7 @@ export function updateParticipante() {
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
                 setTimeout(function () {
-                    window.location.reload(1);
+                    window.location.href = "index.html";
                 }, 4000);
             } else if (checkboxFoto.checked == false && checkboxSenha.checked) {
                 const subscription = {
@@ -43,7 +44,7 @@ export function updateParticipante() {
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
                 setTimeout(function () {
-                    window.location.reload(1);
+                    window.location.href = "index.html";
                 }, 4000);
             } else if (checkboxSenha.checked == false && checkboxFoto.checked) {
                 if (imgRef != null) {
@@ -63,7 +64,7 @@ export function updateParticipante() {
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
                 setTimeout(function () {
-                    window.location.reload(1);
+                    window.location.href = "index.html";
                 }, 4000);
             } else {
                 const subscription = {
@@ -75,7 +76,7 @@ export function updateParticipante() {
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
                 setTimeout(function () {
-                    window.location.reload(1);
+                    window.location.href = "index.html";
                 }, 4000);
             }
         }
@@ -100,7 +101,7 @@ export function updateParticipante() {
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
                 setTimeout(function () {
-                    window.location.reload(1);
+                    window.location.href = "index.html";
                 }, 4000);
             } else if (checkboxFoto.checked == false && checkboxSenha.checked) {
                 const subscription = {
@@ -113,7 +114,7 @@ export function updateParticipante() {
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
                 setTimeout(function () {
-                    window.location.reload(1);
+                    window.location.href = "index.html";
                 }, 4000);
             } else if (checkboxSenha.checked == false && checkboxFoto.checked) {
                 if (imgRef != null) {
@@ -133,7 +134,7 @@ export function updateParticipante() {
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
                 setTimeout(function () {
-                    window.location.reload(1);
+                    window.location.href = "index.html";
                 }, 4000);
             } else {
                 const subscription = {
@@ -145,7 +146,7 @@ export function updateParticipante() {
                 updateCollection(ID, subscription)
                 alert('Cadastro Atualizado com sucesso!')
                 setTimeout(function () {
-                    window.location.reload(1);
+                    window.location.href = "index.html";
                 }, 4000);
             }
         }
@@ -154,7 +155,7 @@ export function updateParticipante() {
 }
 
 export async function createComprovante(id) {
-    let fotoCard2= ''
+    let fotoCard2 = ''
     getImgRef(txtComprovante)
     formComprovante.addEventListener('submit', async (event) => {
         event.preventDefault();
