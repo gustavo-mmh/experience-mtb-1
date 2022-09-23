@@ -114,7 +114,7 @@ docs.forEach(item => {
         let img2 = item.comprovantePagamento;
         setTimeout(function () {
             updateComprovante(ID, img2)
-        }, 4000);
+        }, 5000);
     }
     else {
         cardStatus.classList.add('text-success');

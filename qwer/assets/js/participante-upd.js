@@ -32,7 +32,7 @@ export function updateParticipante() {
                 alert('Cadastro Atualizado com sucesso!')
                 setTimeout(function () {
                     window.location.href = "index.html";
-                }, 4000);
+                }, 5000);
             } else if (checkboxFoto.checked == false && checkboxSenha.checked) {
                 const subscription = {
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
@@ -45,7 +45,7 @@ export function updateParticipante() {
                 alert('Cadastro Atualizado com sucesso!')
                 setTimeout(function () {
                     window.location.href = "index.html";
-                }, 4000);
+                }, 5000);
             } else if (checkboxSenha.checked == false && checkboxFoto.checked) {
                 if (imgRef != null) {
                     fotoCard1 = imgRef
@@ -65,7 +65,7 @@ export function updateParticipante() {
                 alert('Cadastro Atualizado com sucesso!')
                 setTimeout(function () {
                     window.location.href = "index.html";
-                }, 4000);
+                }, 5000);
             } else {
                 const subscription = {
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
@@ -77,7 +77,7 @@ export function updateParticipante() {
                 alert('Cadastro Atualizado com sucesso!')
                 setTimeout(function () {
                     window.location.href = "index.html";
-                }, 4000);
+                }, 5000);
             }
         }
         // -----------------------CHLANGER--------------------------------
@@ -102,7 +102,7 @@ export function updateParticipante() {
                 alert('Cadastro Atualizado com sucesso!')
                 setTimeout(function () {
                     window.location.href = "index.html";
-                }, 4000);
+                }, 5000);
             } else if (checkboxFoto.checked == false && checkboxSenha.checked) {
                 const subscription = {
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
@@ -115,7 +115,7 @@ export function updateParticipante() {
                 alert('Cadastro Atualizado com sucesso!')
                 setTimeout(function () {
                     window.location.href = "index.html";
-                }, 4000);
+                }, 5000);
             } else if (checkboxSenha.checked == false && checkboxFoto.checked) {
                 if (imgRef != null) {
                     fotoCard1 = imgRef
@@ -135,7 +135,7 @@ export function updateParticipante() {
                 alert('Cadastro Atualizado com sucesso!')
                 setTimeout(function () {
                     window.location.href = "index.html";
-                }, 4000);
+                }, 5000);
             } else {
                 const subscription = {
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
@@ -147,7 +147,7 @@ export function updateParticipante() {
                 alert('Cadastro Atualizado com sucesso!')
                 setTimeout(function () {
                     window.location.href = "index.html";
-                }, 4000);
+                }, 5000);
             }
         }
 
@@ -175,7 +175,7 @@ export async function createComprovante(id) {
         alert('Comprovante Enviado com sucesso')
         setTimeout(function () {
             window.location.reload(1);
-        }, 4000);
+        }, 5000);
     })
 }
 export async function updateComprovante(id, img) {
@@ -194,6 +194,6 @@ export async function updateComprovante(id, img) {
         alert('Comprovante Enviado com sucesso')
         setTimeout(function () {
             window.location.reload(1);
-        }, 4000);
+        }, 5000);
     })
 }
