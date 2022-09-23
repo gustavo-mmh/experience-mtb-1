@@ -78,7 +78,38 @@ docs.forEach(item => {
         cardStatus.classList.add('text-warning');
         cardStatus.innerHTML = item.status
         BtnComIcone("submit", 'btn-outline-secondary', "btnCadastrar", 'fa', 'fa-check', "Enviar", '#envio')
+if (itemPais == 'Brasil') {
+            BotoesPorNacionalidade(itemPais)
+            let btnLimkPagamento = document.querySelector("#btnLimkPagamento")
+            btnLimkPagamento.hidden = true
+            let btnPix = document.querySelector("#BtnPix")
+            btnPix.hidden = true
+            btnPix.addEventListener('click', () => {
+                $("#modalPix").modal("show");
+            });
+            btnCopiar.addEventListener('click', () => {
+                copiarTexto()
+            })
+            txtFormadePagamento.addEventListener('change', () => {
+                VerificaFormaPagamento(btnLimkPagamento, btnPix)
+            })
+        } else if (itemPais == 'Uruguai') {
+            BotoesPorNacionalidade(itemPais)
+            let btnLimkPagamento = document.querySelector("#btnLimkPagamento")
+            btnLimkPagamento.hidden = true
+            txtFormadePagamento.addEventListener('change', () => {
+                VerificaFormaPagamento(btnLimkPagamento)
+            })
 
+        } else {
+            BotoesPorNacionalidade(itemPais)
+            let btnLimkPagamento = document.querySelector("#btnLimkPagamento")
+            btnLimkPagamento.hidden = true
+            txtFormadePagamento.value
+            txtFormadePagamento.addEventListener('change', () => {
+                VerificaFormaPagamento(btnLimkPagamento)
+            })
+        }
         let ID = itemPais + doc
         let img2 = item.comprovantePagamento;
         setTimeout(function () {
