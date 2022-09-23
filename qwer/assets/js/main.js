@@ -35,7 +35,7 @@ docs.forEach(item => {
     cardNomeEquipe.innerHTML = item.nomeEquipe
     cardTamanhoCamiseta.innerHTML = item.tamanhoCamiseta
     img = item.fotoCard
-    if (item.status == 'Pendente' || item.formaDePagamento == null) {
+    if (item.status == 'Pendente' && item.formaDePagamento == null) {
         cardStatus.classList.add('text-danger');
         cardStatus.innerHTML = item.status;
         BtnComIcone("submit", 'btn-outline-secondary', "btnCadastrar", 'fa', 'fa-check', "Enviar", '#envio')
