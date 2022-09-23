@@ -154,19 +154,19 @@ export function updateParticipante() {
 }
 
 export async function createComprovante(id) {
-    let fotoCard1 = ''
+    let fotoCard2= ''
     getImgRef(txtComprovante)
     formComprovante.addEventListener('submit', async (event) => {
         event.preventDefault();
         let pagamento = txtFormadePagamento.value
         if (imgRef != null) {
-            fotoCard1 = imgRef
+            fotoCard2 = imgRef
             let ref = `comprovantes/${imgRef}`
             uploadImagem(file, ref, metadata)
         }
         let ref = `comprovantes/${imgRef}`
         let subscription = {
-            comprovantePagamento: fotoCard1,
+            comprovantePagamento: fotoCard2,
             formaDePagamento: pagamento,
             status: "Em Analise",
         }
