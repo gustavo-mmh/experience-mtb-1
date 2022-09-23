@@ -52,7 +52,7 @@ docs.forEach(item => {
                 copiarTexto()
             })
             txtFormadePagamento.addEventListener('change', () => {
-                VerificaFormaPagamento(btnLimkPagamento, btnPix)
+                VerificaFormaPagamento2(btnLimkPagamento, btnPix)
             })
         } else if (itemPais == 'Uruguai') {
             BotoesPorNacionalidade(itemPais)
