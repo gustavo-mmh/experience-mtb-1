@@ -3,7 +3,7 @@ import { getUrlImage } from "../../../assets/js/cadastro/storage/urlImg.js";
 import app from "../../../assets/js/firebase/app.js";
 import { getCollection } from '../../../assets/js/firebase/experience-mtb.js';
 import { BtnComIcone, btnCopiar, btnLogout, cardCategoria, cardCidade, cardDataNascimento, cardDocumento, cardEmail, cardFoto, cardModalidade, cardNome, cardNomeEquipe, cardPais, cardStatus, cardTamanhoCamiseta, cardWhatsApp, copiarTexto, formComprovante, txtComprovante, txtFormadePagamento } from '../../../assets/js/ui.js';
-import { BotoesPorNacionalidade, VerificaFormaPagamento } from "../../../assets/js/validaForm.js";
+import { BotoesPorNacionalidade, VerificaFormaPagamento,VerificaFormaPagamento2 } from "../../../assets/js/validaForm.js";
 import { createComprovante, updateComprovante } from "./participante-upd.js";
 if (localStorage.getItem('token') == null) {
     alert('Você precisa estar logado para acessar essa página')
@@ -91,7 +91,7 @@ if (itemPais == 'Brasil') {
                 copiarTexto()
             })
             txtFormadePagamento.addEventListener('change', () => {
-                VerificaFormaPagamento(btnLimkPagamento, btnPix)
+                VerificaFormaPagamento2(btnLimkPagamento, btnPix)
             })
         } else if (itemPais == 'Uruguai') {
             BotoesPorNacionalidade(itemPais)
