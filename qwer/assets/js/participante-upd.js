@@ -161,7 +161,7 @@ export async function createComprovante(id) {
         let pagamento = txtFormadePagamento.value
         if (imgRef != null) {
             fotoCard1 = imgRef
-            let ref = `images/${imgRef}`
+            let ref = `comprovantes/${imgRef}`
             uploadImagem(file, ref, metadata)
         }
         let ref = `comprovantes/${imgRef}`
