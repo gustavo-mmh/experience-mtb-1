@@ -35,46 +35,14 @@ docs.forEach(item => {
     cardNomeEquipe.innerHTML = item.nomeEquipe
     cardTamanhoCamiseta.innerHTML = item.tamanhoCamiseta
     img = item.fotoCard
-    if (item.status == 'Pendente' && item.formaDePagamento == '') {
-        cardStatus.classList.add('text-danger');
-        cardStatus.innerHTML = item.status;
-        BtnComIcone("submit", 'btn-outline-secondary', "btnCadastrar", 'fa', 'fa-check', "Enviar", '#envio')
-        if (itemPais == 'Brasil') {
-            BotoesPorNacionalidade(itemPais)
-            let btnLimkPagamento = document.querySelector("#btnLimkPagamento")
-            btnLimkPagamento.hidden = true
-            let btnPix = document.querySelector("#BtnPix")
-            btnPix.hidden = true
-            btnPix.addEventListener('click', () => {
-                $("#modalPix").modal("show");
-            });
-            btnCopiar.addEventListener('click', () => {
-                copiarTexto()
-            })
-            txtFormadePagamento.addEventListener('change', () => {
-                VerificaFormaPagamento2(btnLimkPagamento, btnPix)
-            })
-        } else if (itemPais == 'Uruguai') {
-            BotoesPorNacionalidade(itemPais)
-            let btnLimkPagamento = document.querySelector("#btnLimkPagamento")
-            btnLimkPagamento.hidden = true
-            txtFormadePagamento.addEventListener('change', () => {
-                VerificaFormaPagamento(btnLimkPagamento)
-            })
 
-        } else {
-            BotoesPorNacionalidade(itemPais)
-            let btnLimkPagamento = document.querySelector("#btnLimkPagamento")
-            btnLimkPagamento.hidden = true
-            txtFormadePagamento.value
-            txtFormadePagamento.addEventListener('change', () => {
-                VerificaFormaPagamento(btnLimkPagamento)
-            })
-        }
-        let ID = itemPais + doc
-        createComprovante(ID)
+    if (item.status == 'Pago') {
+        cardStatus.classList.add('text-success');
+        cardStatus.innerHTML = item.status
+        formComprovante.style.display = "none";
+        txtComprovante.classList.add('disabled')
     }
-    else if (item.status == 'Em Analise' || item.formaDePagamento != null) {
+    else if (item.status == 'Em Analise') {
         cardStatus.classList.add('text-warning');
         cardStatus.innerHTML = item.status
         BtnComIcone("submit", 'btn-outline-secondary', "btnCadastrar", 'fa', 'fa-check', "Enviar", '#envio')
@@ -117,10 +85,43 @@ docs.forEach(item => {
         }, 5000);
     }
     else {
-        cardStatus.classList.add('text-success');
-        cardStatus.innerHTML = item.status
-        formComprovante.style.display = "none";
-        txtComprovante.classList.add('disabled')
+        cardStatus.classList.add('text-danger');
+        cardStatus.innerHTML = item.status;
+        BtnComIcone("submit", 'btn-outline-secondary', "btnCadastrar", 'fa', 'fa-check', "Enviar", '#envio')
+        if (itemPais == 'Brasil') {
+            BotoesPorNacionalidade(itemPais)
+            let btnLimkPagamento = document.querySelector("#btnLimkPagamento")
+            btnLimkPagamento.hidden = true
+            let btnPix = document.querySelector("#BtnPix")
+            btnPix.hidden = true
+            btnPix.addEventListener('click', () => {
+                $("#modalPix").modal("show");
+            });
+            btnCopiar.addEventListener('click', () => {
+                copiarTexto()
+            })
+            txtFormadePagamento.addEventListener('change', () => {
+                VerificaFormaPagamento2(btnLimkPagamento, btnPix)
+            })
+        } else if (itemPais == 'Uruguai') {
+            BotoesPorNacionalidade(itemPais)
+            let btnLimkPagamento = document.querySelector("#btnLimkPagamento")
+            btnLimkPagamento.hidden = true
+            txtFormadePagamento.addEventListener('change', () => {
+                VerificaFormaPagamento(btnLimkPagamento)
+            })
+
+        } else {
+            BotoesPorNacionalidade(itemPais)
+            let btnLimkPagamento = document.querySelector("#btnLimkPagamento")
+            btnLimkPagamento.hidden = true
+            txtFormadePagamento.value
+            txtFormadePagamento.addEventListener('change', () => {
+                VerificaFormaPagamento(btnLimkPagamento)
+            })
+        }
+        let ID = itemPais + doc
+        createComprovante(ID)
     }
 })
 if (img != "") {
