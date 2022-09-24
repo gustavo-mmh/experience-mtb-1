@@ -7,7 +7,7 @@ import { BotoesPorNacionalidade, VerificaFormaPagamento, VerificaFormaPagamento2
 import { createComprovante, updateComprovante } from "./participante-upd.js";
 if (localStorage.getItem('token') == null) {
     alert('Você precisa estar logado para acessar essa página')
-    window.location.href = '../../index.html'
+    window.location.href = '../index.html'
 }
 let documento = JSON.parse(localStorage.getItem('documentoLogado'))
 let pais = JSON.parse(localStorage.getItem('paislogado'))
