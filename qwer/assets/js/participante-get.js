@@ -21,8 +21,8 @@ export async function getParticipante() {
     txtConfirmaSenha.addEventListener('keyup', () => {
         validatePassword(formUpdate, txtConfirmaSenha, txtSenha)
     })
-    let documento = JSON.parse(localStorage.getItem('documentoLogado'))
-    let pais = JSON.parse(localStorage.getItem('paislogado'))
+    let documento = JSON.parse(sessionStorage.getItem('documentoLogado'))
+    let pais = JSON.parse(sessionStorage.getItem('paislogado'))
     const storage = getStorage(app);
 
     let docs = await getCollection(documento, pais)

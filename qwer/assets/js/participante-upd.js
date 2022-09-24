@@ -3,8 +3,8 @@ import { deleteImage, updateCollection, uploadImagem } from "../../../assets/js/
 import { checkboxFoto, checkboxSenha, formComprovante, formUpdate, loading, txtComprovante, txtFormadePagamento, txtFotoCard, txtModalidade, txtModalidadeRacing, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta } from "../../../assets/js/ui.js";
 import { img } from "./participante-get.js";
 export function updateParticipante() {
-    let doc = localStorage.getItem('documentoLogado').replace(/\"|\"|\-/g, '');
-    let pais = localStorage.getItem('paislogado').replace(/\"|\"|\-/g, '');
+    let doc = sessionStorage.getItem('documentoLogado').replace(/\"|\"|\-/g, '');
+    let pais = sessionStorage.getItem('paislogado').replace(/\"|\"|\-/g, '');
     const ID = pais + doc;
     getImgRef(txtFotoCard)
     let fotoCard1 = ''

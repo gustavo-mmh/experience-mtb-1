@@ -33,9 +33,9 @@ export async function login(form, loginDocumento, loginPassword, loginPais) {
                 window.location.href = './qwer/'
                 let mathRandom = Math.random().toString(16).substr(2)
                 let token = mathRandom + mathRandom
-                localStorage.setItem('token', token,)
-                localStorage.setItem('documentoLogado', JSON.stringify(documentoValue))
-                localStorage.setItem('paislogado', JSON.stringify(pais))
+                sessionStorage.setItem('token', token,)
+                sessionStorage.setItem('documentoLogado', JSON.stringify(documentoValue))
+                sessionStorage.setItem('paislogado', JSON.stringify(pais))
             } else {
                 loginDocumento.setAttribute('style', 'border-color: red')
                 loginPassword.setAttribute('style', 'border-color: red')
@@ -81,9 +81,9 @@ export async function loginCad(loginDocumento, loginPassword, loginPais) {
         if (documentoValue == documentoValid.documento && senhaValue == documentoValid.senha) {
             let mathRandom = Math.random().toString(16).substr(2)
             let token = mathRandom + mathRandom
-            localStorage.setItem('token', token,)
-            localStorage.setItem('documentoLogado', JSON.stringify(documentoValue))
-            localStorage.setItem('paislogado', JSON.stringify(pais))
+            sessionStorage.setItem('token', token,)
+            sessionStorage.setItem('documentoLogado', JSON.stringify(documentoValue))
+            sessionStorage.setItem('paislogado', JSON.stringify(pais))
             setTimeout(function () {
                 window.location.href = './qwer/'
             }, 2000);

@@ -5,12 +5,12 @@ import { getCollection } from '../../../assets/js/firebase/experience-mtb.js';
 import { BtnComIcone, btnCopiar, btnLogout, cardCategoria, cardCidade, cardDataNascimento, cardDocumento, cardEmail, cardFoto, cardModalidade, cardNome, cardNomeEquipe, cardPais, cardStatus, cardTamanhoCamiseta, cardWhatsApp, copiarTexto, formComprovante, txtComprovante, txtFormadePagamento } from '../../../assets/js/ui.js';
 import { BotoesPorNacionalidade, VerificaFormaPagamento, VerificaFormaPagamento2 } from "../../../assets/js/validaForm.js";
 import { createComprovante, updateComprovante } from "./participante-upd.js";
-if (localStorage.getItem('token') == null) {
+if (sessionStorage.getItem('token') == null) {
     alert('Você precisa estar logado para acessar essa página')
     window.location.href = '../index.html'
 }
-let documento = JSON.parse(localStorage.getItem('documentoLogado'))
-let pais = JSON.parse(localStorage.getItem('paislogado'))
+let documento = JSON.parse(sessionStorage.getItem('documentoLogado'))
+let pais = JSON.parse(sessionStorage.getItem('paislogado'))
 const storage = getStorage(app);
 let img
 let doc
@@ -146,6 +146,6 @@ if (img != "") {
     cardFoto.src = './assets/images/fotocard.png'
 }
 btnLogout.addEventListener('click', () => {
-    localStorage.clear()
+    sessionStorage.clear()
     window.location.href = '../index.html'
 })

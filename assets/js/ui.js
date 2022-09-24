@@ -46,11 +46,13 @@ export const checkboxSenha = document.querySelector('#checkboxSenha');
 export const checkboxTermos = document.querySelector('#checkboxTermos');
 export const checkboxFoto = document.querySelector('#checkboxFoto');
 
+export const btnEditar = document.querySelector('#btnEditInsc');
 export const btnCopiar = document.querySelector('#copiarQR');
 export const btnCadastro = document.querySelector('#btnCadastrar');
 export const btnLogin = document.querySelector('#btnLogin')
 export const btnLogout = document.querySelector('#btnLogout')
 
+export const divEditarInsc = document.querySelector('#editarInsc');
 export const divComprovante = document.querySelector('#comprovante');
 export const divFoto = document.querySelector('#divFoto');
 export const divSenha = document.querySelector('#Senha');
@@ -127,4 +129,10 @@ export function copiarTexto() {
     textoCopiado.setSelectionRange(0, 99999)
     document.execCommand("copy");
     alert("Texto Copiado");
+}
+
+export function addDaysToDate(date, days) {
+    var res = new Date(date);
+    res.setDate(res.getDate() + days);
+    return res;
 }
