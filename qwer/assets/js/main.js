@@ -107,8 +107,13 @@ docs.forEach(item => {
             BotoesPorNacionalidade(itemPais)
             let btnLimkPagamento = document.querySelector("#btnLimkPagamento")
             btnLimkPagamento.hidden = true
+            let btnMidinero = document.querySelector("#BtnMidinero")
+            btnMidinero.hidden = true
+            btnMidinero.addEventListener('click', () => {
+                $("#modalMidinero").modal("show");
+            });
             txtFormadePagamento.addEventListener('change', () => {
-                VerificaFormaPagamento(btnLimkPagamento)
+                VerificaFormaPagamento2(btnLimkPagamento, btnMidinero)
             })
 
         } else {
