@@ -53,6 +53,8 @@ docs.forEach(item => {
             btnLimkPagamento.hidden = true
             let btnPix = document.querySelector("#BtnPix")
             btnPix.hidden = true
+            let p = document.querySelector("#pgtoBicicletaria")
+            p.hidden = true
             btnPix.addEventListener('click', () => {
                 $("#modalPix").modal("show");
             });
@@ -60,14 +62,21 @@ docs.forEach(item => {
                 copiarTexto()
             })
             txtFormadePagamento.addEventListener('change', () => {
-                VerificaFormaPagamento2(btnLimkPagamento, btnPix)
+                VerificaFormaPagamento2(btnLimkPagamento, btnPix, p)
             })
         } else if (itemPais == 'Uruguai') {
             BotoesPorNacionalidade(itemPais)
             let btnLimkPagamento = document.querySelector("#btnLimkPagamento")
             btnLimkPagamento.hidden = true
+            let btnMidinero = document.querySelector("#BtnMidinero")
+            btnMidinero.hidden = true
+            let p = document.querySelector("#pgtoBicicletaria")
+            p.hidden = true
+            btnMidinero.addEventListener('click', () => {
+                $("#modalMidinero").modal("show");
+            });
             txtFormadePagamento.addEventListener('change', () => {
-                VerificaFormaPagamento(btnLimkPagamento)
+                VerificaFormaPagamento2(btnLimkPagamento, btnMidinero, p)
             })
 
         } else {
@@ -81,9 +90,7 @@ docs.forEach(item => {
         }
         let ID = itemPais + doc
         let img2 = item.comprovantePagamento;
-        setTimeout(function () {
-            updateComprovante(ID, img2)
-        }, 5000);
+        updateComprovante(ID, img2)
     }
     else {
         cardStatus.classList.add('text-danger');
@@ -91,10 +98,12 @@ docs.forEach(item => {
         BtnComIcone("submit", 'btn-outline-secondary', "btnCadastrar", 'fa', 'fa-check', "Enviar", '#envio')
         if (itemPais == 'Brasil') {
             BotoesPorNacionalidade(itemPais)
-            let btnLimkPagamento = document.querySelector("#btnLimkPagamento")
+            let btnLimkPagamento = document.querySelector("#btnPagamentoBr")
             btnLimkPagamento.hidden = true
             let btnPix = document.querySelector("#BtnPix")
             btnPix.hidden = true
+            let p = document.querySelector("#pgtoBicicletaria")
+            p.hidden = true
             btnPix.addEventListener('click', () => {
                 $("#modalPix").modal("show");
             });
@@ -102,21 +111,22 @@ docs.forEach(item => {
                 copiarTexto()
             })
             txtFormadePagamento.addEventListener('change', () => {
-                VerificaFormaPagamento2(btnLimkPagamento, btnPix)
+                VerificaFormaPagamento2(btnLimkPagamento, btnPix, p)
             })
         } else if (itemPais == 'Uruguai') {
             BotoesPorNacionalidade(itemPais)
-            let btnLimkPagamento = document.querySelector("#btnLimkPagamento")
+            let btnLimkPagamento = document.querySelector("#btnPagamentoUy")
             btnLimkPagamento.hidden = true
             let btnMidinero = document.querySelector("#BtnMidinero")
             btnMidinero.hidden = true
+            let p = document.querySelector("#pBicicletaria")
+            p.hidden = true
             btnMidinero.addEventListener('click', () => {
                 $("#modalMidinero").modal("show");
             });
             txtFormadePagamento.addEventListener('change', () => {
-                VerificaFormaPagamento2(btnLimkPagamento, btnMidinero)
+                VerificaFormaPagamento2(btnLimkPagamento, btnMidinero, p)
             })
-
         } else {
             BotoesPorNacionalidade(itemPais)
             let btnLimkPagamento = document.querySelector("#btnLimkPagamento")

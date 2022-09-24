@@ -78,6 +78,12 @@ export let BtnComIcone = (tipo, classeBtn, idBtn, faIcon, classeIcon, txtBtn, id
     btn.appendChild(txt);
     document.querySelector(idDiv).appendChild(btn)
 }
+export let Paragrafo = (idP, txtP, divP) => {
+    let p = document.createElement('p')
+    p.id = idP;
+    p.innerHTML = txtP
+    divP.appendChild(p)
+}
 
 export let LinkComIcone = (idLink, faIcon, classeIcon, btnClassLink, txtLink, titleLink, targetLink, hrefLink, divLink) => {
     let a = document.createElement('a');
