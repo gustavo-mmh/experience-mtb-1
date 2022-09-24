@@ -53,7 +53,7 @@ docs.forEach(item => {
             btnLimkPagamento.hidden = true
             let btnPix = document.querySelector("#BtnPix")
             btnPix.hidden = true
-            let p = document.querySelector("#pgtoBicicletaria")
+            let p = document.querySelector("#pBicicletaria")
             p.hidden = true
             btnPix.addEventListener('click', () => {
                 $("#modalPix").modal("show");
@@ -70,7 +70,7 @@ docs.forEach(item => {
             btnLimkPagamento.hidden = true
             let btnMidinero = document.querySelector("#BtnMidinero")
             btnMidinero.hidden = true
-            let p = document.querySelector("#pgtoBicicletaria")
+            let p = document.querySelector("#pBicicletaria")
             p.hidden = true
             btnMidinero.addEventListener('click', () => {
                 $("#modalMidinero").modal("show");
@@ -102,7 +102,7 @@ docs.forEach(item => {
             btnLimkPagamento.hidden = true
             let btnPix = document.querySelector("#BtnPix")
             btnPix.hidden = true
-            let p = document.querySelector("#pgtoBicicletaria")
+            let p = document.querySelector("#pBicicletaria")
             p.hidden = true
             btnPix.addEventListener('click', () => {
                 $("#modalPix").modal("show");

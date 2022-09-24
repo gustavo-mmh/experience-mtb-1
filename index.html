@@ -142,11 +142,11 @@
                   <select required id="txtModalidade" class="form-select" name="modalidade"
                     aria-label="Selecione uma Modalidade">
                     <option value="" selected>Selecione uma Modalidade</option>
-                    <option value="Racing" selected>Racing (Competição)</option>
+                    <option value="Racing">Racing (Competição)</option>
                     <option value="Challenge">Challenge (Desafio)</option>
                   </select>
                 </div>
-                <div id="racing" class="mb-2 mt-3">
+                <div id="racing" class="mb-2 mt-3" hidden>
                   <label for="txtModalidadeRacing" class="form-label">
                     <i class="fa-solid fa-flag-checkered fa-fw" aria-hidden="true"></i>
                     *Categorias Racing (Competição):</label>
@@ -260,7 +260,8 @@
                 <i class=" fa fa-globe fa-fw" aria-hidden="true"></i>
                 País:</label>
               <select id="loginPais" class="form-select" required name="pais" aria-label="Selecione um País">
-                <option selected>Brasil</option>
+                <option value="">Selecione Um Pais</option>
+                <option>Brasil</option>
                 <option>Uruguai</option>
                 <option>Argentina</option>
               </select>

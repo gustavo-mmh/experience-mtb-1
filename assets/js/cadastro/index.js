@@ -1,5 +1,5 @@
-import { getExperienceMtbdocsID, subscribeToExperienceMtb, uploadImagem } from "../firebase/experience-mtb.js";
-import { login } from "../login/index.js";
+import { getExperienceMtbdocsID, subscribeToExperienceMtb, uploadImagem, uploadImagemCad } from "../firebase/experience-mtb.js";
+import { login, loginCad } from "../login/index.js";
 import { checkboxTermos, formCadastro, limparDados, loading, loginDocumento, loginPais, loginPassword, txtCategoria, txtCidade, txtConfirmaSenha, txtDataNascimento, txtDocumento, txtEmail, txtFotoCard, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../ui.js';
 import { bloqueioCadastro, calculaIdade, filtraCategoria, filtraCategoriaSexo, validatePassword, VerificaModalidade } from "../validaForm.js";
 import { file, getImgRef, imgRef, metadata } from "./storage/getImg.js";
@@ -22,6 +22,7 @@ export async function Cadastrar() {
     txtDataNascimento.addEventListener('change', () => {
         let idade = calculaIdade(txtDataNascimento.value)
         filtraCategoria(idade)
+        txtModalidadeRacing.selectedIndex = 0
     })
     txtCategoria.addEventListener('change', () => {
         let cat = txtCategoria.value
@@ -70,22 +71,16 @@ export async function Cadastrar() {
                     loading.hidden = false
                     if (imgRef != null) {
                         let ref = `images/${imgRef}`
-                        loginPais.value = txtPais.value
-                        loginDocumento.value = txtDocumento.value
-                        loginPassword.value = txtSenha.value
-                        let redirec = 'modal'
-                        uploadImagem(file, ref, metadata, redirec)
+                        let pais = txtPais.value
+                        let doc = txtDocumento.value
+                        let psw = txtSenha.value
+                        uploadImagemCad(file, ref, metadata, doc, psw, pais)
                         limparDados()
                     } else {
-                        loginPais.value = txtPais.value
-                        loginDocumento.value = txtDocumento.value
-                        loginPassword.value = txtSenha.value
-                        setTimeout(function () {
-                            loading.hidden = false
-                        }, 2000);
-
-                        $("#cadastroModal").modal("hide");
-                        $("#loginModal").modal("show");
+                        let pais = txtPais.value
+                        let doc = txtDocumento.value
+                        let psw = txtSenha.value
+                        loginCad(doc, psw, pais)
                         limparDados()
                     }
                     alert("Cadastro Feito com Sucesso!!!")
@@ -116,22 +111,16 @@ export async function Cadastrar() {
                     loading.hidden = false
                     if (imgRef != null) {
                         let ref = `images/${imgRef}`
-                        loginPais.value = txtPais.value
-                        loginDocumento.value = txtDocumento.value
-                        loginPassword.value = txtSenha.value
-                        let redirec = 'modal'
-                        uploadImagem(file, ref, metadata, redirec)
+                        let pais = txtPais.value
+                        let doc = txtDocumento.value
+                        let psw = txtSenha.value
+                        uploadImagemCad(file, ref, metadata, doc, psw, pais)
                         limparDados()
                     } else {
-                        loginPais.value = txtPais.value
-                        loginDocumento.value = txtDocumento.value
-                        loginPassword.value = txtSenha.value
-                        setTimeout(function () {
-                            loading.hidden = false
-                        }, 2000);
-
-                        $("#cadastroModal").modal("hide");
-                        $("#loginModal").modal("show");
+                        let pais = txtPais.value
+                        let doc = txtDocumento.value
+                        let psw = txtSenha.value
+                        loginCad(doc, psw, pais)
                         limparDados()
                     }
                     alert("Cadastro Feito com Sucesso!!!")
