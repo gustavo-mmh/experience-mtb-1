@@ -39,6 +39,7 @@ export const cardNomeEquipe = document.querySelector('#cardNomeEquipe');
 export const cardTamanhoCamiseta = document.querySelector('#cardTamanhoCamiseta');
 export const cardFoto = document.querySelector('#cardFoto');
 export const cardStatus = document.querySelector('#cardStatus');
+export const loading = document.querySelector("#load");
 
 
 export const checkboxSenha = document.querySelector('#checkboxSenha');

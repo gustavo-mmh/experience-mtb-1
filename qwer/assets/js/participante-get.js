@@ -37,7 +37,6 @@ export async function getParticipante() {
         txtCategoria.value = item.categoria
         if (txtDataNascimento != null) {
             let idade = calculaIdade(txtDataNascimento.value)
-            console.log(idade)
             filtraCategoria(idade)
             let cat = txtCategoria.value
             filtraCategoriaSexo(cat)

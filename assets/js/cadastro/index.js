@@ -1,6 +1,6 @@
 import { getExperienceMtbdocsID, subscribeToExperienceMtb, uploadImagem } from "../firebase/experience-mtb.js";
 import { login } from "../login/index.js";
-import { checkboxTermos, formCadastro, limparDados, txtCategoria, txtCidade, txtConfirmaSenha, txtDataNascimento, txtDocumento, txtEmail, txtFotoCard, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../ui.js';
+import { checkboxTermos, formCadastro, limparDados, loading, loginDocumento, loginPais, loginPassword, txtCategoria, txtCidade, txtConfirmaSenha, txtDataNascimento, txtDocumento, txtEmail, txtFotoCard, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../ui.js';
 import { bloqueioCadastro, calculaIdade, filtraCategoria, filtraCategoriaSexo, validatePassword, VerificaModalidade } from "../validaForm.js";
 import { file, getImgRef, imgRef, metadata } from "./storage/getImg.js";
 // import { file, getimg, metadata, newName, storageRef } from "./storage/index.js";
@@ -67,15 +67,32 @@ export async function Cadastrar() {
                         status: 'Pendente',
                     }
                     subscribeToExperienceMtb(subscription, ID);
+                    loading.hidden = false
+                    if (imgRef != null) {
+                        let ref = `images/${imgRef}`
+                        loginPais.value = txtPais.value
+                        loginDocumento.value = txtDocumento.value
+                        loginPassword.value = txtSenha.value
+                        let redirec = 'modal'
+                        uploadImagem(file, ref, metadata, redirec)
+                        limparDados()
+                    } else {
+                        loginPais.value = txtPais.value
+                        loginDocumento.value = txtDocumento.value
+                        loginPassword.value = txtSenha.value
+                        setTimeout(function () {
+                            loading.hidden = false
+                        }, 2000);
+
+                        $("#cadastroModal").modal("hide");
+                        $("#loginModal").modal("show");
+                        limparDados()
+                    }
                     alert("Cadastro Feito com Sucesso!!!")
-                    let ref = `images/${imgRef}`
-                    uploadImagem(file, ref, metadata)
-                    limparDados()
+
                 } else {
                     if (imgRef != null) {
                         fotoCard1 = imgRef
-                        let ref = `images/${imgRef}`
-                        uploadImagem(file, ref, metadata)
                     }
                     const subscription = {
                         pais: txtPais.value,
@@ -96,8 +113,28 @@ export async function Cadastrar() {
                         status: 'Pendente',
                     }
                     subscribeToExperienceMtb(subscription, ID);
+                    loading.hidden = false
+                    if (imgRef != null) {
+                        let ref = `images/${imgRef}`
+                        loginPais.value = txtPais.value
+                        loginDocumento.value = txtDocumento.value
+                        loginPassword.value = txtSenha.value
+                        let redirec = 'modal'
+                        uploadImagem(file, ref, metadata, redirec)
+                        limparDados()
+                    } else {
+                        loginPais.value = txtPais.value
+                        loginDocumento.value = txtDocumento.value
+                        loginPassword.value = txtSenha.value
+                        setTimeout(function () {
+                            loading.hidden = false
+                        }, 2000);
+
+                        $("#cadastroModal").modal("hide");
+                        $("#loginModal").modal("show");
+                        limparDados()
+                    }
                     alert("Cadastro Feito com Sucesso!!!")
-                    limparDados()
                 }
             }
 
