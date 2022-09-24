@@ -25,7 +25,7 @@ body {
 .header-wrapper {
   height: 100vh;
   min-height: 34rem;
-  background: url("../images/bg.png") no-repeat center;
+  background: url("../images/bg_desktop.jpg") no-repeat center;
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -430,7 +430,7 @@ h2 {
     width: 60%;
   }
   .header-wrapper {
-    background: url(../images/bg-mob.png) no-repeat center;
+    background: url("../images/bg_mob.png") no-repeat center;
     background-size: cover;
   }
   .header-logo {
@@ -479,7 +479,7 @@ h2 {
     width: 50%;
   }
   .header-wrapper {
-    background: url(../images/bg-mob.png) no-repeat center;
+    background: url("../images/bg_mob.png") no-repeat center;
     background-size: cover;
   }
   .header-logo {
@@ -526,7 +526,7 @@ h2 {
 /* // `lg` applies to medium devices (tablets, less than 992px) */
 @media (min-width: 767.99px) {
   .header-wrapper {
-    background: url("../images/bg.png") no-repeat center;
+    background: url("../images/bg_desktop.jpg") no-repeat center;
     background-size: cover;
   }
   .logo-escrita {
