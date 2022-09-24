@@ -27,6 +27,9 @@ export function VerificaFormaPagamento2(element, element2) {
     if (txtFormadePagamento.value == "Banco") {
         element.hidden = false;
         element2.hidden = true;
+    } else if (txtFormadePagamento.value == "Mercadopago") {
+        element.hidden = false;
+        element2.hidden = true;
     } else if (txtFormadePagamento.value == "Pix") {
         element2.hidden = false;
         element.hidden = true;
