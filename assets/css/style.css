@@ -400,7 +400,7 @@ h2 {
 .social {
   transform: scale(0.8);
   transition: 0.5s;
-  color: black;
+  color: #dd5b12;
 }
 .social-fb:hover {
   background: linear-gradient(24deg, #6600ff 0%, #15a3fa 100%);
