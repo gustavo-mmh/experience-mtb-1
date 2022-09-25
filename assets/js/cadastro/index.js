@@ -1,11 +1,14 @@
-import { getExperienceMtbdocsID, subscribeToExperienceMtb, uploadImagem, uploadImagemCad } from "../firebase/experience-mtb.js";
-import { login, loginCad } from "../login/index.js";
-import { addDaysToDate, checkboxTermos, formCadastro, limparDados, loading, loginDocumento, loginPais, loginPassword, txtCategoria, txtCidade, txtConfirmaSenha, txtDataNascimento, txtDocumento, txtEmail, txtFotoCard, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../ui.js';
+import { getExperienceMtbdocsID, subscribeToExperienceMtb, uploadImagemCad } from "../firebase/experience-mtb.js";
+import { loginCad } from "../login/index.js";
+import { addDaysToDate, checkboxTermos, formatDate, formCadastro, limparDados, loading, txtCategoria, txtCidade, txtConfirmaSenha, txtDataNascimento, txtDocumento, txtEmail, txtFotoCard, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../ui.js';
 import { bloqueioCadastro, calculaIdade, filtraCategoria, filtraCategoriaSexo, validatePassword, VerificaModalidade } from "../validaForm.js";
 import { file, getImgRef, imgRef, metadata } from "./storage/getImg.js";
 // import { file, getimg, metadata, newName, storageRef } from "./storage/index.js";
 let fotoCard1 = ''
 let tmpDate = new Date()
+let hoje = formatDate(tmpDate, 'dd/mm/aaaa')
+let dia10 = addDaysToDate(tmpDate, 10)
+let dataFim = formatDate(dia10, 'dd/mm/aaaa')
 export async function Cadastrar() {
 
     txtModalidade.addEventListener('change', () => {
@@ -67,8 +70,8 @@ export async function Cadastrar() {
                         fotoCard: fotoCard1,
                         comprovantePagamento: '',
                         status: 'Pendente',
-                        dataInscricao: tmpDate,
-                        dataFimEdit: addDaysToDate(tmpDate, 10),
+                        dataInscricao: hoje,
+                        dataFimEdit: dataFim,
                     }
                     subscribeToExperienceMtb(subscription, ID);
                     loading.hidden = false
@@ -110,8 +113,8 @@ export async function Cadastrar() {
                         comprovantePagamento: '',
                         status: 'Pendente',
                         dataInscricao: 'Pendente',
-                        dataInscricao: tmpDate,
-                        dataFimEdit: addDaysToDate(tmpDate, 10),
+                        dataInscricao: hoje,
+                        dataFimEdit: dataFim,
                     }
                     subscribeToExperienceMtb(subscription, ID);
                     loading.hidden = false
