@@ -34,6 +34,7 @@ body {
   /* animation: backgroundTransition 8s ease-in-out infinite; */
   position: relative;
 }
+
 .infos {
   background-color: rgba(97, 19, 32, 0.79);
   padding: 4%;
@@ -112,6 +113,10 @@ h2 {
   background: white;
   cursor: inherit;
   display: block;
+}
+.alert-bordo {
+  background: #842029;
+  border: 0px;
 }
 
 /* This is the style of our error messages */
@@ -303,7 +308,6 @@ h2 {
   height: 18.75em;
   width: 25em;
   margin: 0 0 0 0;
-
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
