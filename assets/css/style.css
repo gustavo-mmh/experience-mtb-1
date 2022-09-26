@@ -38,6 +38,7 @@ body {
 .infos {
   background-color: rgba(97, 19, 32, 0.79);
   padding: 4%;
+  justify-content: space-evenly;
 }
 h1 {
   text-transform: uppercase;
