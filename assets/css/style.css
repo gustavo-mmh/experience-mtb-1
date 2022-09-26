@@ -282,7 +282,7 @@ h2 {
   height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -507,8 +507,8 @@ h2 {
     flex-direction: column;
   }
 
-  .container .card-container:nth-child(1),
-  .container .card-container:nth-child(3) {
+  .container .card-container:nth-child(2),
+  .container .card-container:nth-child(4) {
     flex-direction: column-reverse;
   }
 
