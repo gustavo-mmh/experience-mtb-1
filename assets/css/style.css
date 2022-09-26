@@ -458,8 +458,8 @@ h2 {
     flex-direction: column;
   }
 
-  .container .card-container:nth-child(1),
-  .container .card-container:nth-child(3) {
+  .container .card-container:nth-child(2),
+  .container .card-container:nth-child(4) {
     flex-direction: column-reverse;
   }
 
@@ -470,7 +470,7 @@ h2 {
 
   .card-text {
     width: 90%;
-    margin-top: 2rem;
+    margin: 1rem;
     text-align: center;
   }
 
@@ -519,7 +519,7 @@ h2 {
 
   .card-text {
     width: 90%;
-    margin-top: 2rem;
+    margin: 1rem;
     text-align: center;
   }
 
