@@ -115,7 +115,17 @@
                 <div class="mb-2 mt-3">
                   <label for="txtTamanhoCamiseta" class="form-label">
                     <i class=" fa fa-shirt fa-fw" aria-hidden="true"></i>
-                    *Tamanho da Camiseta:</label>
+                    *Tamanho da Camiseta:
+                  </label>
+                  <p>
+                    <a class="text-light" data-bs-toggle="collapse" href="#tabelaTamanho" role="button"
+                      aria-expanded="false" aria-controls="tabelaTamanho">Clique para ver a tabela de tamanhos</a>
+                  </p>
+                  <div class="collapse p-1" id="tabelaTamanho">
+                    <div class="card card-body">
+                      <img src="./assets/images/tabela-medidas.jpg" alt="tabela-medidas" class="img-fluid">
+                    </div>
+                  </div>
                   <select id="txtTamanhoCamiseta" class="form-select" required name="tamanhoCamiseta"
                     aria-label="Selecione um tamanho">
                     <option>P</option>
@@ -123,118 +133,117 @@
                     <option>G</option>
                     <option>GG</option>
                   </select>
-                </div>
-                <div class="mb-2 mt-3">
-                  <label for="txtCategoria" class="form-label">
-                    <i class="fa-solid fa-venus-mars"></i>
-                    *Sexo:</label>
-                  <select required id="txtCategoria" class="form-select" name="Categoria"
-                    aria-label="Selecione uma Opção">
-                    <option value="" selected>Selecione uma Opção</option>
-                    <option>Masculino</option>
-                    <option>Feminino</option>
-                  </select>
-                </div>
-                <div class="mb-2 mt-3">
-                  <label for="txtModalidade" class="form-label">
-                    <i class="fa-solid fa-person-biking fa-fw" aria-hidden="true"></i>
-                    *Modalidade:</label>
-                  <select required id="txtModalidade" class="form-select" name="modalidade"
-                    aria-label="Selecione uma Modalidade">
-                    <option value="" selected>Selecione uma Modalidade</option>
-                    <option value="Racing">Racing (Competição)</option>
-                    <option value="Challenge">Challenge (Desafio)</option>
-                  </select>
-                </div>
-                <div id="racing" class="mb-2 mt-3" hidden>
-                  <label for="txtModalidadeRacing" class="form-label">
-                    <i class="fa-solid fa-flag-checkered fa-fw" aria-hidden="true"></i>
-                    *Categorias Racing (Competição):</label>
-                  <select id="txtModalidadeRacing" class="form-select" name="racing"
-                    aria-label="Selecione uma Modalidade" required>
-                    <option value="" selected>Selecione uma Categoria</option>
-                    <optgroup label="Categoria Promocional">
-                      <option value="Promocional">Promocional</option>
-                      <option value="Dama Promocional">Dama Promocional</option>
-                    </optgroup>
-                    <optgroup label="Categoria Elite">
-                      <option value="Elite">Elite (18+)</option>
-                      <option value="Dama Elite">Dama Elite (18+)</option>
-                    </optgroup>
-                    <optgroup id="catId" label="Categoria Por Idade">
-                      <option value="Sub.30">Sub. 30 (até 29 anos)</option>
-                      <option value="Master A1">Master A1 (30 à 34 anos)</option>
-                      <option value="Master A2">Master A2 (35 à 39 anos)</option>
-                      <option value="Master B1">Master B1 (40 à 44 anos)</option>
-                      <option value="Master B2">Master B2 (45 à 49 anos)</option>
-                      <option value="Master C1">Master C1 (50 à 54 anos)</option>
-                      <option value="Master C2">Master C2 (55 à 59 anos)</option>
-                      <option value="Master D">Master D (60 anos+)</option>
-                    </optgroup>
-                  </select>
-                </div>
-                <div id="challenge" class="mb-2 mt-3" hidden>
-                  <label for="txtModalidadeChallenge" class="form-label">
-                    <img src="assets/images/challenge.png" class="img-fluid icone_chl" alt="">
-                    *Categorias Challenge (Desafio):</label>
-                  <select id="txtModalidadeChallenge" class="form-select" name="challenge"
-                    aria-label="Selecione uma Modalidade">
-                    <option value="" selected>Selecione uma Opção</option>
-                    <option value="Soft">Soft - 10Km (Suave)</option>
-                    <option value="Light">Light - 25Km (Leve)</option>
-                    <option value="Hard">Hard 45Km (Duro)</option>
-                  </select>
-                </div>
-                <div class="mb-2">
-                  <label for="txtNomeEquipe" class="form-label">
-                    <i class="fa fa-people-group fa-fw" aria-hidden="true"></i>
-                    Nome da Equipe:</label>
-                  <input type="text" id="txtNomeEquipe" class="form-control" name="nomeEquipe"
-                    placeholder="Digite o Nome da Equipe">
-                </div>
-                <div class="mb-2">
-                  <label for="txtFotoCard">
-                    <i class="fa fa-picture-o fa-fw" aria-hidden="true"></i>
-                    Foto para o Card:
-                  </label>
-                  <p>(Anexo de sua foto favorita para receber seu card promocional do Experience
-                    2022)</p>
-                  <div class="input-group mb-3">
-                    <input type="file" accept="image/*" id="txtFotoCard" class="form-control" name="txtFotoCard">
+                  <div class="mb-2 mt-3">
+                    <label for="txtCategoria" class="form-label">
+                      <i class="fa-solid fa-venus-mars"></i>
+                      *Sexo:</label>
+                    <select required id="txtCategoria" class="form-select" name="Categoria"
+                      aria-label="Selecione uma Opção">
+                      <option value="" selected>Selecione uma Opção</option>
+                      <option>Masculino</option>
+                      <option>Feminino</option>
+                    </select>
+                  </div>
+                  <div class="mb-2 mt-3">
+                    <label for="txtModalidade" class="form-label">
+                      <i class="fa-solid fa-person-biking fa-fw" aria-hidden="true"></i>
+                      *Modalidade:</label>
+                    <select required id="txtModalidade" class="form-select" name="modalidade"
+                      aria-label="Selecione uma Modalidade">
+                      <option value="" selected>Selecione uma Modalidade</option>
+                      <option value="Racing">Racing (Competição)</option>
+                      <option value="Challenge">Challenge (Desafio)</option>
+                    </select>
+                  </div>
+                  <div id="racing" class="mb-2 mt-3" hidden>
+                    <label for="txtModalidadeRacing" class="form-label">
+                      <i class="fa-solid fa-flag-checkered fa-fw" aria-hidden="true"></i>
+                      *Categorias Racing (Competição):</label>
+                    <select id="txtModalidadeRacing" class="form-select" name="racing"
+                      aria-label="Selecione uma Modalidade" required>
+                      <option value="" selected>Selecione uma Categoria</option>
+                      <optgroup label="Categoria Promocional">
+                        <option value="Promocional">Promocional</option>
+                        <option value="Dama Promocional">Dama Promocional</option>
+                      </optgroup>
+                      <optgroup label="Categoria Elite">
+                        <option value="Elite">Elite (18+)</option>
+                        <option value="Dama Elite">Dama Elite (18+)</option>
+                      </optgroup>
+                      <optgroup id="catId" label="Categoria Por Idade">
+                        <option value="Sub.30">Sub. 30 (até 29 anos)</option>
+                        <option value="Master A1">Master A1 (30 à 34 anos)</option>
+                        <option value="Master A2">Master A2 (35 à 39 anos)</option>
+                        <option value="Master B1">Master B1 (40 à 44 anos)</option>
+                        <option value="Master B2">Master B2 (45 à 49 anos)</option>
+                        <option value="Master C1">Master C1 (50 à 54 anos)</option>
+                        <option value="Master C2">Master C2 (55 à 59 anos)</option>
+                        <option value="Master D">Master D (60 anos+)</option>
+                      </optgroup>
+                    </select>
+                  </div>
+                  <div id="challenge" class="mb-2 mt-3" hidden>
+                    <label for="txtModalidadeChallenge" class="form-label">
+                      <img src="assets/images/challenge.png" class="img-fluid icone_chl" alt="">
+                      *Categorias Challenge (Desafio):</label>
+                    <select id="txtModalidadeChallenge" class="form-select" name="challenge"
+                      aria-label="Selecione uma Modalidade">
+                      <option value="" selected>Selecione uma Opção</option>
+                      <option value="Soft">Soft - 10Km (Suave)</option>
+                      <option value="Light">Light - 25Km (Leve)</option>
+                      <option value="Hard">Hard 45Km (Duro)</option>
+                    </select>
                   </div>
                   <div class="mb-2">
-                    <label for="txtSenha" class="form-label">
-                      <i class="fa fa-shield" aria-hidden="true"></i>
-                      *Senha:</label>
-                    <input type="password" id="txtSenha" class="form-control" name="Senha"
-                      placeholder="Digite uma Senha" minlength="6" required="">
+                    <label for="txtNomeEquipe" class="form-label">
+                      <i class="fa fa-people-group fa-fw" aria-hidden="true"></i>
+                      Nome da Equipe:</label>
+                    <input type="text" id="txtNomeEquipe" class="form-control" name="nomeEquipe"
+                      placeholder="Digite o Nome da Equipe">
                   </div>
-                  <div class="mb-2 position-relative">
-                    <label for=" confirm_password" class="form-label">
-                      <i class="fa fa-check-double" aria-hidden="true"></i>
-                      *Confirme a Senha:</label>
-                    <input class="form-control" type="password" placeholder="Confirme Senha" id="txtConfirmaSenha"
-                      minlength="6" required="">
+                  <div class="mb-2">
+                    <label for="txtFotoCard">
+                      <i class="fa fa-picture-o fa-fw" aria-hidden="true"></i>
+                      Foto para o Card:
+                    </label>
+                    <p>(Anexo de sua foto favorita para receber seu card promocional do Experience
+                      2022)</p>
+                    <div class="input-group mb-3">
+                      <input type="file" accept="image/*" id="txtFotoCard" class="form-control" name="txtFotoCard">
+                    </div>
+                    <div class="mb-2">
+                      <label for="txtSenha" class="form-label">
+                        <i class="fa fa-shield" aria-hidden="true"></i>
+                        *Senha:</label>
+                      <input type="password" id="txtSenha" class="form-control" name="Senha"
+                        placeholder="Digite uma Senha" minlength="6" required="">
+                    </div>
+                    <div class="mb-2 position-relative">
+                      <label for=" confirm_password" class="form-label">
+                        <i class="fa fa-check-double" aria-hidden="true"></i>
+                        *Confirme a Senha:</label>
+                      <input class="form-control" type="password" placeholder="Confirme Senha" id="txtConfirmaSenha"
+                        minlength="6" required="">
+                    </div>
                   </div>
-                </div>
-                <div class="mb">
+                  <div class="mb">
+                    <label>
+                      <input type="checkbox" id="checkboxTermos" name="meucheckbox" required> *Li e Aceito os Termos <a
+                        href="https://docs.google.com/document/d/1XN1XYYFJIPq3iqLKXpkLwb-HZre_mlbd/edit?usp=sharing&ouid=109084348936773561627&rtpof=true&sd=true"
+                        target="_blank">Termos</a>
+                    </label>
+                  </div>
                   <label>
-                    <input type="checkbox" id="checkboxTermos" name="meucheckbox" required> *Li e Aceito os Termos <a
-                      href="https://docs.google.com/document/d/1XN1XYYFJIPq3iqLKXpkLwb-HZre_mlbd/edit?usp=sharing&ouid=109084348936773561627&rtpof=true&sd=true"
-                      target="_blank">Termos</a>
+                    Os campos com * são obrigatórios
                   </label>
-                </div>
-                <label>
-                  Os campos com * são obrigatórios
-                </label>
-                <div class="form-group">
-                  <button type="submit" id="btnCadastrar" class="btn btn-success float-end" disabled>
-                    <i class="fa fa-check" aria-hidden="true"></i>
-                    Inscrever</button>
-                  <button type="reset" class="btn btn-warning float-end">
-                    <i class="fa fa-eraser" aria-hidden="true"></i>
-                    Limpar</button>
-                </div>
+                  <div class="form-group">
+                    <button type="submit" id="btnCadastrar" class="btn btn-success float-end" disabled>
+                      <i class="fa fa-check" aria-hidden="true"></i>
+                      Inscrever</button>
+                    <button type="reset" class="btn btn-warning float-end">
+                      <i class="fa fa-eraser" aria-hidden="true"></i>
+                      Limpar</button>
+                  </div>
               </form>
             </div>
             <div class="col-lg-2 col-md-1 col-sm-0"></div>
@@ -290,6 +299,7 @@
     </div>
   </div>
   <!-- End Modal Login -->
+  <!-- ---------------------------- -->
   <div class="alert alert-bordo py-2 text-center">
     <h2 class="text-light">Informações</h2>
     <p><b>Local:</b> Santana do Livramento</p>
