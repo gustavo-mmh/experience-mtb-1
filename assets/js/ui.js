@@ -141,13 +141,9 @@ export function formatDate(date, format) {
         mm: date.getMonth() + 1,
         dd: date.getDate(),
         aaaa: date.getFullYear(),
-        h: date.getHours(),
-        m: date.getMinutes(),
-        s: date.getSeconds(),
     }
 
-    // return format.replace(/mm|dd|aaaa/gi, matched => map[matched])
-    format.replace(/dia|mes|ano|h|m|s/gi, matched => map[matched])
+    return format.replace(/mm|dd|aaaa/gi, matched => map[matched])
 }
 export function dataAtualFormatada(variavel) {
     let data = variavel,
