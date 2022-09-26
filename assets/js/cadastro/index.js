@@ -117,6 +117,7 @@ export async function Cadastrar() {
                         dataInscricao: 'Pendente',
                         dataInscricao: hoje,
                         dataFimEdit: dataFim,
+                        momentoInscricao: datainsc,
                     }
                     subscribeToExperienceMtb(subscription, ID);
                     loading.hidden = false
