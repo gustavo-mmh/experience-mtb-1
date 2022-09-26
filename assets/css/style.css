@@ -24,7 +24,7 @@ body {
 
 .header-wrapper {
   height: 100vh;
-  min-height: 34rem;
+  min-height: 43rem;
   background: url("../images/bg_desktop.jpg") no-repeat center;
   background-size: cover;
   display: flex;
