@@ -15,15 +15,16 @@ export async function login(form, loginDocumento, loginPassword, loginPais) {
             let documentoValid = {
                 pais: '',
                 documento: '',
-                senha: ''
+                senha: '',
+                dataFimEdit: ''
             }
             docsID.forEach(item => {
                 if (documentoValue == item.documento && senhaValue == item.senha) {
-
                     documentoValid = {
                         pais: item.pais,
                         documento: item.documento,
-                        senha: item.senha
+                        senha: item.senha,
+                        dataFimEdit: item.dataFimEdit
                     }
 
                 }
@@ -36,6 +37,7 @@ export async function login(form, loginDocumento, loginPassword, loginPais) {
                 sessionStorage.setItem('token', token,)
                 sessionStorage.setItem('documentoLogado', JSON.stringify(documentoValue))
                 sessionStorage.setItem('paislogado', JSON.stringify(pais))
+                sessionStorage.setItem('dataFimEdit', JSON.stringify(documentoValid.dataFimEdit))
             } else {
                 loginDocumento.setAttribute('style', 'border-color: red')
                 loginPassword.setAttribute('style', 'border-color: red')
@@ -54,7 +56,7 @@ export async function login(form, loginDocumento, loginPassword, loginPais) {
     });
 }
 export async function loginCad(loginDocumento, loginPassword, loginPais) {
-    debugger
+
     let documentoValue = loginDocumento
     let senhaValue = loginPassword
     let pais = loginPais
