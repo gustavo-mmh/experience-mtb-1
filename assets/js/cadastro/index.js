@@ -3,6 +3,7 @@ import { loginCad } from "../login/index.js";
 import { addDaysToDate, checkboxTermos, formatDate, formCadastro, limparDados, loading, txtCategoria, txtCidade, txtConfirmaSenha, txtDataNascimento, txtDocumento, txtEmail, txtFotoCard, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../ui.js';
 import { bloqueioCadastro, calculaIdade, filtraCategoria, filtraCategoriaSexo, validatePassword, VerificaModalidade } from "../validaForm.js";
 import { file, getImgRef, imgRef, metadata } from "./storage/getImg.js";
+// import { file, getimg, metadata, newName, storageRef } from "./storage/index.js";
 let fotoCard1 = ''
 let tmpDate = new Date()
 let hoje = formatDate(tmpDate, 'dd/mm/aaaa')
