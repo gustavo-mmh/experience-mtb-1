@@ -120,6 +120,9 @@
                   <div id="downloadCard"></div>
                   <div>
                     <p id="txtDesconto" class="text-bg-warning text-center"></p>
+                    <p class="text-bg-danger text-center">O pagamento só sera confirmado apos envio do comprovante.
+                      <br> O prazo de confirmação é e 3 dias úteis
+                    </p>
                   </div>
                   <form class="row" id="formComprovante">
                     <div class="mb-2">
@@ -156,7 +159,7 @@
                       </div>
                   </form>
                 </div>
-                <div class="p-2" id="pagamento"></div>
+                <div class="text-center p-2" id="pagamento"></div>
                 <div id="btnPagamentoBr" hidden class="text-center p-1">
                   <script src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js"
                     data-preference-id="379326377-e539835a-6b56-457c-9315-34769d218659" data-source="button">
@@ -193,7 +196,7 @@
               value="00020101021126820014br.gov.bcb.pix0114477893600001880242Inscrição lote promocional Experience 20225204000053039865406130.005802BR5913YELLOW SPORTS6008BRASILIA621005061Exp2263048B4C"
               readonly />
             <div class="text-center">
-              <button id="copiarQR" type="button" class="btn btn-outline-dark">Copiar</button>
+              <button id="copiarQR" type="button" class="btn btn-primary">Copiar</button>
               <div class="p-1">
                 <p><b>Yellow Sports</b></p>
                 <span><b>Chave Pix</b></span>
