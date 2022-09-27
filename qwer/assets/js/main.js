@@ -80,7 +80,7 @@ docs.forEach(item => {
                 VerificaFormaPagamento2(btnLimkPagamento, btnPix, p)
             })
         } else if (itemPais == 'Uruguai') {
-            document.querySelector("#txtDesconto").innerHTML = `<b>1° Lote "Promocional"</b> (de 26.09 à 06.10) $ 1300,00`
+            document.querySelector("#txtDesconto").innerHTML = `<b>1° Lote "Promocional"</b> (de 26.09 à 06.10) $1300,00`
             BotoesPorNacionalidade(itemPais)
             let btnLimkPagamento = document.querySelector("#btnPagamentoUy")
             let btnBr = document.querySelector("#btnPagamentoBr")
@@ -137,7 +137,7 @@ docs.forEach(item => {
                 VerificaFormaPagamento2(btnLimkPagamento, btnPix, p)
             })
         } else if (itemPais == 'Uruguai') {
-            document.querySelector("#txtDesconto").innerHTML = `<b>1° Lote "Promocional"</b> (de 26.09 à 06.10) $ 1300,00`
+            document.querySelector("#txtDesconto").innerHTML = `<b>1° Lote "Promocional"</b> (de 26.09 à 06.10) $1300,00`
             BotoesPorNacionalidade(itemPais)
             let btnLimkPagamento = document.querySelector("#btnPagamentoUy")
             btnLimkPagamento.hidden = true
