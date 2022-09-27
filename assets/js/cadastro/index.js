@@ -27,7 +27,6 @@ export async function Cadastrar() {
     txtDataNascimento.addEventListener('change', () => {
         let idade = calculaIdade(txtDataNascimento.value)
         filtraCategoria(idade)
-        console.log(idade)
         txtModalidadeRacing.selectedIndex = 0
     })
     txtCategoria.addEventListener('change', () => {
