@@ -48,7 +48,7 @@ docs.forEach(item => {
     img = item.fotoCard
     dataInscricao = item.dataInscricao
     dataFimEditar = item.dataFimEdit
-    document.querySelector("#txtDataLimite").innerHTML = `Você tem até ${dataFimEditar} <br/> para editar as informaçõs`
+    document.querySelector("#txtDataLimite").innerHTML = `Você tem até ${dataFimEditar} <br/> para editar as informações`
     if (item.status == 'Confirmado') {
         cardStatus.classList.add('text-success');
         cardStatus.innerHTML = item.status
