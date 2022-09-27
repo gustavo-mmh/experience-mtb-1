@@ -219,6 +219,7 @@ export function filtraCategoria(idade) {
             txtModalidadeRacing.options[5].disabled = false
             txtModalidadeRacing.options[5].hidden = false
         }
+        console.log('1')
     }
     else if (idade >= 30 && idade < 35) {
         txtModalidadeRacing.options[1].disabled = false
@@ -229,6 +230,7 @@ export function filtraCategoria(idade) {
             txtModalidadeRacing.options[6].disabled = false
             txtModalidadeRacing.options[6].hidden = false
         }
+        console.log('2')
     }
     else if (idade >= 35 && idade < 40) {
         txtModalidadeRacing.options[1].disabled = false
@@ -239,8 +241,9 @@ export function filtraCategoria(idade) {
             txtModalidadeRacing.options[7].disabled = false
             txtModalidadeRacing.options[7].hidden = false
         }
+        console.log('3')
     }
-    else if (idade >= 40 && idade < 44) {
+    else if (idade >= 40 && idade < 45) {
         txtModalidadeRacing.options[1].disabled = false
         txtModalidadeRacing.options[2].disabled = false
         for (let i = 5; i <= 12; i++) {
@@ -249,6 +252,7 @@ export function filtraCategoria(idade) {
             txtModalidadeRacing.options[8].disabled = false
             txtModalidadeRacing.options[8].hidden = false
         }
+        console.log('aqui 4')
     }
     else if (idade >= 45 && idade < 50) {
         txtModalidadeRacing.options[1].disabled = false
@@ -259,6 +263,7 @@ export function filtraCategoria(idade) {
             txtModalidadeRacing.options[9].disabled = false
             txtModalidadeRacing.options[9].hidden = false
         }
+        console.log('5')
     }
     else if (idade >= 50 && idade <= 54) {
         txtModalidadeRacing.options[1].disabled = false
@@ -269,6 +274,7 @@ export function filtraCategoria(idade) {
             txtModalidadeRacing.options[10].disabled = false
             txtModalidadeRacing.options[10].hidden = false
         }
+        console.log('6')
     }
     else if (idade >= 55 && idade <= 59) {
         txtModalidadeRacing.options[1].disabled = false
@@ -279,6 +285,7 @@ export function filtraCategoria(idade) {
             txtModalidadeRacing.options[11].disabled = false
             txtModalidadeRacing.options[11].hidden = false
         }
+        console.log('7')
     } else {
         txtModalidadeRacing.options[1].disabled = false
         txtModalidadeRacing.options[2].disabled = false
@@ -288,5 +295,6 @@ export function filtraCategoria(idade) {
             txtModalidadeRacing.options[12].disabled = false
             txtModalidadeRacing.options[12].hidden = false
         }
+        console.log('8')
     }
 }
