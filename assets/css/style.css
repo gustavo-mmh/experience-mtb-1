@@ -289,7 +289,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  width: 90%;
+  width: 100%;
 }
 
 .card-rcg {
@@ -319,12 +319,26 @@ h2 {
   cursor: pointer;
   transition: 0.3s;
 }
-
+.negrito {
+  font-weight: bold;
+}
+li.none {
+  list-style-type: none;
+}
 .card-text {
-  width: 40%;
+  width: 50%;
   font-family: sans-serif;
   letter-spacing: 1px;
-  color: rgb(109, 109, 109);
+  color: rgb(0, 0, 0);
+  font-size: 0.75em;
+  border: #002060 1px solid;
+  margin: 1em 0em 1em 0em;
+}
+.img-card-text {
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .card-wrapper {
@@ -521,7 +535,7 @@ h2 {
   .card-text {
     width: 90%;
     margin: 1rem;
-    text-align: center;
+    text-align: justify;
   }
 
   .card:hover > .card-wrapper::before {
