@@ -1,10 +1,69 @@
-import { btnCadastro, BtnComIcone, checkboxTermos, divChallenge, divPagamento, divRacing, formCadastro, LinkComIcone, Paragrafo, required, txtCategoria, txtConfirmaSenha, txtDataNascimento, txtFormadePagamento, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtPais, txtSenha } from "./ui.js";
+import { btnCadastro, BtnComIcone, checkboxTermos, divChallenge, divPagamento, divRacing, formCadastro, LinkComIcone, Paragrafo, required, txtCategoria, txtConfirmaSenha, txtDataNascimento, txtdddWhatsApp, txtFormadePagamento, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtPais, txtSenha, txtWhatsApp } from "./ui.js";
 let idLinkPagamento = 'btnLimkPagamento';
 let faIconPagamento = 'fa';
 let classeIconLinkPagamento = 'fa-credit-card';
 
-export function VerificaModalidade() {
-    if (txtModalidade.value == "Racing") {
+// export function mascara(o, f) {
+//     setTimeout(function () {
+//         var v = f(o.value);
+//         if (v != o.value) {
+//             o.value = v;
+//         }
+//     }, 1);
+// }
+// export function mascaraBR(v) {
+//     var r = v.replace(/\D/g, "");
+//     r = r.replace(/^0/, "");
+//     if (r.length > 10) {
+//         r = r.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
+//     } else if (r.length > 5) {
+//         r = r.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+//     } else if (r.length > 2) {
+//         r = r.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
+//     } else {
+//         r = r.replace(/^(\d*)/, "($1");
+//     }
+//     return r;
+// }
+// export function mascaraUY(v) {
+//     // +598 92 189 492
+//     var r = v.replace(/\D/g, "");
+//     r = r.replace(/^0/, "");
+//     if (r.length > 10) {
+//         r = r.replace(/^(\d\d)(\d{3})(\d{3}).*/, "$1 $2-$3");
+//     } else if (r.length > 5) {
+//         r = r.replace(/^(\d\d)(\d{3})(\d{0,3}).*/, "$1 $2-$3");
+//     } else if (r.length > 2) {
+//         r = r.replace(/^(\d\d)(\d{0,5})/, "$1 $2");
+//     } else {
+//         r = r.replace(/^(\d*)/, "$1");
+//     }
+//     return r;
+// }
+// export function mascaraAR(v) {
+//     var r = v.replace(/\D/g, "");
+//     r = r.replace(/^0/, "");
+//     if (r.length > 10) {
+//         r = r.replace(/^(\d\d)(\d{4})(\d{4}).*/, "$1 $2-$3");
+//     } else if (r.length > 5) {
+//         r = r.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "$1 $2-$3");
+//     } else if (r.length > 2) {
+//         r = r.replace(/^(\d\d)(\d{0,5})/, "$1 $2");
+//     } else {
+//         r = r.replace(/^(\d*)/, "$1");
+//     }
+//     return r;
+// }
+// export function removeHandler() {
+//     txtWhatsApp.removeEventListener("keyup", () => { mascara(txtWhatsApp, mascaraUY) });
+// }
+// export const paisWpp = (m) => {
+//     txtWhatsApp.addEventListener('keyup', () => { mascara(txtWhatsApp, m) })
+//     txtWhatsApp.addEventListener('blur', () => { mascara(txtWhatsApp, m) })
+// }
+export function VerificaModalidade(txt) {
+    let ehRacing = txt == "Racing"
+    if (ehRacing) {
         divRacing.hidden = false;
         divChallenge.hidden = true;
         txtModalidadeChallenge.required = false;
@@ -206,9 +265,11 @@ export function filtraCategoriaSexo(cat) {
 export function filtraCategoria(idade) {
     if (idade < 18) {
         txtModalidadeRacing.options[1].disabled = false
-        for (let i = 3; i <= 12; i++) {
+        let i = 3
+        while (i <= 12) {
             txtModalidadeRacing.options[i].disabled = true
             txtModalidadeRacing.options[i].hidden = true
+            i++
         }
     } else if (idade >= 18 && idade < 30) {
         txtModalidadeRacing.options[1].disabled = false

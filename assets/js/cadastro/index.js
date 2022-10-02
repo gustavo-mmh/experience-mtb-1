@@ -17,12 +17,15 @@ export async function Cadastrar() {
         txtWhatsApp.value = ''
         if (txt == '+55') {
             txtWhatsApp.placeholder = 'DD XXXXX XXXX'
+            txtWhatsApp.maxlength = 13
             return
         } else if (txt == '+598') {
             txtWhatsApp.placeholder = 'XX XXX XXX'
+            txtWhatsApp.maxlength = 10
             return
         } else if (txt == '+549') {
             txtWhatsApp.placeholder = 'XX XXXX XXXX'
+            txtWhatsApp.maxlength = 12
             // paisWpp(mascaraAR)
             return
         } else {
