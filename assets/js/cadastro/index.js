@@ -1,7 +1,7 @@
 import { getExperienceMtbdocsID, subscribeToExperienceMtb, uploadImagemCad } from "../firebase/experience-mtb.js";
 import { loginCad } from "../login/index.js";
-import { addDaysToDate, checkboxTermos, dataAtualFormatada, formatDate, formCadastro, limparDados, loading, txtCategoria, txtCidade, txtConfirmaSenha, txtDataNascimento, txtDocumento, txtEmail, txtFotoCard, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../ui.js';
-import { bloqueioCadastro, calculaIdade, filtraCategoria, filtraCategoriaSexo, validatePassword, VerificaModalidade } from "../validaForm.js";
+import { addDaysToDate, checkboxTermos, dataAtualFormatada, formatDate, formCadastro, limparDados, loading, txtCategoria, txtCidade, txtConfirmaSenha, txtDataNascimento, txtdddWhatsApp, txtDocumento, txtEmail, txtFotoCard, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta, txtWhatsApp } from '../ui.js';
+import { bloqueioCadastro, calculaIdade, filtraCategoria, filtraCategoriaSexo, mascaraAR, mascaraBR, mascaraUY, paisWpp, removeHandler, validatePassword, VerificaModalidade } from "../validaForm.js";
 import { file, getImgRef, imgRef, metadata } from "./storage/getImg.js";
 // import { file, getimg, metadata, newName, storageRef } from "./storage/index.js";
 let fotoCard1 = ''
@@ -12,8 +12,27 @@ let dataFim = formatDate(dia10, 'dd/mm/aaaa')
 let datainsc = dataAtualFormatada(tmpDate)
 export async function Cadastrar() {
 
-    txtModalidade.addEventListener('change', () => {
-        VerificaModalidade()
+    txtdddWhatsApp.addEventListener('change', (e) => {
+        let txt = e.target.value
+        txtWhatsApp.value = ''
+        if (txt == '+55') {
+            txtWhatsApp.placeholder = 'DD XXXXX XXXX'
+            return
+        } else if (txt == '+598') {
+            txtWhatsApp.placeholder = 'XX XXX XXX'
+            return
+        } else if (txt == '+549') {
+            txtWhatsApp.placeholder = 'XX XXXX XXXX'
+            // paisWpp(mascaraAR)
+            return
+        } else {
+            txtWhatsApp.placeholder = 'Digite Seu WhatsApp'
+            return
+        }
+    })
+    txtModalidade.addEventListener('change', (e) => {
+        let txt = e.target.value
+        VerificaModalidade(txt)
     })
     txtSenha.addEventListener('keyup', () => {
         validatePassword(formCadastro, txtConfirmaSenha, txtSenha)
@@ -61,7 +80,7 @@ export async function Cadastrar() {
                         dataNascimento: txtDataNascimento.value,
                         email: txtEmail.value,
                         cidade: txtCidade.value,
-                        whatsapp: txtWhatsApp.value,
+                        whatsapp: txtdddWhatsApp.value + txtWhatsApp.value,
                         categoria: txtCategoria.value,
                         tamanhoCamiseta: txtTamanhoCamiseta.value,
                         modalidade: txtModalidade.value,
