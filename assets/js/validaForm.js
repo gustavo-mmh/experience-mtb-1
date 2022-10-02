@@ -1,4 +1,4 @@
-import { btnCadastro, BtnComIcone, checkboxTermos, divChallenge, divPagamento, divRacing, formCadastro, LinkComIcone, Paragrafo, required, txtCategoria, txtConfirmaSenha, txtDataNascimento, txtdddWhatsApp, txtFormadePagamento, txtModalidade, txtModalidadeChallenge, txtModalidadeRacing, txtPais, txtSenha, txtWhatsApp } from "./ui.js";
+import { btnCadastro, BtnComIcone, checkboxTermos, divChallenge, divPagamento, divRacing, LinkComIcone, Paragrafo, txtFormadePagamento, txtModalidadeChallenge, txtModalidadeRacing } from "./ui.js";
 let idLinkPagamento = 'btnLimkPagamento';
 let faIconPagamento = 'fa';
 let classeIconLinkPagamento = 'fa-credit-card';
