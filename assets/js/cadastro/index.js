@@ -115,7 +115,7 @@ export async function Cadastrar() {
                     }
                     alert("Cadastro Feito com Sucesso!!!")
 
-                } else {
+                } else if (txtModalidade.value == "Challenge") {
                     if (imgRef != null) {
                         fotoCard1 = imgRef
                     }
@@ -158,6 +158,10 @@ export async function Cadastrar() {
                         limparDados()
                     }
                     alert("Cadastro Feito com Sucesso!!!")
+                }
+                else {
+                    alert("Preencha o Formulário corretamente")
+
                 }
             }
 
