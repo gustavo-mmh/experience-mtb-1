@@ -6,8 +6,9 @@ import { checkboxFoto, checkboxSenha, divChallenge, divFoto, divRacing, divSenha
 import { bloqueio, bloqueioSenha, calculaIdade, filtraCategoria, filtraCategoriaSexo, validatePassword, VerificaModalidade } from "../../../assets/js/validaForm.js";
 export let img
 export async function getParticipante() {
-    txtModalidade.addEventListener('change', () => {
-        VerificaModalidade()
+   txtModalidade.addEventListener('change', (e) => {
+        let txt = e.target.value
+        VerificaModalidade(txt)
     })
     checkboxFoto.addEventListener('click', () => {
         bloqueio(divFoto, txtFotoCard)
