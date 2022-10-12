@@ -138,7 +138,7 @@ export function uploadImagemCad(file, imgRef, metadata, doc, psw, pais) {
             }
         },
         () => {
-            loading.hidden = true
+           // loading.hidden = true
             loginCad(doc, psw, pais)
             
         }
