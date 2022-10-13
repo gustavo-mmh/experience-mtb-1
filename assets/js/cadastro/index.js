@@ -126,7 +126,7 @@ export async function Cadastrar() {
                         dataNascimento: txtDataNascimento.value,
                         email: txtEmail.value,
                         cidade: txtCidade.value,
-                        whatsapp: txtWhatsApp.value,
+                        whatsapp: txtdddWhatsApp.value + txtWhatsApp.value,
                         categoria: txtCategoria.value,
                         tamanhoCamiseta: txtTamanhoCamiseta.value,
                         modalidade: txtModalidade.value,
