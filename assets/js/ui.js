@@ -188,8 +188,6 @@ export function lineBroken(text, text2) {
         if (texts.length > 2) {
             text2 = texts.pop()
             text = texts.toString().replace(/,/g, " ");
-            console.log('text', text)
-            console.log('text2', text2)
         }
         else text = text.substring(0, 40);
     }
