@@ -48,12 +48,19 @@ export const checkboxSenha = document.querySelector('#checkboxSenha');
 export const checkboxTermos = document.querySelector('#checkboxTermos');
 export const checkboxFoto = document.querySelector('#checkboxFoto');
 
+export const btnDowload = document.querySelector("#btnDownload");
+export const btnDowloadUpd = document.querySelector("#btnDownloadUpd");
 export const btnEditar = document.querySelector('#btnEditInsc');
 export const btnCopiar = document.querySelector('#copiarQR');
 export const btnCadastro = document.querySelector('#btnCadastrar');
 export const btnLogin = document.querySelector('#btnLogin')
 export const btnLogout = document.querySelector('#btnLogout')
+export const btnFechaModal = document.querySelector('#fecharModal')
 
+export const divModalCard = document.querySelector('#modalCard');
+export const divDownloadCard = document.querySelector('#downloadCard');
+export const linkDownload = document.querySelector('#linkDownload');
+export const linkDownloadUpd = document.querySelector('#linkDownloadUpd');
 export const divEditarInsc = document.querySelector('#editarInsc');
 export const divComprovante = document.querySelector('#comprovante');
 export const divFoto = document.querySelector('#divFoto');
@@ -133,7 +140,9 @@ export function copiarTexto() {
     document.execCommand("copy");
     alert("Texto Copiado");
 }
-
+export function fechaModal(tag) {
+    $(tag).modal("hide");
+}
 export function addDaysToDate(date, days) {
     var res = new Date(date);
     res.setDate(res.getDate() + days);
@@ -158,10 +167,56 @@ export function dataAtualFormatada(variavel) {
         s = data.getSeconds().toString().padStart(2, '0');
     return `${dia}/${mes}/${ano} - ${h}:${m}:${s}`;
 }
-export function download() {
-    var download = document.getElementById("download");
+export function download(div) {
     var image = document.getElementById("myCanvas").toDataURL("image/png")
         .replace("image/png", "image/octet-stream");
-    download.setAttribute("href", image);
-    //download.setAttribute("download","archive.png");
+    div.setAttribute("href", image);
+
 }
+export function cutName(nome) {
+    if (nome.length > 22) {
+        let nomes = nome.split(" ");
+        if (nomes.length > 2)
+            nome = nomes[0] + " " + nomes[nomes.length - 1]
+        else nome = nome.substring(0, 20);
+    }
+    return nome;
+}
+export function lineBroken(text, text2) {
+    if (text.length > 40) {
+        let texts = text.split(" ");
+        if (texts.length > 2) {
+            text2 = texts.pop()
+            text = texts.toString().replace(/,/g, " ");
+            console.log('text', text)
+            console.log('text2', text2)
+        }
+        else text = text.substring(0, 40);
+    }
+    return { text, text2 };
+}
+// export async function resizeImage(src, options) {
+
+//     const image = await loadImage(document.createElement('img'), src);
+//     canvas
+//     if (options.width && !options.height) {
+//         options.height = image.height * (options.width / image.width);
+//     } else if (!options.width && options.height) {
+//         options.width = image.width * (options.height / image.height);
+//     }
+//     Object.assign(canvas, options);
+//     canvas.getContext('2d').drawImage(image, 0, 0, canvas.width, canvas.height);
+//     return await new Promise(function (resolve) {
+//         canvas.toBlob(resolve, options.type || 'image/png', options.quality);
+//     });
+// }
+
+// function loadImage(img, src) {
+//     return new Promise((resolve, reject) => {
+//         img.src = src;
+//         img.completed ? resolve(img) : img.addEventListener('load', function () {
+//             resolve(img)
+//         });
+//         img.addEventListener('error', reject);
+//     })
+// }

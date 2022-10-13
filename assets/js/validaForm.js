@@ -3,64 +3,6 @@ let idLinkPagamento = 'btnLinkPagamento';
 let faIconPagamento = 'fa';
 let classeIconLinkPagamento = 'fa-credit-card';
 
-// export function mascara(o, f) {
-//     setTimeout(function () {
-//         var v = f(o.value);
-//         if (v != o.value) {
-//             o.value = v;
-//         }
-//     }, 1);
-// }
-// export function mascaraBR(v) {
-//     var r = v.replace(/\D/g, "");
-//     r = r.replace(/^0/, "");
-//     if (r.length > 10) {
-//         r = r.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
-//     } else if (r.length > 5) {
-//         r = r.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
-//     } else if (r.length > 2) {
-//         r = r.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
-//     } else {
-//         r = r.replace(/^(\d*)/, "($1");
-//     }
-//     return r;
-// }
-// export function mascaraUY(v) {
-//     // +598 92 189 492
-//     var r = v.replace(/\D/g, "");
-//     r = r.replace(/^0/, "");
-//     if (r.length > 10) {
-//         r = r.replace(/^(\d\d)(\d{3})(\d{3}).*/, "$1 $2-$3");
-//     } else if (r.length > 5) {
-//         r = r.replace(/^(\d\d)(\d{3})(\d{0,3}).*/, "$1 $2-$3");
-//     } else if (r.length > 2) {
-//         r = r.replace(/^(\d\d)(\d{0,5})/, "$1 $2");
-//     } else {
-//         r = r.replace(/^(\d*)/, "$1");
-//     }
-//     return r;
-// }
-// export function mascaraAR(v) {
-//     var r = v.replace(/\D/g, "");
-//     r = r.replace(/^0/, "");
-//     if (r.length > 10) {
-//         r = r.replace(/^(\d\d)(\d{4})(\d{4}).*/, "$1 $2-$3");
-//     } else if (r.length > 5) {
-//         r = r.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "$1 $2-$3");
-//     } else if (r.length > 2) {
-//         r = r.replace(/^(\d\d)(\d{0,5})/, "$1 $2");
-//     } else {
-//         r = r.replace(/^(\d*)/, "$1");
-//     }
-//     return r;
-// }
-// export function removeHandler() {
-//     txtWhatsApp.removeEventListener("keyup", () => { mascara(txtWhatsApp, mascaraUY) });
-// }
-// export const paisWpp = (m) => {
-//     txtWhatsApp.addEventListener('keyup', () => { mascara(txtWhatsApp, m) })
-//     txtWhatsApp.addEventListener('blur', () => { mascara(txtWhatsApp, m) })
-// }
 export function VerificaModalidade(txt) {
     let ehRacing = txt == "Racing"
     if (ehRacing) {
@@ -173,14 +115,22 @@ export function BotoesPorNacionalidade(pais) {
         txtFormadePagamento.options[5].hidden = true
     }
 }
-
-
 export function validatePassword(form, element, element2) {
     if (element.value != element2.value) {
         form.classList.add('was-validated')
         element.setCustomValidity("Senhas diferentes!");
     } else {
         element.setCustomValidity('');
+    }
+}
+export function bloqueioChecbox(checkbox, divElement, element) {
+    if (checkbox.checked == false) {
+        divElement.hidden = true;
+        element.value = '';
+        // element.required = true;
+    } else {
+        divElement.hidden = false;
+        // element.required = false;
     }
 }
 export function bloqueio(divElement, element) {
@@ -191,6 +141,19 @@ export function bloqueio(divElement, element) {
         divElement.hidden = true;
         element.value = '';
         // element.required = false;
+    }
+}
+export function bloqueioCheckboxSenha(checkbox, divElement, element, element2) {
+    if (checkbox.checked) {
+        divElement.style.display = "block";
+        element.required = true;
+        element2.required = true;
+    } else {
+        divElement.style.display = "none";
+        element.required = false;
+        element2.required = false;
+        element.value = '';
+        element2.value = '';
     }
 }
 export function bloqueioSenha(divElement, element, element2) {
@@ -206,7 +169,6 @@ export function bloqueioSenha(divElement, element, element2) {
         element2.value = '';
     }
 }
-
 export function bloqueioCadastro() {
     if (checkboxTermos.checked) {
         btnCadastro.disabled = false;
@@ -259,7 +221,6 @@ export function filtraCategoriaSexo(cat) {
         txtModalidadeRacing.options[3].disabled = true
         txtModalidadeRacing.options[3].hidden = true
         document.querySelector('#catId').hidden = true
-
     }
 }
 export function filtraCategoria(idade) {
@@ -353,3 +314,63 @@ export function filtraCategoria(idade) {
         }
     }
 }
+
+
+// export function mascara(o, f) {
+//     setTimeout(function () {
+//         var v = f(o.value);
+//         if (v != o.value) {
+//             o.value = v;
+//         }
+//     }, 1);
+// }
+// export function mascaraBR(v) {
+//     var r = v.replace(/\D/g, "");
+//     r = r.replace(/^0/, "");
+//     if (r.length > 10) {
+//         r = r.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
+//     } else if (r.length > 5) {
+//         r = r.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+//     } else if (r.length > 2) {
+//         r = r.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
+//     } else {
+//         r = r.replace(/^(\d*)/, "($1");
+//     }
+//     return r;
+// }
+// export function mascaraUY(v) {
+//     // +598 92 189 492
+//     var r = v.replace(/\D/g, "");
+//     r = r.replace(/^0/, "");
+//     if (r.length > 10) {
+//         r = r.replace(/^(\d\d)(\d{3})(\d{3}).*/, "$1 $2-$3");
+//     } else if (r.length > 5) {
+//         r = r.replace(/^(\d\d)(\d{3})(\d{0,3}).*/, "$1 $2-$3");
+//     } else if (r.length > 2) {
+//         r = r.replace(/^(\d\d)(\d{0,5})/, "$1 $2");
+//     } else {
+//         r = r.replace(/^(\d*)/, "$1");
+//     }
+//     return r;
+// }
+// export function mascaraAR(v) {
+//     var r = v.replace(/\D/g, "");
+//     r = r.replace(/^0/, "");
+//     if (r.length > 10) {
+//         r = r.replace(/^(\d\d)(\d{4})(\d{4}).*/, "$1 $2-$3");
+//     } else if (r.length > 5) {
+//         r = r.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "$1 $2-$3");
+//     } else if (r.length > 2) {
+//         r = r.replace(/^(\d\d)(\d{0,5})/, "$1 $2");
+//     } else {
+//         r = r.replace(/^(\d*)/, "$1");
+//     }
+//     return r;
+// }
+// export function removeHandler() {
+//     txtWhatsApp.removeEventListener("keyup", () => { mascara(txtWhatsApp, mascaraUY) });
+// }
+// export const paisWpp = (m) => {
+//     txtWhatsApp.addEventListener('keyup', () => { mascara(txtWhatsApp, m) })
+//     txtWhatsApp.addEventListener('blur', () => { mascara(txtWhatsApp, m) })
+// }
