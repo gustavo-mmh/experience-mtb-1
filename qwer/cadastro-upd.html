@@ -14,18 +14,9 @@
 
 <body>
     <div id="load" class="load" hidden>
-      <div class="spinner-grow text-success" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
-<div class="spinner-grow text-danger" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
-<div class="spinner-grow text-warning" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
-<div class="spinner-grow text-info" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
+        <div class="spinner-border spinner-border-xl text-success" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
     </div>
     <header>
         <div class="cabecalho-cad container-fluid py-2 text-center">
@@ -214,7 +205,7 @@
 
                             <div class="mb-2 text-center">
                                 <label>
-                                    <input type="checkbox" id="checkboxFoto" checked="" name="meucheckbox"> Deseja mudar
+                                    <input type="checkbox" id="checkboxFoto" name="meucheckbox"> Deseja mudar
                                     a Foto?
                                     <p class="text-danger">
                                         (Desmarque esta opção caso não queira alterar a foto. <br>
@@ -229,7 +220,7 @@
                             <div class="mb-3 text-center">
                                 <img id="imgThumbnail" class="img-thumbnail" width="150" alt="Foto atual">
                             </div>
-                            <div class="mb-2" id="divFoto">
+                            <div hidden class="mb-2" id="divFoto">
                                 <label for="txtFotoCard">
                                     <i class="fa fa-picture-o fa-fw" aria-hidden="true"></i>
                                     Foto para o Card:
@@ -241,20 +232,20 @@
                             </div>
                             <div class="mb-2 text-center">
                                 <label>
-                                    <input type="checkbox" id="checkboxSenha" checked="" name="meucheckbox"> Deseja
+                                    <input type="checkbox" id="checkboxSenha" name="meucheckbox"> Deseja
                                     atualizar a Senha?
                                     <p class="text-muted">
                                         Desmarque esta opção caso não queira alterar a Senha.
                                     </p>
                                 </label>
                             </div>
-                            <div class="mb-2" id="Senha">
+                            <div class="mb-2" id="Senha" style="display: none;">
                                 <div class="mb-2">
                                     <label for="txtSenha" class="form-label">
                                         <i class="fa fa-shield" aria-hidden="true"></i>
                                         *Senha:</label>
                                     <input type="password" id="txtSenha" class="form-control" name="Senha"
-                                        placeholder="Digite uma Senha" required>
+                                        placeholder="Digite uma Senha">
                                     <span class="error" aria-live="polite"></span>
                                 </div>
                                 <div class="mb-2 position-relative">
@@ -262,7 +253,7 @@
                                         <i class="fa fa-check-double" aria-hidden="true"></i>
                                         *Confirme a Senha:</label>
                                     <input class="form-control" type="password" placeholder="Confirme Senha"
-                                        id="txtConfirmaSenha" minlength="6" required="">
+                                        id="txtConfirmaSenha" minlength="6">
                                 </div>
                             </div>
                             <label>

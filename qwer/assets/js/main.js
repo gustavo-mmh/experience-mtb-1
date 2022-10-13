@@ -2,8 +2,9 @@ import { getStorage } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-s
 import { getUrlImage } from "../../../assets/js/cadastro/storage/urlImg.js";
 import app from "../../../assets/js/firebase/app.js";
 import { getCollection } from '../../../assets/js/firebase/experience-mtb.js';
-import { BtnComIcone, btnCopiar, btnEditar, btnLogout, cardCategoria, cardCidade, cardDataNascimento, cardDocumento, cardEmail, cardFoto, cardModalidade, cardNome, cardNomeEquipe, cardPais, cardStatus, cardTamanhoCamiseta, cardWhatsApp, copiarTexto, divEditarInsc, formComprovante, loading, txtComprovante, txtFormadePagamento } from '../../../assets/js/ui.js';
+import { BtnComIcone, btnCopiar, btnDowload, btnDowloadUpd, btnEditar, btnFechaModal, btnLogout, cardCategoria, cardCidade, cardDataNascimento, cardDocumento, cardEmail, cardFoto, cardModalidade, cardNome, cardNomeEquipe, cardPais, cardStatus, cardTamanhoCamiseta, cardWhatsApp, copiarTexto, cutName, divDownloadCard, divEditarInsc, divModalCard, download, fechaModal, formComprovante, lineBroken, linkDownload, linkDownloadUpd, loading, txtComprovante, txtFormadePagamento } from '../../../assets/js/ui.js';
 import { BotoesPorNacionalidade, VerificaFormaPagamento, VerificaFormaPagamento2 } from "../../../assets/js/validaForm.js";
+import { Canvas } from "./canvas.js";
 import { createComprovante, updateComprovante } from "./participante-upd.js";
 if (sessionStorage.getItem('token') == null) {
     alert('Você precisa estar logado para acessar essa página')
@@ -13,6 +14,9 @@ btnLogout.addEventListener('click', () => {
     sessionStorage.clear()
     window.location.href = '../index.html'
 })
+btnFechaModal.addEventListener('click', () => {
+    fechaModal("#modalCard")
+});
 loading.hidden = false
 setTimeout(function () {
     loading.hidden = true
@@ -40,7 +44,7 @@ docs.forEach(item => {
     cardModalidade.innerHTML = item.modalidade
     if (item.modalidade == "Racing") {
         cardCategoria.innerHTML = item.modalidadeRacing
-    } else {
+    } else if (item.modalidade == "Challenge") {
         cardCategoria.innerHTML = item.modalidadeChallenge
     }
     cardNomeEquipe.innerHTML = item.nomeEquipe
@@ -49,13 +53,74 @@ docs.forEach(item => {
     dataInscricao = item.dataInscricao
     dataFimEditar = item.dataFimEdit
     document.querySelector("#txtDataLimite").innerHTML = `Você tem até ${dataFimEditar} <br/> para editar as informações`
+    // ------------------------------------------------
     if (item.status == 'Confirmado') {
         cardStatus.classList.add('text-success');
         cardStatus.innerHTML = item.status
         formComprovante.style.display = "none";
         document.querySelector("#txtMsgComprovante").style.display = "none";
         txtComprovante.classList.add('disabled')
+        if (item.fotoCard != null) {
+            cardFoto.addEventListener('load', () => {
+                let fotoModalidade, x, y
+                let nomeCategoria
+                let corCategoria
+                if (item.modalidade == "Racing") {
+                    fotoModalidade = 'assets/images/3.png'
+                    if (item.modalidadeRacing == "Dama Promocional") {
+                        nomeCategoria = "DAMAS PROMO"
+                    } else {
+                        nomeCategoria = item.modalidadeRacing.toUpperCase()
+                    }
+                    corCategoria = "white"
+                    x = 365
+                    y = 81
+                } else if (item.modalidade == "Challenge") {
+                    fotoModalidade = 'assets/images/4.png'
+                    if (item.modalidadeChallenge == "Soft") corCategoria = "#86d76d"
+                    else if (item.modalidadeChallenge == "Light") corCategoria = "#5ab9eb"
+                    else if (item.modalidadeChallenge == "Hard") corCategoria = "#f31c19"
+                    nomeCategoria = item.modalidadeChallenge.toUpperCase()
+                    x = 405
+                    y = 82
+                }
+
+                let nome = item.nome.toUpperCase()
+                while (nome.length > 20) nome = cutName(nome)
+                let pais = item.pais.toUpperCase()
+                let cidade = item.cidade.toUpperCase()
+                let equipe = item.nomeEquipe.toUpperCase()
+                let equipe2 = ''
+                let nomeEquipe = lineBroken(equipe, equipe2)
+                while (equipe.length > 40) equipe = nomeEquipe.text, equipe2 = nomeEquipe.text2
+                let foto = cardFoto.getAttribute("src")
+                let cardMTB = {
+                    fotoParticipante: foto,
+                    fotoModalidade: fotoModalidade,
+                    Categoria: {
+                        nomeCategoria: nomeCategoria,
+                        corCategoria: corCategoria,
+                        eixoX: x,
+                        eixoY: y,
+                    },
+                    nomeParticipante: nome,
+                    pais: pais,
+                    cidade: cidade,
+                    equipe: equipe,
+                    equipe2: equipe2,
+                }
+                divDownloadCard.hidden = false
+                Canvas(cardMTB)
+                btnDowload.addEventListener('click', () => {
+                    download(linkDownload)
+                })
+                btnDowloadUpd.addEventListener('click', () => {
+                    download(linkDownloadUpd)
+                })
+            })
+        }
     }
+
     else if (item.status == 'Em Analise') {
         cardStatus.classList.add('text-warning');
         cardStatus.innerHTML = item.status
@@ -169,6 +234,7 @@ var partesData = dataFimEditar.split("/");
 var data = new Date(partesData[2], partesData[1] - 1, partesData[0]);
 var dataLimite = new Date(("2022, 11, 21"));
 if (data < new Date() || new Date() > dataLimite) {
+    // REMOVER ESTE COMENTARIO ABAIXO
     divEditarInsc.style = 'display:none !important'
     btnEditar.classList.add('disabled')
 }

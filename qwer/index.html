@@ -15,18 +15,9 @@
 
 <body>
   <div id="load" class="load" hidden>
-   <div class="spinner-grow text-success" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
-<div class="spinner-grow text-danger" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
-<div class="spinner-grow text-warning" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
-<div class="spinner-grow text-info" role="status">
-  <span class="visually-hidden">Loading...</span>
-</div>
+    <div class="spinner-border spinner-border-xl text-success" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
   </div>
   <header>
     <div class="cabecalho container-fluid py-2 text-center bg-light-gradient">
@@ -115,6 +106,43 @@
 
                       </div>
                     </div>
+                    <div class="d-flex">
+                      <div id="downloadCard" class="p-2" hidden>
+                        <a id="linkDownload" download="card.png">
+                          <button type="button" class="btn btn-outline-success" id="btnDownload"><i
+                              class="fa fa-download" aria-hidden="true"></i> Download do Card</button>
+                        </a>
+                        <a role="button" class="btn btn-outline-primary" data-bs-toggle="modal" href="#modalCard">
+                          <i class="fa fa-image" aria-hidden="true"></i> Vizualizar card
+                        </a>
+                        <div class="modal fade " id="modalCard" tabindex="-1" aria-labelledby="exampleModalLabel"
+                          aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered modal-xl text-center modal-dialog-scrollable">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Card</h5>
+                                <button type="button" class="close" id="fecharModal" data-dismiss="modal"
+                                  aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <canvas id="myCanvas" class="mycanvas">Your browser does not support
+                                  Canvas.</canvas>
+                              </div>
+                              <div class="modal-footer justify-content-start">
+                                <label for="updImgUser">Atualizar Foto do Card</label>
+                                <input type="file" class="form-control" name="btnUpdImgUser" id="updImgUser">
+                                <a id="linkDownloadUpd" download="card.png">
+                                  <button type="button" class="btn btn-outline-success" id="btnDownloadUpd"><i
+                                      class="fa fa-download" aria-hidden="true"></i> Download do Card</button>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <div id="editarInsc" class="d-flex flex-row-reverse">
                       <div class="p-2">
                         <a id="btnEditInsc" href="cadastro-upd.html" class="btn btn-outline-primary"><i
@@ -126,7 +154,6 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div id="downloadCard"></div>
                   <div id="txtMsgComprovante">
                     <p id="txtDesconto" class="text-bg-warning text-center"></p>
                     <p class="text-bg-danger text-center">O pagamento só será confirmado após envio do comprovante.
@@ -156,7 +183,8 @@
                         Envie o Comprovante:
                       </label>
                       <div id="comprovante">
-                        <input type="file" required accept="image/png,image/jpeg" id="txtComprovante" class="form-control">
+                        <input type="file" required accept="image/png,image/jpeg" id="txtComprovante"
+                          class="form-control">
                       </div>
                     </div>
                     <div class="row p-2">
