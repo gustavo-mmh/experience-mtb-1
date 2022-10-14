@@ -173,14 +173,14 @@ export function download(div) {
     div.setAttribute("href", image);
 
 }
-export function cutName(nome) {
-    if (nome.length > 22) {
-        let nomes = nome.split(" ");
-        if (nomes.length > 2)
-            nome = nomes[0] + " " + nomes[nomes.length - 1]
-        else nome = nome.substring(0, 20);
-    }
-    return nome;
+export function cutName(nome){
+	if(nome.length>21) { 
+		nomes = nome.trim().split(" "); 
+		if( nomes.length > 2)				
+			nome = nomes[0] + " " + nomes[nomes.length-1] 
+		else nome = nome.substring(0, 21);
+	}
+	return nome;
 }
 export function lineBroken(text, text2) {
     if (text.length > 40) {
