@@ -184,7 +184,7 @@ export function cutName(nome){
 }
 export function lineBroken(text, text2) {
     if (text.length > 40) {
-        let texts = text.split(" ");
+        let texts = text.trim().split(" ");
         if (texts.length > 2) {
             text2 = texts.pop()
             text = texts.toString().replace(/,/g, " ");
