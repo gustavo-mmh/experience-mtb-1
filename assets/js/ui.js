@@ -175,7 +175,7 @@ export function download(div) {
 }
 export function cutName(nome){
 	if(nome.length>21) { 
-		nomes = nome.trim().split(" "); 
+		let nomes = nome.trim().split(" "); 
 		if( nomes.length > 2)				
 			nome = nomes[0] + " " + nomes[nomes.length-1] 
 		else nome = nome.substring(0, 21);
