@@ -121,6 +121,7 @@ export function Canvas(cardMTB) {
     }
     function imgQuadrada(img) {
         ctx.drawImage(img, 75, 290, 430, 430);
+         setText();
     }
     // canvas.onmousemove = function (evt) {
     //     let rect = canvas.getBoundingClientRect();
