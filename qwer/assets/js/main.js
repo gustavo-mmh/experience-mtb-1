@@ -2,7 +2,7 @@ import { getStorage } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-s
 import { getUrlImage } from "../../../assets/js/cadastro/storage/urlImg.js";
 import app from "../../../assets/js/firebase/app.js";
 import { getCollection } from '../../../assets/js/firebase/experience-mtb.js';
-import { BtnComIcone, btnCopiar, btnDowload, btnDowloadUpd, btnEditar, btnFechaModal, btnLogout, cardCategoria, cardCidade, cardDataNascimento, cardDocumento, cardEmail, cardFoto, cardModalidade, cardNome, cardNomeEquipe, cardPais, cardStatus, cardTamanhoCamiseta, cardWhatsApp, copiarTexto, cutName, dataAtualFormatada, dataHoje, dataLimiteLote, dataLote, divDownloadCard, divEditarInsc, divModalCard, download, fechaModal, formatDate, formComprovante, lineBroken, linkDownload, linkDownloadUpd, loading, nomeLote, precoLoteBr, precoLoteUy, txtComprovante, txtDesconto, txtFormadePagamento } from '../../../assets/js/ui.js';
+import { BtnComIcone, btnCopiar, btnDowload, btnDowloadUpd, btnEditar, btnFechaModal, btnLogout, cardCategoria, cardCidade, cardDataNascimento, cardDocumento, cardEmail, cardFoto, cardModalidade, cardNome, cardNomeEquipe, cardPais, cardStatus, cardTamanhoCamiseta, cardWhatsApp, copiarTexto, cutName, dataHoje, dataLimiteLote, dataLote, divDownloadCard, divEditarInsc, download, fechaModal, formatDate, formComprovante, lineBroken, linkDownload, linkDownloadUpd, loading, nomeLote, precoLoteBr, precoLoteUy, txtComprovante, txtDesconto, txtFormadePagamento } from '../../../assets/js/ui.js';
 import { BotoesPorNacionalidade, VerificaFormaPagamento, VerificaFormaPagamento2 } from "../../../assets/js/validaForm.js";
 import { Canvas } from "./canvas.js";
 import { createComprovante, updateComprovante } from "./participante-upd.js";
