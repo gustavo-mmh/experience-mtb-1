@@ -1,6 +1,6 @@
 import { file, getImgRef, imgRef, metadata } from "../../../assets/js/cadastro/storage/getImg.js";
 import { deleteImage, updateCollection, uploadImagem } from "../../../assets/js/firebase/experience-mtb.js";
-import { checkboxFoto, checkboxSenha, formComprovante, formUpdate, loading, txtComprovante, txtFormadePagamento, txtFotoCard, txtModalidade, txtModalidadeRacing, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta } from "../../../assets/js/ui.js";
+import { checkboxFoto, checkboxSenha, formComprovante, formUpdate, loading, txtComprovante, txtFormadePagamento, txtFotoCard, txtModalidade, txtModalidadeRacing, txtNome, txtNomeEquipe, txtPais, txtSenha, txtTamanhoCamiseta } from "../../../assets/js/ui.js";
 import { img } from "./participante-get.js";
 export function updateParticipante() {
     let doc = sessionStorage.getItem('documentoLogado').replace(/\"|\"|\-/g, '');
@@ -17,6 +17,7 @@ export function updateParticipante() {
                     fotoCard1 = imgRef
                 }
                 const subscription = {
+                    nome: txtNome.value,
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
                     modalidade: txtModalidade.value,
                     modalidadeRacing: txtModalidadeRacing.value,
@@ -40,6 +41,7 @@ export function updateParticipante() {
                 };
             } else if (checkboxFoto.checked == false && checkboxSenha.checked) {
                 const subscription = {
+                    nome: txtNome.value,
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
                     modalidade: txtModalidade.value,
                     modalidadeRacing: txtModalidadeRacing.value,
@@ -57,6 +59,7 @@ export function updateParticipante() {
                     fotoCard1 = imgRef
                 }
                 const subscription = {
+                    nome: txtNome.value,
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
                     modalidade: txtModalidade.value,
                     modalidadeRacing: txtModalidadeRacing.value,
@@ -78,6 +81,7 @@ export function updateParticipante() {
                 }
             } else {
                 const subscription = {
+                    nome: txtNome.value,
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
                     modalidade: txtModalidade.value,
                     modalidadeRacing: txtModalidadeRacing.value,
@@ -98,6 +102,7 @@ export function updateParticipante() {
                     fotoCard1 = imgRef
                 }
                 const subscription = {
+                    nome: txtNome.value,
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
                     modalidade: txtModalidade.value,
                     modalidadeChallenge: txtModalidadeChallenge.value,
@@ -120,6 +125,7 @@ export function updateParticipante() {
                 }
             } else if (checkboxFoto.checked == false && checkboxSenha.checked) {
                 const subscription = {
+                    nome: txtNome.value,
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
                     modalidade: txtModalidade.value,
                     modalidadeChallenge: txtModalidadeChallenge.value,
@@ -137,6 +143,7 @@ export function updateParticipante() {
                     fotoCard1 = imgRef
                 }
                 const subscription = {
+                    nome: txtNome.value,
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
                     modalidade: txtModalidade.value,
                     modalidadeChallenge: txtModalidadeChallenge.value,
@@ -159,6 +166,7 @@ export function updateParticipante() {
                 }
             } else {
                 const subscription = {
+                    nome: txtNome.value,
                     tamanhoCamiseta: txtTamanhoCamiseta.value,
                     modalidade: txtModalidade.value,
                     modalidadeChallenge: txtModalidadeChallenge.value,
