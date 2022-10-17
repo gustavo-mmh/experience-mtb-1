@@ -2,7 +2,7 @@ import { getStorage } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-s
 import { getUrlImage } from "../../../assets/js/cadastro/storage/urlImg.js";
 import app from "../../../assets/js/firebase/app.js";
 import { getCollection } from '../../../assets/js/firebase/experience-mtb.js';
-import { BtnComIcone, btnCopiar, btnDowload, btnDowloadUpd, btnEditar, btnFechaModal, btnLogout, cardCategoria, cardCidade, cardDataNascimento, cardDocumento, cardEmail, cardFoto, cardModalidade, cardNome, cardNomeEquipe, cardPais, cardStatus, cardTamanhoCamiseta, cardWhatsApp, copiarTexto, cutName, divDownloadCard, divEditarInsc, divModalCard, download, fechaModal, formComprovante, lineBroken, linkDownload, linkDownloadUpd, loading, txtComprovante, txtFormadePagamento } from '../../../assets/js/ui.js';
+import { BtnComIcone, btnCopiar, btnDowload, btnDowloadUpd, btnEditar, btnFechaModal, btnLogout, cardCategoria, cardCidade, cardDataNascimento, cardDocumento, cardEmail, cardFoto, cardModalidade, cardNome, cardNomeEquipe, cardPais, cardStatus, cardTamanhoCamiseta, cardWhatsApp, copiarTexto, cutName, dataAtualFormatada, dataHoje, dataLimiteLote, dataLote, divDownloadCard, divEditarInsc, divModalCard, download, fechaModal, formatDate, formComprovante, lineBroken, linkDownload, linkDownloadUpd, loading, nomeLote, precoLoteBr, precoLoteUy, txtComprovante, txtDesconto, txtFormadePagamento } from '../../../assets/js/ui.js';
 import { BotoesPorNacionalidade, VerificaFormaPagamento, VerificaFormaPagamento2 } from "../../../assets/js/validaForm.js";
 import { Canvas } from "./canvas.js";
 import { createComprovante, updateComprovante } from "./participante-upd.js";
@@ -52,7 +52,7 @@ docs.forEach(item => {
     img = item.fotoCard
     dataInscricao = item.dataInscricao
     dataFimEditar = item.dataFimEdit
-    document.querySelector("#txtDataLimite").innerHTML = `Você tem até ${dataFimEditar} <br/> para editar as informações`
+
     // ------------------------------------------------
     if (item.status == 'Confirmado') {
         cardStatus.classList.add('text-success');
@@ -126,7 +126,11 @@ docs.forEach(item => {
         cardStatus.innerHTML = item.status
         BtnComIcone("submit", 'btn-outline-secondary', "btnCadastrar", 'fa', 'fa-check', "Enviar", '#envio')
         if (itemPais == 'Brasil') {
-            document.querySelector("#txtDesconto").innerHTML = `<b>Lote Sprint </b> (de 07.10 à 31.10) R$135,00`
+            if (dataHoje > dataLimiteLote) {
+                txtDesconto.innerHTML = `<b>Lote Sprint </b> (de 07.10 à 31.10) R$135,00`
+            } else {
+                txtDesconto.innerHTML = `<b>${nomeLote} </b> (${dataLote}) ${precoLoteBr}`
+            }
             BotoesPorNacionalidade(itemPais)
             let btnLinkPagamento = document.querySelector("#btnLinkPagamento")
             // let btnUy = document.querySelector("#btnPagamentoUy")
@@ -146,7 +150,11 @@ docs.forEach(item => {
                 VerificaFormaPagamento2(btnLinkPagamento, btnPix, p)
             })
         } else if (itemPais == 'Uruguai') {
-            document.querySelector("#txtDesconto").innerHTML = `<b>Lote Sprint </b> (de 07.10 à 21.10) $1350,00`
+            if (dataHoje > dataLimiteLote) {
+                txtDesconto.innerHTML = `<b>Lote Sprint </b> (de 07.10 à 21.10) $1350,00`
+            } else {
+                txtDesconto.innerHTML = `<b>${nomeLote} </b> (${dataLote}) ${precoLoteUy}`
+            }
             BotoesPorNacionalidade(itemPais)
             let btnLinkPagamento = document.querySelector("#btnLinkPagamento")
             // let btnBr = document.querySelector("#btnPagamentoBr")
@@ -185,7 +193,11 @@ docs.forEach(item => {
         cardStatus.innerHTML = item.status;
         BtnComIcone("submit", 'btn-outline-secondary', "btnCadastrar", 'fa', 'fa-check', "Enviar", '#envio')
         if (itemPais == 'Brasil') {
-            document.querySelector("#txtDesconto").innerHTML = `<b>Lote Sprint </b> (de 07.10 à 21.10) R$135,00`
+            if (dataHoje < dataLimiteLote) {
+                txtDesconto.innerHTML = `<b>Lote Sprint </b> (de 07.10 à 21.10) R$135,00`
+            } else {
+                txtDesconto.innerHTML = `<b>${nomeLote} </b> (${dataLote}) ${precoLoteBr}`
+            }
             BotoesPorNacionalidade(itemPais)
             let btnLinkPagamento = document.querySelector("#btnLinkPagamento")
             btnLinkPagamento.hidden = true
@@ -203,7 +215,11 @@ docs.forEach(item => {
                 VerificaFormaPagamento2(btnLinkPagamento, btnPix, p)
             })
         } else if (itemPais == 'Uruguai') {
-            document.querySelector("#txtDesconto").innerHTML = `<b>Lote Sprint </b> (de 07.10 à 21.10) $1350,00`
+            if (dataHoje < dataLimiteLote) {
+                txtDesconto.innerHTML = `<b>Lote Sprint </b> (de 07.10 à 21.10) $1350,00`
+            } else {
+                txtDesconto.innerHTML = `<b>${nomeLote} </b> (${dataLote}) ${precoLoteUy}`
+            }
             BotoesPorNacionalidade(itemPais)
             let btnLinkPagamento = document.querySelector("#btnLinkPagamento")
             btnLinkPagamento.hidden = true
@@ -233,9 +249,27 @@ docs.forEach(item => {
 var partesData = dataFimEditar.split("/");
 var data = new Date(partesData[2], partesData[1] - 1, partesData[0]);
 var dataLimite = new Date(("2022, 11, 15"));
-if (data < new Date() || new Date() > dataLimite) {
+let dataMaior
+if (data > dataLimite) {
+    dataMaior = dataFimEditar
+} else {
+    dataMaior = formatDate(dataLimite, 'dd/mm/aaaa')
+}
+document.querySelector("#txtDataLimite").innerHTML = `Você tem até ${dataMaior} <br/> para editar as informações`
+
+
+if (new Date() > dataMaior) {
+
+    console.log(partesData)
     divEditarInsc.style = 'display:none !important'
     btnEditar.classList.add('disabled')
+    // if (data > dataLimite && data >= new Date()) {
+    //     console.log('aqui2')
+    //     document.querySelector("#txtDataLimite").innerHTML = `Você tem até ${dataMaior} <br/> para editar as informações`
+    //     divEditarInsc.style = 'display:block'
+    //     btnEditar.classList.remove('disabled')
+
+    // }
 }
 if (img != "") {
     getUrlImage(storage, img, cardFoto)
