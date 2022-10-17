@@ -17,7 +17,8 @@ else {
     var partesData = dataFimEditar.split("/");
     var data = new Date(partesData[2], partesData[1] - 1, partesData[0]);
     var dataLimite = new Date(("2022, 11, 15"));
-    if (data < new Date() || new Date() > dataLimite) {
+   // data < new Date() || 
+ if (new Date() > dataLimite) {
         // REMOVER ESTE COMENTARIO ABAIXO
         window.location.href = 'index.html'
     }
