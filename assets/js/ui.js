@@ -187,7 +187,7 @@ export function lineBroken(text, text2) {
         let texts = text.trim().split(" ");
         if (texts.length > 2) {
             text2 = texts.pop()
-            text = texts.toString().replace(/,/g, " ");
+            text = texts.join(" ");
         }
         else text = text.substring(0, 40);
     }
