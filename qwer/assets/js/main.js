@@ -86,13 +86,13 @@ docs.forEach(item => {
                 }
 
                 let nome = item.nome.toUpperCase()
-                while (nome.length > 20) nome = cutName(nome)
+                if (nome.length > 20) nome = cutName(nome)
                 let pais = item.pais.toUpperCase()
                 let cidade = item.cidade.toUpperCase()
                 let equipe = item.nomeEquipe.toUpperCase()
                 let equipe2 = ''
                 let nomeEquipe = lineBroken(equipe, equipe2)
-                while (equipe.length > 40) equipe = nomeEquipe.text, equipe2 = nomeEquipe.text2
+                if (equipe.length > 40) equipe = nomeEquipe.text, equipe2 = nomeEquipe.text2
                 let foto = cardFoto.getAttribute("src")
                 let cardMTB = {
                     fotoParticipante: foto,
