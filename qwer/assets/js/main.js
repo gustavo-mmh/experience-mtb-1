@@ -10,6 +10,7 @@ if (sessionStorage.getItem('token') == null) {
     alert('Você precisa estar logado para acessar essa página')
     window.location.href = '../index.html'
 }
+loading.hidden = false
 btnLogout.addEventListener('click', () => {
     sessionStorage.clear()
     window.location.href = '../index.html'
@@ -17,11 +18,9 @@ btnLogout.addEventListener('click', () => {
 btnFechaModal.addEventListener('click', () => {
     fechaModal("#modalCard")
 });
-loading.hidden = false
-setTimeout(function () {
+cardFoto.addEventListener('load', function () {
     loading.hidden = true
-}, 2000);
-debugger
+});
 let documento = JSON.parse(sessionStorage.getItem('documentoLogado'))
 let pais = JSON.parse(sessionStorage.getItem('paislogado'))
 const storage = getStorage(app);
@@ -35,7 +34,6 @@ docs.forEach(item => {
     doc = item.documento
     itemPais = item.pais
     dataFimEditar = item.dataFimEdit
-    console.log('a:', dataFimEditar);
     cardNome.innerHTML = item.nome
     cardDocumento.innerHTML = doc
     cardEmail.innerHTML = item.email
@@ -142,7 +140,6 @@ docs.forEach(item => {
     }
 
 })
-console.log(dataFimEditar);
 var partesData = dataFimEditar.split("/");
 var data = new Date(partesData[2], partesData[1] - 1, partesData[0]);
 var dataLimite = new Date(("2022, 11, 15"));
