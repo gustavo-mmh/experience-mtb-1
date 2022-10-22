@@ -115,14 +115,14 @@ export function BotoesPorNacionalidade(pais) {
 }
 export function formaDePagamentoPais(itemPais) {
     if (itemPais == 'Brasil') {
-        if (dataHoje >= dataLimiteLote) {
-            txtDesconto.innerHTML = `<b>${nomeLote}</b> (${dataLote}) ${precoLoteBr}`
-            codigoQR.value = qrPix2
-            document.querySelector("#imgQrPix").src = './assets/images/qrcode2.jpg'
-        } else {
-            codigoQR.value = qrPix
-            txtDesconto.innerHTML = `<b>Lote Sprint</b> (de 07.10 à 21.10) R$135,00 `
-        }
+        // if (dataHoje >= dataLimiteLote) {
+        txtDesconto.innerHTML = `<b>${nomeLote}</b> (${dataLote}) ${precoLoteBr}`
+        codigoQR.value = qrPix2
+        document.querySelector("#imgQrPix").src = './assets/images/qrcode2.jpg'
+        // } else {
+        // codigoQR.value = qrPix
+        // txtDesconto.innerHTML = `<b>Lote Sprint</b> (de 07.10 à 21.10) R$135,00 `
+        // }
         BotoesPorNacionalidade(itemPais)
         let btnLinkPagamento = document.querySelector("#btnLinkPagamento")
         btnLinkPagamento.hidden = true
