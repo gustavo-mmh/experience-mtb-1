@@ -2,305 +2,537 @@
 <html lang="pt-br">
 
 <head>
+  <meta charset="UTF-8" />
+  <link rel="shortcut icon" href="assets/images/logo_escuro.png" type="image/x-icon">
+  <!--[if IE]><link rel="shortcut icon" href="../images/favicon.ico"><![endif]-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta charset="utf-8">
-  <meta name="robots" content="noindex" />
-  <link rel="icon" href="../assets/images/favicon1.ico" />
-  <!--[if IE]><link rel="shortcut icon" href="../../assets/images/favicon.ico"><![endif]-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
-  <script type="module" src="../assets/js/validaForm.js"></script>
-  <title>Painel Administrativo do Inscrito</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <title>Experience Challenge & Racing MTB</title>
 </head>
 
 <body>
   <div id="load" class="load" hidden>
-    <div class="spinner-border spinner-border-xl text-success" role="status">
+    <div class="spinner-grow text-success" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-danger" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-warning" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+    <div class="spinner-grow text-info" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
   </div>
-  <header>
-    <div class="cabecalho container-fluid py-2 text-center bg-light-gradient">
-      <h2 class="pb-2 border-bottom"><a class="text-light text-decoration-none" href="index.html"> <img
-            src="../assets/images/logo_escuro.png" alt="logo" class="logo-qwer"></a></h2>
-
-      <div class="row g-4 row-cols-1 row-cols-lg-3">
+  <header class="header-wrapper">
+    <div class="infos container-fluid d-none d-md-flex">
+      <div class="row">
+        <div class="col-lg-6 col-md-6">
+          <img src="assets/images/logo-escrita.png" class="img-fluid logo-escrita" alt="">
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <img src="assets/images/novos-desafios.png" class="img-fluid novos-desafios" alt="">
+        </div>
       </div>
     </div>
-    <div class="b-example-divider text-center">
-      <button id="btnLogout" type="button" class="m-1 btn btn-outline-danger float-end">Log out</button>
+    <div class="container-fluid d-xs-flex d-sm-flex d-md-none flex-column text-center">
+      <div class="header-logo">
+        <img src="assets/images/novos-desafios.png" class="img-fluid novos-desafios" alt="">
+      </div>
+      <div class="mb-5">
+        <img src="assets/images/logo-escrita.png" class="img-fluid logo-escrita" alt="">
+      </div>
+    </div>
+    <div class="social-media">
+      <a role="button" class="position-relative text-decoration-none" data-bs-toggle="modal" href="#cadastroModal">
+        <div class="link_button">
+          Inscreva-se
+        </div>
+      </a>
+      <a role="button" class="position-relative text-decoration-none" data-bs-toggle="modal" href="#loginModal">
+        <div class="link_button">
+          Login
+        </div>
+      </a>
     </div>
   </header>
-  <div class="container-fluid py-2">
-    <div class="row">
-      <div class="col-lg-2 col-md-1 col-sm-0"></div>
-      <div class="col-lg-8 col-md-10 col-sm-12">
-        <div class="card">
-          <div class="card-header .bg-light.bg-gradient">
-            Seus dados
+  <!-- Modal Cadastro -->
+  <div class="modal fade" id="cadastroModal" tabindex="-1" aria-labelledby="cadastroModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <img src="assets/images/icone_branco.png" class="img-fluid icone_logo" alt="">
+          <h5 class="modal-title" id="cadastroModalLabel">Formulário de Inscrição</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+
+            <div class="col-lg-2 col-md-1 col-sm-0"></div>
+            <div class="col-lg-8 col-md-10 col-sm-12">
+
+              <!-- Começa o Formulário -->
+              <form id="formCadastro" class="needs-validation" method="post">
+                <div class="mb-2 mt-3">
+                  <label for="txtPais" class="form-label">
+                    <i class=" fa fa-globe fa-fw" aria-hidden="true"></i>
+                    *País:</label>
+                  <select id="txtPais" class="form-select" required name="pais" aria-label="Selecione um País">
+                    <option translate="no" value="" selected>Selecione um País</option>
+                    <option translate="no" value="Brasil">Brasil</option>
+                    <option translate="no" value="Uruguai">Uruguai</option>
+                    <option translate="no" value="Argentina">Argentina</option>
+                  </select>
+                </div>
+                <div class="mb-2">
+                  <label for="txtNome" class="form-label">
+                    <i class=" fa fa-user fa-fw" aria-hidden="true"></i>
+                    *Nome Completo:</label>
+                  <input type="text" id="txtNome" class="form-control" required name="nome"
+                    placeholder="Digite seu Nome">
+                </div>
+                <div class="mb-2">
+                  <label for="txtDocumento" class="form-label">
+                    <i class=" fa fa-id-card fa-fw" aria-hidden="true"></i>
+                    *Documento de Identidade:</label>
+                  <input type="text" class="form-control" required id="txtDocumento" name="documento" minlength="7"
+                    pattern="[0-9]+$" placeholder="Digite seu Documento">
+                </div>
+                <div class="mb-2">
+                  <label for="txtDataNascimento" class="form-label">
+                    <i class=" fa fa-calendar-days fa-fw" aria-hidden="true"></i>
+                    *Data de nascimento:</label>
+                  <input type="date" id="txtDataNascimento" class="form-control" name="dataNascimento" required>
+                </div>
+                <div class="mb-2">
+                  <label for="txtEmail" class="form-label">
+                    <i class=" fa fa-at fa-fw" aria-hidden="true"></i>
+                    *E-mail:</label>
+                  <input type="email" id="txtEmail" class="form-control" required name="email"
+                    placeholder="Digite seu E-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                </div>
+                <div class="mb-2">
+                  <label for="txtCidade" class="form-label">
+                    <i class=" fa fa-city fa-fw" aria-hidden="true"></i>
+                    *Cidade:</label>
+                  <input type="text" id="txtCidade" class="form-control" name="cidade" placeholder="Digite sua Cidade"
+                    name="txtCidade" required="">
+                </div>
+                <div class="mb-2">
+                  <label for="txtWhatsApp" class="form-label">
+                    <i class=" fa fa-whatsapp fa-fw" aria-hidden="true"></i>
+
+                    *WhatsApp:</label>
+                  <div class="input-group">
+                    <select required="required" id="dddWhatsApp" class="input-group-text"
+                      aria-label="Selecione seu DDI">
+                      <option translate="no" value="">DDI</option>
+                      <option translate="no" value="+55">BR +55</option>
+                      <option translate="no" value="+598">UY +598</option>
+                      <option translate="no" value="+54">AR +54</option>
+                    </select>
+                    <input type="tel" id="txtWhatsApp" class="form-control" required="required" maxlength="13"
+                      name="txtWhatsApp" pattern="[0-9/ /]+$" placeholder="Digite Seu WhatsApp" />
+                  </div>
+                </div>
+                <div class="mb-2 mt-3">
+                  <label for="txtTamanhoCamiseta" class="form-label">
+                    <i class=" fa fa-shirt fa-fw" aria-hidden="true"></i>
+                    *Tamanho da Camiseta:</label>
+                  <p>
+                    <a class="text-light" data-bs-toggle="collapse" href="#tabelaTamanho" role="button"
+                      aria-expanded="false" aria-controls="tabelaTamanho">Clique para ver a tabela de tamanhos</a>
+                  </p>
+                  <div class="collapse p-1" id="tabelaTamanho">
+                    <div class="card card-body">
+                      <img src="./assets/images/tabela-medidas.jpg" alt="tabela-medidas" class="img-fluid">
+                    </div>
+                  </div>
+
+                  <select id="txtTamanhoCamiseta" class="form-select" required name="tamanhoCamiseta"
+                    aria-label="Selecione um tamanho">
+                    <option translate="no" value="PP">PP</option>
+                    <option translate="no" value="P">P</option>
+                    <option translate="no" value="M">M</option>
+                    <option translate="no" value="G">G</option>
+                    <option translate="no" value="GG">GG</option>
+                    <option translate="no" value="EG">EG</option>
+                    <option translate="no" value="EGG">EGG</option>
+                  </select>
+                </div>
+                <div class="mb-2 mt-3">
+                  <label for="txtCategoria" class="form-label">
+                    <i class="fa-solid fa-venus-mars"></i>
+                    *Sexo:</label>
+                  <select required id="txtCategoria" class="form-select" name="Categoria"
+                    aria-label="Selecione uma Opção">
+                    <option translate="no" value="" selected>Selecione uma Opção</option>
+                    <option translate="no" value="Masculino">Masculino</option>
+                    <option translate="no" value="Feminino">Feminino</option>
+                  </select>
+                </div>
+                <div class="mb-2 mt-3">
+                  <label for="txtModalidade" class="form-label">
+                    <i class="fa-solid fa-person-biking fa-fw" aria-hidden="true"></i>
+                    *Modalidade:</label>
+                  <select required id="txtModalidade" class="form-select" name="modalidade"
+                    aria-label="Selecione uma Modalidade">
+                    <option translate="no" value="" selected>Selecione uma Modalidade</option>
+                    <option translate="no" value="Racing">Racing (Competição)</option>
+                    <option translate="no" value="Challenge">Challenge (Desafio)</option>
+                  </select>
+                </div>
+                <div id="racing" class="mb-2 mt-3" hidden>
+                  <label for="txtModalidadeRacing" class="form-label">
+                    <i class="fa-solid fa-flag-checkered fa-fw" aria-hidden="true"></i>
+                    *Categorias Racing (Competição):</label>
+                  <select id="txtModalidadeRacing" class="form-select" name="racing"
+                    aria-label="Selecione uma Modalidade" required>
+                    <option translate="no" value="" selected>Selecione uma Categoria</option>
+                    <optgroup label="Categoria Promocional">
+                      <option translate="no" value="Promocional">Promocional</option>
+                      <option translate="no" value="Dama Promocional">Dama Promocional</option>
+                    </optgroup>
+                    <optgroup label="Categoria Elite">
+                      <option translate="no" value="Elite">Elite (18+)</option>
+                      <option translate="no" value="Dama Elite">Dama Elite (18+)</option>
+                    </optgroup>
+                    <optgroup id="catId" label="Categoria Por Idade">
+                      <option translate="no" value="Sub.30">Sub. 30 (até 29 anos)</option>
+                      <option translate="no" value="Master A1">Master A1 (30 à 34 anos)</option>
+                      <option translate="no" value="Master A2">Master A2 (35 à 39 anos)</option>
+                      <option translate="no" value="Master B1">Master B1 (40 à 44 anos)</option>
+                      <option translate="no" value="Master B2">Master B2 (45 à 49 anos)</option>
+                      <option translate="no" value="Master C1">Master C1 (50 à 54 anos)</option>
+                      <option translate="no" value="Master C2">Master C2 (55 à 59 anos)</option>
+                      <option translate="no" value="Master D">Master D (60 anos+)</option>
+                    </optgroup>
+                  </select>
+                </div>
+                <div id="challenge" class="mb-2 mt-3" hidden>
+                  <label for="txtModalidadeChallenge" class="form-label">
+                    <img src="assets/images/challenge.png" class="img-fluid icone_chl" alt="">
+                    *Categorias Challenge (Desafio):</label>
+                  <select id="txtModalidadeChallenge" class="form-select" name="challenge"
+                    aria-label="Selecione uma Modalidade">
+                    <option translate="no" value="" selected>Selecione uma Opção</option>
+                    <option translate="no" value="Soft">Soft - 10Km (Suave)</option>
+                    <option translate="no" value="Light">Light - 25Km (Leve)</option>
+                    <option translate="no" value="Hard">Hard 45Km (Duro)</option>
+                  </select>
+                </div>
+                <div class="mb-2">
+                  <label for="txtNomeEquipe" class="form-label">
+                    <i class="fa fa-people-group fa-fw" aria-hidden="true"></i>
+                    Nome da Equipe (Opcional):</label>
+                  <input type="text" id="txtNomeEquipe" class="form-control" name="nomeEquipe"
+                    placeholder="Digite o Nome da Equipe">
+                </div>
+                <div class="mb-2">
+                  <label for="txtFotoCard">
+                    <i class="fa fa-picture-o fa-fw" aria-hidden="true"></i>
+                    Foto para o Card (Opcional):
+                  </label>
+                  <p>(Anexo de sua foto favorita para receber seu card promocional do Experience
+                    2022)</p>
+                  <div class="input-group mb-3">
+                    <input type="file" accept="image/png,image/jpeg" id="txtFotoCard" class="form-control"
+                      name="txtFotoCard">
+                  </div>
+                  <div class="mb-2">
+                    <label for="txtSenha" class="form-label">
+                      <i class="fa fa-shield" aria-hidden="true"></i>
+                      *Senha:</label>
+                    <input type="password" id="txtSenha" class="form-control" name="Senha"
+                      placeholder="Digite uma Senha" minlength="6" required="">
+                  </div>
+                  <div class="mb-2 position-relative">
+                    <label for=" confirm_password" class="form-label">
+                      <i class="fa fa-check-double" aria-hidden="true"></i>
+                      *Confirme a Senha:</label>
+                    <input class="form-control" type="password" placeholder="Confirme Senha" id="txtConfirmaSenha"
+                      minlength="6" required="">
+                  </div>
+                </div>
+                <div class="mb">
+                  <label>
+                    <input type="checkbox" id="checkboxTermos" name="meucheckbox" required> *Li e Aceito os Termos <a
+                      href="https://docs.google.com/document/d/1XN1XYYFJIPq3iqLKXpkLwb-HZre_mlbd/edit?usp=sharing&ouid=109084348936773561627&rtpof=true&sd=true"
+                      target="_blank">Termos</a>
+                  </label>
+                </div>
+                <label>
+                  Os campos com * são obrigatórios
+                </label>
+                <div class="form-group">
+                  <button type="submit" id="btnCadastrar" class="btn btn-success float-end" disabled>
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    Inscrever</button>
+                  <button type="reset" class="btn btn-warning float-end">
+                    <i class="fa fa-eraser" aria-hidden="true"></i>
+                    Limpar</button>
+                </div>
+              </form>
+            </div>
+            <div class="col-lg-2 col-md-1 col-sm-0"></div>
+
           </div>
-          <div class="px-2 py-2">
-            <div class="card mb-3 bg-light bg-gradient">
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-lg-4 col-md-4 col-sm-12 text-center">
-                    <img id="cardFoto" class="img-fluid img-thumbnail rounded-start fotoCard" alt="Foto do Card">
-                  </div>
-                  <div class="col-lg-8 col-md-8 col-sm-12">
-                    <div class="card-body">
-                      <div class="row">
-                        <h5 class="card-title"><span class="h6"> Nome:</span> <span id="cardNome"></span>
-                        </h5>
-                      </div>
-                      <div class="row">
-                        <div class="col-lg-5 col-md-5 col-sm-12">
-                          <p class="card-text"><span class="h6"> Documento:</span> <span id="cardDocumento"></span></p>
-                        </div>
-                        <div class="col-lg-7 col-md-7 col-sm-12">
-                          <p class="card-text"><span class="h6"> Email:</span> <span id="cardEmail"></span>
-                          </p>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-lg-5 col-md-5 col-sm-12">
-                          <p class="card-text"><span class="h6"> WhatsApp:</span> <span id="cardWhatsApp"></span></p>
-                        </div>
-                        <div class="col-lg-7 col-md-7 col-sm-12">
-                          <p class="card-text"><span class="h6">Data de Nascimento:</span>
-                            <span id="cardDataNascimento"></span>
-                          </p>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-lg-5 col-md-5 col-sm-12">
-                          <p class="card-text"><span class="h6"> Pais:</span> <span id="cardPais"></span></p>
-                        </div>
-                        <div class="col-lg-7 col-md-7 col-sm-12">
-                          <p class="card-text"><span class="h6"> Cidade:</span> <span id="cardCidade"></span>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-lg-5 col-md-5 col-sm-12">
-                          <p class="card-text"><span class="h6"> Modalidade:</span> <span id="cardModalidade"></span>
-                          </p>
-                        </div>
-                        <div class="col-lg-7 col-md-7 col-sm-12">
-                          <p class="card-text"><span class="h6"> Categoria:</span> <span id="cardCategoria"></span>
-                          </p>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-lg-5 col-md-5 col-sm-12">
-                          <p class="card-text"><span class="h6">Nome da Equipe:</span> <span id="cardNomeEquipe"></span>
-                          </p>
-                        </div>
-                        <div class="col-lg-7 col-md-7 col-sm-12">
-                          <p class="card-text"><span class="h6">Tamanho da Camiseta:</span>
-                            <span id="cardTamanhoCamiseta"></span>
-                          </p>
-                        </div>
-                      </div>
-                      <div class="d-flex">
-                        <p class="card-text"><span class="h6">Status do Pagamento:</span> <span id="cardStatus"></span>
-                        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal Cadastro -->
+  <!-- Modal Login -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Faça Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="formLogin">
+            <div class="mb-3 mt-3">
+              <label for="loginPais" class="form-label">
+                <i class=" fa fa-globe fa-fw" aria-hidden="true"></i>
+                País:</label>
+              <select id="loginPais" class="form-select" required name="pais" aria-label="Selecione um País">
+                <option translate="no" value="">Selecione Um Pais</option>
+                <option translate="no" value="Brasil">Brasil</option>
+                <option translate="no" value="Uruguai">Uruguai</option>
+                <option translate="no" value="Argentina">Argentina</option>
+              </select>
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="loginDocumento" class="form-label">Documento:</label>
+              <input id="loginDocumento" type="text" class="form-control" placeholder="Digite seu Documento"
+                name="loginDocumento">
+            </div>
+            <div class="mb-3">
+              <label for="pwd" class="form-label">Senha:</label>
+              <input type="password" class="form-control" id="loginPassword" placeholder="Digite sua Senha" name="pswd">
+            </div>
+            <div class="form-check mb-3">
+              <!-- <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="remember"> Lembre-me
+              </label> -->
+            </div>
+            <button id="btnLogin" type="submit" class="btn btn-primary float-end">Login</button>
+          </form>
+          <div id="statusLogin" class="authlabel"></div>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal Login -->
+  <div class="alert alert-bordo py-2 text-center">
+    <h2 class="text-light">Informações</h2>
+    <p><b>Local:</b> Santana do Livramento</p>
+    <p><b>Datas:</b> 09, 10 e 11 de Dezembro de 2022</p>
+    <a class="btn btn-outline-light"
+      href="https://drive.google.com/file/d/1qf5huWycGeP-ilEyvfmyZ42xe0Vmt5UY/view?usp=sharing" target="_blank"
+      rel="noopener noreferrer">Saiba Mais</a>
+    <p class="text-bg-warning m-2" id="lote"></p>
+  </div>
+  <div class="container py-2">
+    <h2 class="text-dark">Sobre</h2>
 
-                      </div>
-                    </div>
-                    <div class="d-flex">
-                      <div id="downloadCard" class="p-2" hidden>
-                        <a id="linkDownload" download="card.png">
-                          <button type="button" class="btn btn-outline-success" id="btnDownload"><i
-                              class="fa fa-download" aria-hidden="true"></i> Download do Card</button>
-                        </a>
-                        <a role="button" class="btn btn-outline-primary" data-bs-toggle="modal" href="#modalCard">
-                          <i class="fa fa-image" aria-hidden="true"></i> Vizualizar card
-                        </a>
-                        <div class="modal fade " id="modalCard" tabindex="-1" aria-labelledby="exampleModalLabel"
-                          aria-hidden="true">
-                          <div class="modal-dialog modal-dialog-centered modal-xl text-center modal-dialog-scrollable">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel">Card</h5>
-                                <button type="button" class="close" id="fecharModal" data-dismiss="modal"
-                                  aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                              <div class="modal-body">
-                                <canvas id="myCanvas" class="mycanvas">Your browser does not support
-                                  Canvas.</canvas>
-                              </div>
-                              <div class="modal-footer justify-content-start">
-                                <label for="updImgUser">Atualizar Foto do Card</label>
-                                <input type="file" class="form-control" name="btnUpdImgUser" id="updImgUser">
-                                <a id="linkDownloadUpd" download="card.png">
-                                  <button type="button" class="btn btn-outline-success" id="btnDownloadUpd"><i
-                                      class="fa fa-download" aria-hidden="true"></i> Download do Card</button>
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div id="editarInsc" class="d-flex flex-row-reverse">
-                      <div class="p-2">
-                        <a id="btnEditInsc" href="cadastro-upd.html" class="btn btn-outline-primary"><i
-                            class="fa fa-edit" aria-hidden="true"></i>
-                          Editar Dados</a>
-                        <p class="text-muted text-center" id="txtDataLimite"></p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div id="txtMsgComprovante">
-                    <p id="txtDesconto" class="text-bg-warning text-center"></p>
-                    <p class="text-bg-danger text-center">O pagamento só será confirmado após envio do comprovante.
-                      <br> O prazo de confirmação é de 3 dias úteis
-                    </p>
-                  </div>
-                  <form class="row" id="formComprovante">
-                    <div class="mb-2">
-                      <label for="txtFormaPagamento">
-                        <i class="fa-solid fa-hand-holding-dollar"></i>
-                        Forma de Pagamento:
-                      </label>
-                      <select id="txtFormadePagamento" class="form-select" required name="FormadePagamento"
-                        aria-label="Selecione uma Forma de Pagamento">
-                        <option value="" selected>Selecione uma Opção</option>
-                        <option value="Mercadopago">Pagamento via Cartão de Crédito</option>
-                        <option value="Midinero">Pagamento via Mi dinero</option>
-                        <option value="Banco">Pagamento via Cartão de Crédito</option>
-                        <option value="Pix">Pagamento via Pix</option>
-                        <option value="Bicicletaria">Pagamento na Bicicleteria (Silva, Biciclo,
-                          Mafferbikes ou Italiano)</option>
-                      </select>
-                    </div>
-                    <div class="mb-2">
-                      <label for="txtComprovante">
-                        <i class="fa fa-receipt fa-fw" aria-hidden="true"></i>
-                        Envie o Comprovante:
-                      </label>
-                      <div id="comprovante">
-                        <input type="file" required accept="image/png,image/jpeg" id="txtComprovante"
-                          class="form-control">
-                      </div>
-                    </div>
-                    <div class="row p-2">
-                      <div class="form-group" id="envio">
-                        <button type="reset" class="btn btn-outline-warning">
-                          <i class="fa fa-eraser" aria-hidden="true"></i>
-                          Limpar</button>
-                      </div>
-                  </form>
-                </div>
-                <div class="text-center p-2" id="pagamento"></div>
-                <!-- ------------COMENTAR DAQUI -->
+    <div class="card-container bg-exp m-2">
+      <div class="card-text px-1">
+        <p class="px-lg-3 px-md-2 px-sm-2">
+          <b> EXPERIENCE</b> é viver o mountain bike de uma forma diferente com atividades únicas, um grande evento para
+          fazer
+          novas
+          amizades,
+          se divertir e se emocionar. E para que essa experiencia seja completa, a sua inscrição contempla um kit
+          atletas cheia de
+          Experience.
+        </p>
+        <div class="container">
+          <div class="row d-md-flex justify-content-center">
+            <div class="col-lg-4 col-md-6 col-sm-12 d-flex img-card-text">
+              <img class="img-fluid w-50 invert-color" src="assets/images/icones/icone-experience.png" alt="Mochila">
+            </div>
+            <div class="col-lg-8 col-md-12 col-sm-12 d-md-flex justify-content-center">
+              <ul class="list-unstyled">
+                <li> Sacochila </li>
+                <li> Placa Identificação Atleta </li>
+                <li> Ingresso Atleta parque Thermal Amsterland </li>
+                <li> Camiseta Promocional Experience </li>
+                <li> Barra de Cereal </li>
+                <li> Squeeze </li>
+                <li> Isotônico </li>
+                <li> Gel Carboidrato </li>
+                <li> Precintos </li>
+                <li> Brindes </li>
+                <li> Medalha Finisher Experience 2022 </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card card-exp">
+        <div class="card-wrapper">
+          <h2>Experience</h2>
+          <p>(Experiência)</p>
+        </div>
+      </div>
+    </div>
 
-                <!-- <div id="btnPagamentoBr" hidden class="text-center p-1">
-                  <script src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js"
-                    data-preference-id="379326377-e539835a-6b56-457c-9315-34769d218659" data-source="button">
-                    </script>
-                </div>
-                <div id="btnPagamentoUy" hidden class="text-center p-1">
-                  <script src="https://www.mercadopago.com.uy/integrations/v1/web-payment-checkout.js"
-                    data-preference-id="673979847-66c5c939-5ae9-415d-820c-984222c48a15" data-source="button">
-                    </script>
-                </div> -->
-                <!-- ------------COMENTAR ATÉ AQUI -->
+    <div class="card-container bg-chl m-2">
+      <div class="card card-chl">
+        <div class="card-wrapper">
+          <h2>Challenge</h2>
+          <p>(Desafio)</p>
+        </div>
+      </div>
+      <div class="card-text px-1">
+        <p class="p-1">
+          <b> DESAFIO</b> que envolve determinação para vencer os limites mente, corpo e proporcionar para todos a
+          experiência
+          desta
+          modalidade de pura determinação e diversão. O Experience 2022 apresenta o THREE CHALLENGE. Três modalidade de
+          desafio
+          com quilometragens distintas, cada uma com sua característica e propósito para o seu tipo de pedal.
+        </p>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 col-md-12 col-sm-12 d-flex img-card-text">
+              <img class="img-fluid w-50 invert-color" src="assets/images/icones/icone-challenge.png" alt="Desafio">
+            </div>
+            <div class="col-lg-8 col-md-12 col-sm-12">
+              <ul class="list-unstyled">
+                <li class="none"> Three Challenge (Desafios)</li>
+                <li> Challenge <b>Hard</b> 45km (pedal forte) </li>
+                <li> Challenge <b>Light</b> 25km (pedal médio) </li>
+                <li> Challenge <b>Soft</b> 10km (pedal passeio) </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-container bg-rcg m-2">
+      <div class="card-text px-1">
+        <p class="px-lg-3 px-md-2 px-sm-2">
+          <b>RACING CATEGORIAS</b> é a adrenalina de competir com superação na
+          busca de resultados por um lugar no pódio dentro de cada
+          categoria para homens e mulheres superarem não só o seu adversário,
+          mas sim a si mesmo.
+        </p>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <ul class="list-unstyled">
+                <li class="none negrito"> CATEGORIAS MASCULINAS</li>
+                <li> Infanto juvenil 12 até 15 anos </li>
+                <li> Elite 18+ </li>
+                <li> Sub. 30 até 29 anos</li>
+                <li> Promocional</li>
+                <li> Master A1 de 30 à 34 anos</li>
+                <li> Master A2 de 35 à 39 anos</li>
+                <li> Master B1 de 40 à 44 anos</li>
+                <li> Master B2 de 45 à 49 anos</li>
+                <li> Master C1 de 50 à 54 anos</li>
+                <li> Master C2 de 55 à 59 anos</li>
+                <li> Master D 60 anos +</li>
+              </ul>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="row-cols-auto">
+                <ul class="list-unstyled">
+                  <li class="none negrito"> CATEGORIAS FEMININAS</li>
+                  <li> Damas Elite 18 anos+ </li>
+                  <li> Damas Promocional</li>
+                </ul>
+              </div>
+              <div class="row-cols-auto  d-flex img-card-text">
+                <img class="img-fluid w-50 invert-color" src="assets/images/icones/icone-racing.png" alt="Competição">
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-lg-2 col-md-1 col-sm-0">
-    </div>
-    <!-- ---------- -->
-    <div class="modal fade" id="modalPix" data-backdrop="static" data-keyboard="false" tabindex="-1"
-      aria-labelledby="modalPix" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Pagamento com Pix</h5>
-            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button> -->
-          </div>
-          <div class="modal-body" id="modalBody1">
-            <img id="imgQrPix" src="assets/images/qrcode.jpg" alt="QRcode" class="img-fluid">
-            <div class="input-group">
-              <input type="text" class="form-control" name="texto" id="codigoQR" readonly />
-              <button title="Copiar" id="copiarQR" type="button" class="btn btn-outline-success "><i class="fa fa-copy"
-                  aria-hidden="true"></i>
-              </button>
-            </div>
-            <div class="text-center">
-              Ou, Copie o código
-            </div>
+      <div class="card card-rcg">
+        <div class="card-wrapper">
 
-            <div class="text-center mt-3">
-              <p><b>Yellow Sports</b></p>
-              <span><b>Chave Pix</b></span>
-              <p><b>CNPJ: </b>47.789.360/0001-88</p>
+          <h2>Racing</h2>
+          <p>(Competição)</p>
+        </div>
+      </div>
+    </div>
+    <div class="card-container bg-mtb m-2">
+      <div class="card card-mtb">
+        <div class="card-wrapper">
+          <h2>MTB 2022</h2>
+          <p>(Mountain Bike 2022)</p>
+        </div>
+      </div>
+      <div class="card-text px-1">
+        <p class="p-1">
+          EM 2022 estamos preparando um grande evento combinado em 3 dias de festa na vibe do
+          <color style="color:#f35a02">TO LIVE MTB</color> (para viver o Mountain Bike), onde desafio ou competir é o
+          ciclista que escolhe. Nestes três dias vamos viver cada um com atividades distintas. Entretenimento, diversão,
+          festa, alegria e vibração são os ingredientes que compões nosso MTB 2022. Entre os 3 dias:
+        </p>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4 col-md-12 col-sm-12 d-flex img-card-text">
+              <img class="img-fluid w-50 invert-color" src="assets/images/icones/icone-mtb.png" alt="Moutain Bike">
+            </div>
+            <div class="col-lg-8 col-md-12 col-sm-12">
+              <ul class="list-unstyled">
+                <li class="none negrito"> 09.12 (Festa)</li>
+                <li>Experience Let's Go | 19h às 23h</li>
+              </ul>
+              <ul class="list-unstyled">
+                <li class="none negrito">10.12 (Diversão e Entretenimento)</li>
+                <li>Experience Challenge Day | 13h às 19h</li>
+              </ul>
+              <ul class="list-unstyled">
+                <li class="none negrito">11.12 (Dia de competir e se desafiar)</li>
+                <li>Experience Challenge & Racing Day | 7h às 14h</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- -------------------------- -->
-    <div class="modal fade" id="modalMidinero" data-backdrop="static" data-keyboard="false" tabindex="-1"
-      aria-labelledby="modalMidinero" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Pagamento com Mi dinero</h5>
-            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button> -->
-          </div>
-          <div class="modal-body text-center" id="modalBody">
-            <p>Pagamento Mi Dinero é via sistema agências RED PAGO Uruguai ou transferência bancária.</p>
-            <p>
-              Mi Dinero
-            </p>
-            <p>
-              Nome: Eduardo Padilla Severo Junior
-            </p>
-            <p>
-              Cédula: 1080427171
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- ---------- -->
   </div>
-  </div>
-  <div class="b-example-divider"></div>
-  <div class="container">
-    <footer class="d-flex flex-wrap align-items-center py-3 my-4 border-top">
-      <div class="col-md-6 d-flex align-items-center">
-        <a href="index.html" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-          <img src="../assets/images/logo_escuro.png" title="Logo" class="bi" width="30" height="24">
+  <footer class="footer">
+    <div class="inner">
+      <div class="text-center center-block">
+        <a href="https://www.facebook.com/Experiencemtb" target="_blank" title="Facebook"><i
+            class=" fa fa-facebook-official fa-3x social social-fb"></i></a>
+        <a href="https://www.instagram.com/experience.mtb/" target="_blank" title="Instagram"><i
+            class="fa fa-instagram fa-3x social social-in"></i></a>
+        <a data-bs-toggle="modal" data-bs-target="#cadastroModal" title="Inscreva-se"><i
+            class="fa fa-user-plus fa-3x social social-gh"></i></a>
+        <a data-bs-toggle="modal" data-bs-target="#loginModal" title="Login"><i
+            class=" fa fa-sign-in fa-3x social social-em"></i>
         </a>
-        <span class="mb-3 mb-md-0 text-muted">© 2022. Todos os direitos reservados.</span>
       </div>
-
-      <ul class="nav col-md-6 justify-content-end list-unstyled d-flex">
-        <li class="ms-3"><a class="text-muted" title="Instagram" href="https://www.instagram.com/experience.mtb/"
-            target="_blank"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
-        </li>
-        <li class="ms-3"><a class="text-muted" title="Facebook" href="https://www.facebook.com/Experiencemtb"
-            target="_blank"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
-        </li>
-      </ul>
-    </footer>
-  </div>
-  <script type="module" src="./assets/js/main.js"></script>
+      <div class="copyright text-center">
+        Copyright © 2022. Todos os direitos reservados.
+        <!-- <a href="https://www.linkedin.com/in/gustavo-m-mello/" target="_blank">
+          Gustavo M. Mello
+        </a> -->
+      </div>
+      <a href="https://api.whatsapp.com/send?phone=5555984220858&text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20Site"
+        title="WhatsApp" target="_blank" class="wpp-fixo">
+        <i class="fa fa-whatsapp fa-4x i-wpp-fixo"></i><br>
+      </a>
+    </div>
+    </div>
+  </footer>
+  <script type="module" src="assets/js/main.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-  <script src="https://kit.fontawesome.com/4210741bcc.js" crossorigin="anonymous"></script>
+  <!-- <script src="https://kit.fontawesome.com/4210741bcc.js" crossorigin="anonymous"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
