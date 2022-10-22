@@ -258,22 +258,28 @@ export function calculaIdade(dataNasc) {
     }
     return idade;
 }
-export function filtraCategoriaSexo(cat) {
+export function filtraCategoriaSexo(cat, idade) {
     if (cat == "Masculino") {
         txtModalidadeRacing.options[2].disabled = true
         txtModalidadeRacing.options[2].hidden = true
+        // if
         txtModalidadeRacing.options[4].disabled = true
         txtModalidadeRacing.options[4].hidden = true
         txtModalidadeRacing.options[1].disabled = false
         txtModalidadeRacing.options[1].hidden = false
-        txtModalidadeRacing.options[3].disabled = false
-        txtModalidadeRacing.options[3].hidden = false
+        if (idade > 18) {
+            txtModalidadeRacing.options[3].disabled = false
+            txtModalidadeRacing.options[3].hidden = false
+        }
         document.querySelector('#catId').hidden = false
     } else {
         txtModalidadeRacing.options[2].disabled = false
         txtModalidadeRacing.options[2].hidden = false
-        txtModalidadeRacing.options[4].disabled = false
-        txtModalidadeRacing.options[4].hidden = false
+        if (idade > 18) {
+
+            txtModalidadeRacing.options[4].disabled = false
+            txtModalidadeRacing.options[4].hidden = false
+        }
         txtModalidadeRacing.options[1].disabled = true
         txtModalidadeRacing.options[1].hidden = true
         txtModalidadeRacing.options[3].disabled = true
