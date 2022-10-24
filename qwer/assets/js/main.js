@@ -23,8 +23,8 @@ cardFoto.addEventListener('load', function () {
 });
 let documento = JSON.parse(sessionStorage.getItem('documentoLogado'))
 let pais = JSON.parse(sessionStorage.getItem('paislogado'))
+let dataFimEditar = sessionStorage.getItem('dataFimEdit')
 const storage = getStorage(app);
-let dataFimEditar
 let img
 let doc
 let itemPais
@@ -33,7 +33,6 @@ let docs = await getCollection(documento, pais)
 docs.forEach(item => {
     doc = item.documento
     itemPais = item.pais
-    dataFimEditar = item.dataFimEdit
     cardNome.innerHTML = item.nome
     cardDocumento.innerHTML = doc
     cardEmail.innerHTML = item.email
