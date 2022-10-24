@@ -23,7 +23,7 @@ cardFoto.addEventListener('load', function () {
 });
 let documento = JSON.parse(sessionStorage.getItem('documentoLogado'))
 let pais = JSON.parse(sessionStorage.getItem('paislogado'))
-let dataFimEditar = sessionStorage.getItem('dataFimEdit')
+let dataFimEditar = sessionStorage.getItem('dataFimEdit').replace(/"/g, " ")
 const storage = getStorage(app);
 let img
 let doc
@@ -141,6 +141,7 @@ docs.forEach(item => {
 })
 var partesData = dataFimEditar.split("/");
 var data = new Date(partesData[2], partesData[1] - 1, partesData[0]);
+console.log('dataFimEditar', data)
 var dataLimite = new Date(("2022, 11, 15"));
 let dataMaior
 if (data > dataLimite) {
