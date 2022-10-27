@@ -54,15 +54,20 @@ export function uploadImagem(file, imgRef, metadata, redirec) {
     uploadTask.on('state_changed',
         (snapshot) => {
             // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            // console.log('Upload is ' + progress + '% done');
-
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes).toPrecision(4) * 100;
+            console.log('Upload is ' + progress + '% done');
+            document.querySelector('#progressBar').style = `width: ${progress}%`
+            document.querySelector('#progressBar').innerHTML = `${progress}`
             switch (snapshot.state) {
                 case 'paused':
-                    // console.log('Upload is paused');
+                    console.log('Upload is paused');
+                    document.querySelector('#progressBar').style = `width: ${progress}%`
+                    document.querySelector('#progressBar').innerHTML = `${progress}`
                     break;
                 case 'running':
-                    // console.log('Upload is running');
+                    document.querySelector('#progressBar').style = `width: ${progress}%`
+                    document.querySelector('#progressBar').innerHTML = `${progress}`
+                    console.log('Upload is running');
                     break;
             }
         },
@@ -108,16 +113,22 @@ export function uploadImagemCad(file, imgRef, metadata, doc, psw, pais) {
     // Listen for state changes, errors, and completion of the upload.
     uploadTask.on('state_changed',
         (snapshot) => {
+            debugger
             // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            // console.log('Upload is ' + progress + '% done');
-
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes).toPrecision(4) * 100;
+            console.log('Upload is ' + progress + '% done');
+            document.querySelector('#progressBar').style = `width: ${progress}%`
+            document.querySelector('#progressBar').innerHTML = `${progress}`
             switch (snapshot.state) {
                 case 'paused':
-                    // console.log('Upload is paused');
+                    console.log('Upload is paused');
+                    document.querySelector('#progressBar').style = `width: ${progress}%`
+                    document.querySelector('#progressBar').innerHTML = `${progress}`
                     break;
                 case 'running':
-                    // console.log('Upload is running');
+                    document.querySelector('#progressBar').style = `width: ${progress}%`
+                    document.querySelector('#progressBar').innerHTML = `${progress}`
+                    console.log('Upload is running');
                     break;
             }
         },
@@ -138,9 +149,8 @@ export function uploadImagemCad(file, imgRef, metadata, doc, psw, pais) {
             }
         },
         () => {
-           // loading.hidden = true
+            // loading.hidden = true
             loginCad(doc, psw, pais)
-            
         }
     );
 
@@ -158,5 +168,18 @@ export function deleteImage(imgRef) {
         // Uh-oh, an error occurred!
         // console.log(error);
     });
+}
+export function urlDownloadImg(imgRef) {
+
+    // Create a reference with an initial file path and name
+    const storage = getStorage(app);
+    const pathReference = ref(storage, `${imgRef}`);
+
+    // Create a reference from a Google Cloud Storage URI
+    const gsReference = ref(storage, `gs://bucket/${imgRef}`);
+
+    // Create a reference from an HTTPS URL
+    // Note that in the URL, characters are URL escaped!
+    // const httpsReference = ref(storage, 'https://firebasestorage.googleapis.com/b/bucket/o/images%20stars.jpg');
 }
 
