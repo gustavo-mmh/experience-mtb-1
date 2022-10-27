@@ -18,9 +18,12 @@ btnLogout.addEventListener('click', () => {
 btnFechaModal.addEventListener('click', () => {
     fechaModal("#modalCard")
 });
-cardFoto.addEventListener('load', function () {
+// cardFoto.addEventListener('load', function () {
+// loading.hidden = true
+// });
+setTimeout(() => {
     loading.hidden = true
-});
+}, 2000);
 let documento = JSON.parse(sessionStorage.getItem('documentoLogado'))
 let pais = JSON.parse(sessionStorage.getItem('paislogado'))
 let dataFimEditar = sessionStorage.getItem('dataFimEdit').replace(/"/g, " ")
@@ -155,6 +158,7 @@ if (new Date() > dataMaior) {
     btnEditar.classList.add('disabled')
 }
 if (img != "") {
+    console.log('first')
     getUrlImage(storage, img, cardFoto)
 } else {
     cardFoto.src = './assets/images/fotocard.png'
