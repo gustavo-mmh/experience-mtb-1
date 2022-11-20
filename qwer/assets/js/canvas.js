@@ -66,7 +66,7 @@ export function Canvas(cardMTB) {
         })
     }
     function setText() {
-        // ctx.globalCompositeOperation = "destination-over";
+        ctx.globalCompositeOperation = "destination-over";
         estilizaCategoria()
         ctx.fillText(cardMTB.Categoria.nomeCategoria, cardMTB.Categoria.eixoX, cardMTB.Categoria.eixoY);
         estilizaNome()
